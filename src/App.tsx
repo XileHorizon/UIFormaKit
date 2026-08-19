@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { ColorFoundations } from "./ColorFoundations";
 import {
   Autocomplete,
   Button,
@@ -56,6 +57,7 @@ const groups = [
   {
     label: "Editor controls",
     links: [
+      ["color-foundations", "Color foundations"],
       ["color-studio", "Color studio"],
       ["slider", "Slider"],
     ],
@@ -582,6 +584,7 @@ export default function App() {
             }))}
           />
         </Example>
+        <ColorFoundations />
         <section className="component-section" id="color-studio">
           <div className="section-heading">
             <div>
