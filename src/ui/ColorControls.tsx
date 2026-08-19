@@ -257,7 +257,9 @@ export function ColorSlider({
   const update = (clientX: number) => {
     const bounds = trackRef.current?.getBoundingClientRect();
     if (!bounds) return;
-    commit(clamp((clientX - bounds.left) / bounds.width) * 100);
+    // Keep the widest Figma handle fully inside the color bar at 0 and 100.
+    const handleInset = 9;
+    commit(clamp((clientX - bounds.left - handleInset) / (bounds.width - handleInset * 2)) * 100);
   };
   return (
     <div
@@ -296,7 +298,10 @@ export function ColorSlider({
         }
       }}
     >
-      <span className="uf-color-slider__handle" style={{ left: `${value}%` }}>
+      <span
+        className="uf-color-slider__handle"
+        style={{ left: `calc(9px + (100% - 18px) * ${value / 100})` }}
+      >
         <ColorSliderHandle style={handleStyle} />
       </span>
     </div>

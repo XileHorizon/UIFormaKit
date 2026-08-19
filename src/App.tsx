@@ -1,5 +1,6 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ColorFoundations } from "./ColorFoundations";
+import { SliderShowcase } from "./SliderShowcase";
 import {
   Autocomplete,
   Button,
@@ -115,6 +116,11 @@ function Example({
 }
 
 export default function App() {
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    const saved = window.localStorage.getItem("uiforma-theme");
+    if (saved === "light" || saved === "dark") return saved;
+    return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  });
   const [query, setQuery] = useState("");
   const [dropdown, setDropdown] = useState("soft");
   const [autocomplete, setAutocomplete] = useState("");
@@ -142,8 +148,13 @@ export default function App() {
     [query],
   );
 
+  useEffect(() => {
+    window.localStorage.setItem("uiforma-theme", theme);
+    document.documentElement.style.colorScheme = theme;
+  }, [theme]);
+
   return (
-    <div className="docs" data-uiforma-theme="dark">
+    <div className="docs" data-uiforma-theme={theme}>
       <header className="topbar">
         <a className="brand" href="#overview">
           <img src="/uiforma-logo.svg" alt="UI Forma" />
@@ -159,12 +170,26 @@ export default function App() {
           />
           <kbd>⌘ K</kbd>
         </label>
-        <a
-          className="figma-link"
-          href="https://www.figma.com/design/6UMDGsdfnSovglFsEN4L1W/UIForma-Kit?node-id=193-7341&m=dev"
-        >
-          Open in Figma <IconArrowRight />
-        </a>
+        <div className="topbar-actions">
+          <button
+            className="theme-toggle"
+            type="button"
+            role="switch"
+            aria-checked={theme === "dark"}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          >
+            <span aria-hidden="true">☀</span>
+            <i aria-hidden="true" />
+            <span aria-hidden="true">☾</span>
+          </button>
+          <a
+            className="figma-link"
+            href="https://www.figma.com/design/6UMDGsdfnSovglFsEN4L1W/UIForma-Kit?node-id=193-7341&m=dev"
+          >
+            Open in Figma <IconArrowRight />
+          </a>
+        </div>
       </header>
       <aside className="sidebar">
         {filteredGroups.map((group) => (
@@ -649,6 +674,7 @@ export default function App() {
             </div>
           </div>
         </section>
+        <SliderShowcase />
         <Example
           id="slider"
           title="Slider"
