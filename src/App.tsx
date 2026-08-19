@@ -2,39 +2,104 @@ import { useMemo, useState } from "react";
 import {
   Autocomplete,
   Button,
+  COLOR_HARMONIES,
+  ColorPicker,
+  ColorSlider,
+  ColorWheel,
   Dropdown,
+  HarmonyWheel,
   IconArrowRight,
   IconSearch,
   SegmentedControl,
   Slider,
   Switch,
   TextField,
+  type ButtonAppearance,
+  type ButtonSize,
   uiFormaComponentRegistry,
   uiFormaPrimitives,
 } from "./ui";
 
 const groups = [
-  { label: "Getting started", links: [["overview", "Overview"], ["foundations", "Foundations"]] },
-  { label: "Actions", links: [["button", "Button"]] },
-  { label: "Forms", links: [["text-field", "Text field"], ["dropdown", "Dropdown"], ["autocomplete", "Autocomplete"], ["switch", "Switch"], ["segmented-control", "Segmented control"]] },
-  { label: "Editor controls", links: [["slider", "Slider"]] },
+  {
+    label: "Getting started",
+    links: [
+      ["overview", "Overview"],
+      ["foundations", "Foundations"],
+    ],
+  },
+  {
+    label: "Actions",
+    links: [
+      ["button-playground", "Button playground"],
+      ["button", "Button"],
+    ],
+  },
+  {
+    label: "Forms",
+    links: [
+      ["text-field", "Text field"],
+      ["dropdown", "Dropdown"],
+      ["autocomplete", "Autocomplete"],
+      ["switch", "Switch"],
+      ["segmented-control", "Segmented control"],
+    ],
+  },
+  {
+    label: "Editor controls",
+    links: [
+      ["color-studio", "Color studio"],
+      ["slider", "Slider"],
+    ],
+  },
 ] as const;
 
-function Example({ id, title, description, children, code }: { id: string; title: string; description: string; children: React.ReactNode; code: string }) {
+function Example({
+  id,
+  title,
+  description,
+  children,
+  code,
+}: {
+  id: string;
+  title: string;
+  description: string;
+  children: React.ReactNode;
+  code: string;
+}) {
   const record = uiFormaComponentRegistry.find((item) => item.id === id);
   const [showCode, setShowCode] = useState(false);
   return (
     <section className="component-section" id={id}>
       <div className="section-heading">
-        <div><p className="eyebrow">{record?.category}</p><h2>{title}</h2><p>{description}</p></div>
-        <a href={`#${id}`} aria-label={`Link to ${title}`}>#</a>
+        <div>
+          <p className="eyebrow">{record?.category}</p>
+          <h2>{title}</h2>
+          <p>{description}</p>
+        </div>
+        <a href={`#${id}`} aria-label={`Link to ${title}`}>
+          #
+        </a>
       </div>
       <div className="example-card">
-        <div className="example-toolbar"><span>Interactive example</span><button onClick={() => setShowCode(!showCode)}>{showCode ? "Hide code" : "View code"}</button></div>
+        <div className="example-toolbar">
+          <span>Interactive example</span>
+          <button onClick={() => setShowCode(!showCode)}>
+            {showCode ? "Hide code" : "View code"}
+          </button>
+        </div>
         <div className="example-stage">{children}</div>
-        {showCode && <pre><code>{code}</code></pre>}
+        {showCode && (
+          <pre>
+            <code>{code}</code>
+          </pre>
+        )}
       </div>
-      <div className="meta-row"><span>{record?.variants.length ?? 0} variants</span><span>{record?.status}</span><span>Figma {record?.figmaNodes[0]}</span></div>
+      <div className="meta-row">
+        <span>{record?.variants.length ?? 0} variants</span>
+        <span>{record?.status}</span>
+        <span>Figma {record?.figmaNodes[0]}</span>
+      </div>
     </section>
   );
 }
@@ -46,33 +111,441 @@ export default function App() {
   const [enabled, setEnabled] = useState(true);
   const [format, setFormat] = useState("HEX");
   const [slider, setSlider] = useState(64);
-  const filteredGroups = useMemo(() => groups.map((group) => ({ ...group, links: group.links.filter(([, label]) => label.toLowerCase().includes(query.toLowerCase())) })).filter((group) => group.links.length), [query]);
+  const [buttonAppearance, setButtonAppearance] =
+    useState<ButtonAppearance>("primary");
+  const [buttonSize, setButtonSize] = useState<ButtonSize>("standard");
+  const [buttonText, setButtonText] = useState(true);
+  const [buttonLeftIcon, setButtonLeftIcon] = useState(false);
+  const [buttonRightIcon, setButtonRightIcon] = useState(true);
+  const [buttonRound, setButtonRound] = useState(false);
+  const [buttonGap, setButtonGap] = useState(8);
+  const filteredGroups = useMemo(
+    () =>
+      groups
+        .map((group) => ({
+          ...group,
+          links: group.links.filter(([, label]) =>
+            label.toLowerCase().includes(query.toLowerCase()),
+          ),
+        }))
+        .filter((group) => group.links.length),
+    [query],
+  );
 
   return (
     <div className="docs" data-uiforma-theme="dark">
       <header className="topbar">
-        <a className="brand" href="#overview"><img src="/uiforma-logo.svg" alt="UI Forma" /><span>Kit</span></a>
-        <label className="search"><IconSearch /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search components" aria-label="Search components" /><kbd>⌘ K</kbd></label>
-        <a className="figma-link" href="https://www.figma.com/design/6UMDGsdfnSovglFsEN4L1W/UIForma-Kit?node-id=193-7341&m=dev">Open in Figma <IconArrowRight /></a>
+        <a className="brand" href="#overview">
+          <img src="/uiforma-logo.svg" alt="UI Forma" />
+          <span>Kit</span>
+        </a>
+        <label className="search">
+          <IconSearch />
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search components"
+            aria-label="Search components"
+          />
+          <kbd>⌘ K</kbd>
+        </label>
+        <a
+          className="figma-link"
+          href="https://www.figma.com/design/6UMDGsdfnSovglFsEN4L1W/UIForma-Kit?node-id=193-7341&m=dev"
+        >
+          Open in Figma <IconArrowRight />
+        </a>
       </header>
       <aside className="sidebar">
-        {filteredGroups.map((group) => <nav key={group.label} aria-label={group.label}><h3>{group.label}</h3>{group.links.map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>)}
-        <div className="sidebar-footer"><span>UI Forma Kit</span><small>v0.1.0 · React</small></div>
+        {filteredGroups.map((group) => (
+          <nav key={group.label} aria-label={group.label}>
+            <h3>{group.label}</h3>
+            {group.links.map(([id, label]) => (
+              <a key={id} href={`#${id}`}>
+                {label}
+              </a>
+            ))}
+          </nav>
+        ))}
+        <div className="sidebar-footer">
+          <span>UI Forma Kit</span>
+          <small>v0.1.0 · React</small>
+        </div>
       </aside>
       <main className="content">
         <section className="hero" id="overview">
-          <div><p className="eyebrow">UI Forma design system</p><h1>A flexible kit for expressive product interfaces.</h1><p className="lede">Reusable React components and design tokens reconstructed from the UI Forma Figma library. Browse every component, interact with its states, and copy the source into your product.</p><div className="hero-actions"><Button size="huge" shape="rounded" trailingIcon={<IconArrowRight />}>Explore components</Button><a href="#foundations">View foundations</a></div></div>
-          <div className="hero-art" aria-hidden="true"><div className="orbit orbit-a"/><div className="orbit orbit-b"/><div className="token-card"><small>Action / Primary</small><strong>#3F2DC3</strong><div>{Object.values(uiFormaPrimitives.primary).map((color) => <i key={color} style={{ background: color }}/>)}</div></div></div>
+          <div>
+            <p className="eyebrow">UI Forma design system</p>
+            <h1>A flexible kit for expressive product interfaces.</h1>
+            <p className="lede">
+              Reusable React components and design tokens reconstructed from the
+              UI Forma Figma library. Browse every component, interact with its
+              states, and copy the source into your product.
+            </p>
+            <div className="hero-actions">
+              <Button
+                size="huge"
+                shape="rounded"
+                trailingIcon={<IconArrowRight />}
+              >
+                Explore components
+              </Button>
+              <a href="#foundations">View foundations</a>
+            </div>
+          </div>
+          <div className="hero-art" aria-hidden="true">
+            <div className="orbit orbit-a" />
+            <div className="orbit orbit-b" />
+            <div className="token-card">
+              <small>Action / Primary</small>
+              <strong>#3F2DC3</strong>
+              <div>
+                {Object.values(uiFormaPrimitives.primary).map((color) => (
+                  <i key={color} style={{ background: color }} />
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
-        <section className="foundation-section" id="foundations"><div className="section-heading"><div><p className="eyebrow">Foundations</p><h2>Built from tokens, not guesses.</h2><p>Primitive color ramps, semantic roles, spacing, shape, typography, and control dimensions stay synchronized beneath every component.</p></div></div><div className="foundation-grid">{[["Color", "9 families · 99 tokens"], ["Spacing", "4px base grid"], ["Shape", "7 radii"], ["Type", "Instrument Sans + DM Mono"]].map(([name, value], index) => <article key={name}><span>0{index + 1}</span><h3>{name}</h3><p>{value}</p></article>)}</div></section>
-        <Example id="button" title="Button" description="Universal actions in multiple appearances, scales, shapes, and content configurations." code={'<Button appearance="primary" size="standard">\n  Create project\n</Button>'}><div className="row"><Button>Primary</Button><Button appearance="surface">Surface</Button><Button appearance="secondary">Secondary</Button><Button appearance="tertiary">Tertiary</Button><Button appearance="link">Link</Button></div></Example>
-        <Example id="text-field" title="Text field" description="Labeled inputs with icons, supporting copy, errors, and disabled states." code={'<TextField label="Project name" placeholder="Untitled project" />'}><div className="form-grid"><TextField label="Project name" placeholder="Untitled project" hint="Shown to collaborators"/><TextField label="Email" value="not-an-email" readOnly error="Enter a valid email address"/></div></Example>
-        <Example id="dropdown" title="Dropdown" description="A compact choice control with keyboard navigation and an action-based tray." code={'<Dropdown value={value} options={options} onValueChange={setValue} />'}><Dropdown label="Lighting preset" value={dropdown} onValueChange={setDropdown} options={[{ value: "soft", label: "Soft studio" }, { value: "bright", label: "Bright product" }, { value: "editorial", label: "Warm editorial" }]} /></Example>
-        <Example id="autocomplete" title="Autocomplete" description="Searchable suggestions with complete keyboard and screen-reader behavior." code={'<Autocomplete value={query} options={options} onValueChange={setQuery} />'}><Autocomplete label="Component" value={autocomplete} onValueChange={setAutocomplete} options={uiFormaComponentRegistry.map((item) => ({ value: item.id, label: item.name }))}/></Example>
-        <Example id="switch" title="Switch" description="A compact binary control for immediate settings." code={'<Switch checked={enabled} onCheckedChange={setEnabled} label="Snap to grid" />'}><div className="row"><Switch checked={enabled} onCheckedChange={setEnabled} label="Snap to grid"/><Switch checked={false} disabled label="Disabled"/></div></Example>
-        <Example id="segmented-control" title="Segmented control" description="Mutually exclusive options presented as a connected control group." code={'<SegmentedControl label="Color format" value={format} items={items} onValueChange={setFormat} />'}><SegmentedControl label="Color format" value={format} onValueChange={setFormat} items={["HEX", "RGB", "HSL", "CMYK"].map((value) => ({ value, label: value }))}/></Example>
-        <Example id="slider" title="Slider" description="Continuous values with standard and gradient track support." code={'<Slider label="Exposure" value={value} onValueChange={setValue} />'}><div className="slider-stack"><Slider label="Exposure" value={slider} onValueChange={setSlider}/><Slider label="Hue" value={slider} onValueChange={setSlider} max={360} gradient="linear-gradient(90deg,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00)"/></div></Example>
-        <footer><span>UI Forma Kit</span><p>Built from the Figma source at node 193:7341.</p></footer>
+        <section className="foundation-section" id="foundations">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Foundations</p>
+              <h2>Built from tokens, not guesses.</h2>
+              <p>
+                Primitive color ramps, semantic roles, spacing, shape,
+                typography, and control dimensions stay synchronized beneath
+                every component.
+              </p>
+            </div>
+          </div>
+          <div className="foundation-grid">
+            {[
+              ["Color", "9 families · 99 tokens"],
+              ["Spacing", "4px base grid"],
+              ["Shape", "7 radii"],
+              ["Type", "Instrument Sans + DM Mono"],
+            ].map(([name, value], index) => (
+              <article key={name}>
+                <span>0{index + 1}</span>
+                <h3>{name}</h3>
+                <p>{value}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="component-section" id="button-playground">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Interactive anatomy</p>
+              <h2>Build a button.</h2>
+              <p>
+                Configure the same primitive across appearance, scale, content,
+                icons, radius, and internal spacing.
+              </p>
+            </div>
+            <a href="#button-playground">#</a>
+          </div>
+          <div className="playground-card">
+            <div className="button-preview">
+              <Button
+                appearance={buttonAppearance}
+                size={buttonSize}
+                shape={buttonRound ? "rounded" : "square"}
+                contentGap={buttonGap}
+                leadingIcon={
+                  buttonLeftIcon ? (
+                    <span aria-hidden="true">＋</span>
+                  ) : undefined
+                }
+                trailingIcon={buttonRightIcon ? <IconArrowRight /> : undefined}
+                aria-label={buttonText ? undefined : "Continue"}
+              >
+                {buttonText ? "Continue" : undefined}
+              </Button>
+              <p>
+                {buttonText
+                  ? "A familiar call to action"
+                  : "The same component, now icon-only"}
+              </p>
+            </div>
+            <div className="config-panel">
+              <fieldset>
+                <legend>Color style</legend>
+                <div className="choice-row">
+                  {(
+                    [
+                      "primary",
+                      "surface",
+                      "secondary",
+                      "tertiary",
+                      "link",
+                    ] as ButtonAppearance[]
+                  ).map((item) => (
+                    <button
+                      key={item}
+                      data-active={buttonAppearance === item || undefined}
+                      onClick={() => setButtonAppearance(item)}
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Scale</legend>
+                <SegmentedControl
+                  value={buttonSize}
+                  onValueChange={setButtonSize}
+                  label="Button scale"
+                  items={(["compact", "standard", "huge"] as ButtonSize[]).map(
+                    (value) => ({
+                      value,
+                      label:
+                        value === "compact"
+                          ? "Small"
+                          : value === "standard"
+                            ? "Medium"
+                            : "Large",
+                    }),
+                  )}
+                />
+              </fieldset>
+              <div className="switch-grid">
+                <Switch
+                  checked={buttonText}
+                  onCheckedChange={setButtonText}
+                  label="Text"
+                />
+                <Switch
+                  checked={buttonLeftIcon}
+                  onCheckedChange={setButtonLeftIcon}
+                  label="Left icon"
+                />
+                <Switch
+                  checked={buttonRightIcon}
+                  onCheckedChange={setButtonRightIcon}
+                  label="Right icon"
+                />
+                <Switch
+                  checked={buttonRound}
+                  onCheckedChange={setButtonRound}
+                  label="Round"
+                />
+              </div>
+              <label className="gap-control">
+                <span>
+                  Internal spacing <output>{buttonGap}px</output>
+                </span>
+                <input
+                  type="range"
+                  min="0"
+                  max="24"
+                  step="2"
+                  value={buttonGap}
+                  onChange={(event) => setButtonGap(Number(event.target.value))}
+                />
+              </label>
+            </div>
+          </div>
+        </section>
+        <Example
+          id="button"
+          title="Button"
+          description="Universal actions in multiple appearances, scales, shapes, and content configurations."
+          code={
+            '<Button appearance="primary" size="standard">\n  Create project\n</Button>'
+          }
+        >
+          <div className="row">
+            <Button>Primary</Button>
+            <Button appearance="surface">Surface</Button>
+            <Button appearance="secondary">Secondary</Button>
+            <Button appearance="tertiary">Tertiary</Button>
+            <Button appearance="link">Link</Button>
+          </div>
+        </Example>
+        <Example
+          id="text-field"
+          title="Text field"
+          description="Labeled inputs with icons, supporting copy, errors, and disabled states."
+          code={
+            '<TextField label="Project name" placeholder="Untitled project" />'
+          }
+        >
+          <div className="form-grid">
+            <TextField
+              label="Project name"
+              placeholder="Untitled project"
+              hint="Shown to collaborators"
+            />
+            <TextField
+              label="Email"
+              value="not-an-email"
+              readOnly
+              error="Enter a valid email address"
+            />
+          </div>
+        </Example>
+        <Example
+          id="dropdown"
+          title="Dropdown"
+          description="A compact choice control with keyboard navigation and an action-based tray."
+          code={
+            "<Dropdown value={value} options={options} onValueChange={setValue} />"
+          }
+        >
+          <Dropdown
+            label="Lighting preset"
+            value={dropdown}
+            onValueChange={setDropdown}
+            options={[
+              { value: "soft", label: "Soft studio" },
+              { value: "bright", label: "Bright product" },
+              { value: "editorial", label: "Warm editorial" },
+            ]}
+          />
+        </Example>
+        <Example
+          id="autocomplete"
+          title="Autocomplete"
+          description="Searchable suggestions with complete keyboard and screen-reader behavior."
+          code={
+            "<Autocomplete value={query} options={options} onValueChange={setQuery} />"
+          }
+        >
+          <Autocomplete
+            label="Component"
+            value={autocomplete}
+            onValueChange={setAutocomplete}
+            options={uiFormaComponentRegistry.map((item) => ({
+              value: item.id,
+              label: item.name,
+            }))}
+          />
+        </Example>
+        <Example
+          id="switch"
+          title="Switch"
+          description="A compact binary control for immediate settings."
+          code={
+            '<Switch checked={enabled} onCheckedChange={setEnabled} label="Snap to grid" />'
+          }
+        >
+          <div className="row">
+            <Switch
+              checked={enabled}
+              onCheckedChange={setEnabled}
+              label="Snap to grid"
+            />
+            <Switch checked={false} disabled label="Disabled" />
+          </div>
+        </Example>
+        <Example
+          id="segmented-control"
+          title="Segmented control"
+          description="Mutually exclusive options presented as a connected control group."
+          code={
+            '<SegmentedControl label="Color format" value={format} items={items} onValueChange={setFormat} />'
+          }
+        >
+          <SegmentedControl
+            label="Color format"
+            value={format}
+            onValueChange={setFormat}
+            items={["HEX", "RGB", "HSL", "CMYK"].map((value) => ({
+              value,
+              label: value,
+            }))}
+          />
+        </Example>
+        <section className="component-section" id="color-studio">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Color controls</p>
+              <h2>A hands-on color studio.</h2>
+              <p>
+                Interactive hue wheels, saturation/value pickers, harmony
+                relationships, and gradient sliders from the original UI Forma
+                work.
+              </p>
+            </div>
+            <a href="#color-studio">#</a>
+          </div>
+          <div className="color-feature-grid">
+            <article>
+              <ColorWheel />
+              <h3>Hue wheel</h3>
+              <p>The full perceptual hue spectrum.</p>
+            </article>
+            <article>
+              <ColorPicker />
+              <h3>Color picker</h3>
+              <p>
+                Drag the ring and inner field to choose hue, saturation, and
+                value.
+              </p>
+            </article>
+          </div>
+          <div className="subsection-heading">
+            <p className="eyebrow">Color relations</p>
+            <h3>Harmony wheels</h3>
+          </div>
+          <div className="harmony-grid">
+            {COLOR_HARMONIES.map((harmony) => (
+              <article key={harmony}>
+                <HarmonyWheel harmony={harmony} size={190} />
+                <span>{harmony.replace("-", " ")}</span>
+              </article>
+            ))}
+          </div>
+          <div className="subsection-heading">
+            <p className="eyebrow">Picker variants</p>
+            <h3>Every harmony, editable</h3>
+          </div>
+          <div className="harmony-grid">
+            {COLOR_HARMONIES.map((harmony) => (
+              <article key={harmony}>
+                <ColorPicker harmony={harmony} size={190} />
+                <span>{harmony.replace("-", " ")}</span>
+              </article>
+            ))}
+          </div>
+          <div className="slider-lab">
+            <div>
+              <p className="eyebrow">Slider handles</p>
+              <h3>Three Figma-matched styles</h3>
+            </div>
+            <div>
+              <ColorSlider handleStyle="thin" defaultValue={22} />
+              <ColorSlider handleStyle="thick" defaultValue={50} />
+              <ColorSlider handleStyle="notched" defaultValue={78} />
+            </div>
+          </div>
+        </section>
+        <Example
+          id="slider"
+          title="Slider"
+          description="Continuous values with standard and gradient track support."
+          code={
+            '<Slider label="Exposure" value={value} onValueChange={setValue} />'
+          }
+        >
+          <div className="slider-stack">
+            <Slider label="Exposure" value={slider} onValueChange={setSlider} />
+            <Slider
+              label="Hue"
+              value={slider}
+              onValueChange={setSlider}
+              max={360}
+              gradient="linear-gradient(90deg,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00)"
+            />
+          </div>
+        </Example>
+        <footer>
+          <span>UI Forma Kit</span>
+          <p>Built from the Figma source at node 193:7341.</p>
+        </footer>
       </main>
     </div>
   );
