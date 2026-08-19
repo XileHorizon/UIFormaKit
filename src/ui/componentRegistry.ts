@@ -81,7 +81,7 @@ export const uiFormaComponentRegistry: readonly UIFormaComponentRecord[] = [
     description: "Continuous value control with standard or color-gradient tracks.",
     figmaNodes: ["193:4553", "193:4554", "193:4559", "193:4565", "193:4571", "193:4577", "193:5038"],
     status: "implemented",
-    variants: ["standard", "color", "thin handle", "thick handle", "notched handle"],
+    variants: ["standard", "color", "circle handle", "thin color handle", "thick color handle", "notched color handle"],
   },
   {
     id: "text-field",

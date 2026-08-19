@@ -61,7 +61,7 @@ function SpecRange({ label, initial }: { label: string; initial: number }) {
 
 export function ColorFoundations() {
   return <section className="component-section" id="color-foundations">
-    <div className="section-heading"><div><p className="eyebrow">Figma source controls</p><h2>The complete color toolkit.</h2><p>The original swatches, primitive ramps, channel controls, and editor sliders restored at their verified dimensions and token values.</p></div><a href="#color-foundations">#</a></div>
+    <div className="section-heading"><div><p className="eyebrow">Color controls</p><h2>The complete color toolkit.</h2><p>Swatches, primitive ramps, channel controls, and editor sliders at their defined dimensions and token values.</p></div><a href="#color-foundations">#</a></div>
     <div className="source-control-grid">
       <article><header><h3>Color format panel</h3><code>56:1901</code></header><ColorFormatPanel /></article>
       <article><header><h3>Color settings</h3><code>23:436 · 23:593</code></header><SwatchSettings /></article>

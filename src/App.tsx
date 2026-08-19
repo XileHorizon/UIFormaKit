@@ -6,7 +6,6 @@ import {
   Button,
   COLOR_HARMONIES,
   ColorPicker,
-  ColorSlider,
   ColorWheel,
   Dropdown,
   HarmonyWheel,
@@ -661,17 +660,6 @@ export default function App() {
                 <span>{harmony.replace("-", " ")}</span>
               </article>
             ))}
-          </div>
-          <div className="slider-lab">
-            <div>
-              <p className="eyebrow">Slider handles</p>
-              <h3>Three Figma-matched styles</h3>
-            </div>
-            <div>
-              <ColorSlider handleStyle="thin" defaultValue={22} />
-              <ColorSlider handleStyle="thick" defaultValue={50} />
-              <ColorSlider handleStyle="notched" defaultValue={78} />
-            </div>
           </div>
         </section>
         <SliderShowcase />

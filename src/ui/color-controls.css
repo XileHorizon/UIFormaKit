@@ -117,8 +117,8 @@
 .uf-color-slider {
   position: relative;
   width: 100%;
-  height: 52px;
-  border-radius: 6px;
+  height: 20px;
+  border-radius: 4px;
   background: linear-gradient(90deg, #ff245a, #a518e8 50%, #176cff);
   cursor: ew-resize;
   touch-action: none;

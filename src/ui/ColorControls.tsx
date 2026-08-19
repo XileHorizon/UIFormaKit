@@ -257,7 +257,7 @@ export function ColorSlider({
   const update = (clientX: number) => {
     const bounds = trackRef.current?.getBoundingClientRect();
     if (!bounds) return;
-    // Keep the widest Figma handle fully inside the color bar at 0 and 100.
+    // Keep the widest color handle fully inside the bar at 0 and 100.
     const handleInset = 9;
     commit(clamp((clientX - bounds.left - handleInset) / (bounds.width - handleInset * 2)) * 100);
   };
@@ -267,7 +267,7 @@ export function ColorSlider({
       className="uf-color-slider"
       role="slider"
       tabIndex={0}
-      aria-label={label ?? `${handleStyle} color slider`}
+      aria-label={label ?? "Color slider"}
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={Math.round(value)}
