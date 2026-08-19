@@ -1,0 +1,26 @@
+.uf-color-chip {
+  display: inline-block;
+  flex: none;
+  border-radius: 8px;
+  background: var(--uf-chip-color);
+}
+
+.uf-color-chip--large {
+  width: 60px;
+  height: 40px;
+}
+
+.uf-color-chip--medium {
+  width: 32px;
+  height: 32px;
+}
+
+.uf-color-chip--wide {
+  width: 205px;
+  height: 24px;
+}
+
+.uf-color-chip--small {
+  width: 24px;
+  height: 24px;
+}

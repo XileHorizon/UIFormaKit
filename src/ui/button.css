@@ -1,0 +1,132 @@
+.uf-button {
+  width: fit-content;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--uf-space-2);
+  padding: var(--uf-space-1) var(--uf-space-3);
+  border: var(--uf-border-hairline) solid transparent;
+  border-radius: var(--uf-radius-sm);
+  font:
+    400 16px/1 "Space Mono",
+    monospace;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--uf-motion-fast) ease,
+    border-color var(--uf-motion-fast) ease,
+    color var(--uf-motion-fast) ease;
+}
+
+.uf-button--compact {
+  height: 36px;
+  padding-block: 4px;
+  font-size: 16px;
+}
+.uf-button--standard {
+  height: 50px;
+  padding-block: 6px;
+  font-size: 16px;
+}
+.uf-button--huge {
+  height: 70px;
+  padding-block: 6px;
+  font-size: 20px;
+}
+
+.uf-button--rounded {
+  border-radius: var(--uf-radius-full);
+}
+.uf-button--primary {
+  color: var(--uf-color-background-page);
+  background: var(--uf-color-action-primary-default);
+}
+.uf-button--primary:hover {
+  background: var(--uf-color-action-primary-hover);
+}
+.uf-button--primary:active {
+  background: var(--uf-color-action-primary-pressed);
+}
+.uf-button--surface {
+  color: var(--uf-color-text-secondary);
+  background: var(--uf-color-background-raised);
+  border-color: var(--uf-color-action-primary-border);
+}
+.uf-button--surface:hover {
+  background: var(--uf-color-action-primary-subtle);
+}
+.uf-button--surface:active {
+  background: var(--uf-color-action-primary-subtle-hover);
+}
+.uf-button--secondary {
+  color: var(--uf-color-background-page);
+  background: var(--uf-color-action-secondary-default);
+  border-color: var(--uf-color-action-secondary-border);
+}
+.uf-button--secondary:hover {
+  background: var(--uf-color-action-secondary-hover);
+  border-color: var(--uf-color-action-secondary-hover);
+}
+.uf-button--secondary:active {
+  background: var(--uf-color-action-secondary-pressed);
+  border-color: var(--uf-color-action-secondary-pressed);
+}
+.uf-button--tertiary {
+  color: var(--uf-color-background-page);
+  background: #653887;
+}
+.uf-button--tertiary:hover {
+  background: #51256f;
+}
+.uf-button--tertiary:active {
+  background: #401558;
+}
+.uf-button--link {
+  color: var(--uf-color-action-primary-default);
+  background: transparent;
+}
+.uf-button--link:hover {
+  color: var(--uf-color-action-primary-hover);
+  text-decoration: underline;
+}
+.uf-button--link:active {
+  color: var(--uf-color-action-primary-pressed);
+  text-decoration: underline;
+}
+.uf-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--uf-color-action-primary-default) 35%, transparent);
+  outline-offset: 2px;
+}
+.uf-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.uf-button > svg {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+.uf-button--huge > svg {
+  width: 44px;
+  height: 44px;
+}
+.uf-button[data-icon-only="true"] {
+  gap: 0;
+}
+.uf-button[data-icon-only="true"] > :only-child {
+  flex: none;
+}
+.uf-button__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 999px;
+  animation: uf-spin 0.7s linear infinite;
+}
+@keyframes uf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
