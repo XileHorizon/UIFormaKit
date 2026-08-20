@@ -9,8 +9,6 @@ import {
   ColorWheel,
   Dropdown,
   HarmonyWheel,
-  IconArrowRight,
-  IconSearch,
   SegmentedControl,
   Slider,
   Switch,
@@ -19,9 +17,8 @@ import {
   type ButtonSize,
   uiFormaComponentRegistry,
   uiFormaPrimitives,
-  IconChevronRight,
 } from "./ui";
-
+import { IconArrowRight, IconSearch, IconChevronRight, IconSun, IconMoon } from '@tabler/icons-react';
 const groups = [
   {
     label: "Getting started",
@@ -171,9 +168,9 @@ export default function App() {
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
-            <span aria-hidden="true">☀</span>
+            <span aria-hidden="true"><IconSun /></span>
             <i aria-hidden="true" />
-            <span aria-hidden="true">☾</span>
+            <span aria-hidden="true"><IconMoon /></span>
           </button>
           <a
             className="figma-link"

@@ -1,7 +1,6 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { Button, type ButtonAppearance, type ButtonSize } from "./Button";
-import { IconChevronDown } from "./TablerIcons";
-import "./form-controls.css";
+import { IconChevronDown } from '@tabler/icons-react';
 
 export interface DropdownOption {
   value: string;

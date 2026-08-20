@@ -1,8 +1,8 @@
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Button } from "./Button";
-import { IconChevronRight, IconSearch } from "./TablerIcons";
+import { IconChevronRight, IconSearch } from '@tabler/icons-react';
 import { TextField } from "./TextField";
-import "./form-controls.css";
+
 
 export interface AutocompleteOption {
   value: string;
@@ -109,7 +109,6 @@ export function Autocomplete({
                 >
                   <IconSearch />
                   <span>{option.label}</span>
-                  <IconChevronRight />
                 </button>
               ))
             ) : (

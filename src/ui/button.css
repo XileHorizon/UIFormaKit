@@ -5,12 +5,10 @@
   align-items: center;
   justify-content: center;
   gap: var(--uf-space-2);
-  padding: var(--uf-space-1) var(--uf-space-3);
+  padding: var(--uf-space-1) var(--uf-space-4);
   border: var(--uf-border-hairline) solid transparent;
   border-radius: var(--uf-radius-sm);
-  font:
-    400 16px/1 "Space Mono",
-    monospace;
+  font-family: "Space Mono", monospace;
   white-space: nowrap;
   cursor: pointer;
   transition:
@@ -26,12 +24,12 @@
 }
 .uf-button--standard {
   height: 50px;
-  padding-block: 6px;
+  padding-block: 12px;
   font-size: 16px;
 }
 .uf-button--huge {
   height: 70px;
-  padding-block: 6px;
+  padding-block: 12px;
   font-size: 20px;
 }
 
@@ -50,14 +48,15 @@
 }
 .uf-button--surface {
   color: var(--uf-color-text-secondary);
-  background: var(--uf-color-background-raised);
+  background: transparent;
   border-color: var(--uf-color-action-primary-border);
 }
 .uf-button--surface:hover {
-  background: var(--uf-color-action-primary-subtle);
+
+  background-color: color-mix(in srgb, var(--uf-color-action-primary-subtle) 50%, transparent);
 }
 .uf-button--surface:active {
-  background: var(--uf-color-action-primary-subtle-hover);
+  background: var(--uf-color-action-primary-subtle);
 }
 .uf-button--secondary {
   color: var(--uf-color-background-page);
