@@ -3,16 +3,21 @@ import { ColorFoundations } from "./ColorFoundations";
 import { SliderShowcase } from "./SliderShowcase";
 import {
   Autocomplete,
+  Accordion,
   Button,
+  Carousel,
   COLOR_HARMONIES,
   ColorPicker,
   ColorWheel,
   Dropdown,
   HarmonyWheel,
+  Marquee,
   SegmentedControl,
   Slider,
   Switch,
+  Tabs,
   TextField,
+  Ticker,
   type ButtonAppearance,
   type ButtonSize,
   uiFormaComponentRegistry,
@@ -20,6 +25,16 @@ import {
 } from "./ui";
 import { IconArrowRight, IconSearch, IconChevronRight, IconSun, IconMoon } from '@tabler/icons-react';
 const groups = [
+  {
+    label: "Content & navigation",
+    links: [
+      ["ticker", "Ticker"],
+      ["carousel", "Carousel"],
+      ["marquee", "Marquee"],
+      ["tabs", "Tabs"],
+      ["accordion", "Accordion"],
+    ],
+  },
   {
     label: "Getting started",
     links: [
@@ -116,6 +131,7 @@ export default function App() {
   const [enabled, setEnabled] = useState(true);
   const [format, setFormat] = useState("HEX");
   const [slider, setSlider] = useState(64);
+  const [activeTab, setActiveTab] = useState("overview");
   const [buttonAppearance, setButtonAppearance] =
     useState<ButtonAppearance>("primary");
   const [buttonSize, setButtonSize] = useState<ButtonSize>("standard");
@@ -373,6 +389,63 @@ export default function App() {
             </div>
           </div>
         </section>
+        <Example
+          id="ticker"
+          title="Ticker"
+          description="A polite live region that rotates concise alerts, updates, or system status messages."
+          code={'<Ticker items={alerts} interval={4000} />'}
+        >
+          <Ticker items={[
+            { id: "deploy", content: "Deployment completed successfully" },
+            { id: "team", content: "Three teammates are editing this project" },
+            { id: "save", content: "All changes saved 12 seconds ago" },
+          ]} />
+        </Example>
+        <Example
+          id="carousel"
+          title="Carousel"
+          description="A manual or auto-playing content sequence with arrows, pagination, and keyboard navigation."
+          code={'<Carousel label="Featured workflows">{slides}</Carousel>'}
+        >
+          <Carousel label="Featured workflows">
+            {["Generate a theme", "Review your components", "Publish the system"].map((title, index) => <article className="starter-slide" key={title}><span>0{index + 1}</span><h3>{title}</h3><p>A flexible content area ready for imagery, product cards, or editorial copy.</p></article>)}
+          </Carousel>
+        </Example>
+        <Example
+          id="marquee"
+          title="Scrolling marquee"
+          description="A continuous content rail for logos, tags, stats, or expressive display text."
+          code={'<Marquee><span>Design</span><span>Build</span><span>Ship</span></Marquee>'}
+        >
+          <Marquee label="UI Forma capabilities">
+            {["Tokens", "Components", "Themes", "Accessibility", "React", "Figma"].map((item) => <span className="marquee-pill" key={item}>{item}</span>)}
+          </Marquee>
+        </Example>
+        <Example
+          id="tabs"
+          title="Tabs"
+          description="Related views with arrow-key navigation, roving focus, and a disabled state."
+          code={'<Tabs value={tab} onValueChange={setTab} items={items} />'}
+        >
+          <Tabs value={activeTab} onValueChange={setActiveTab} label="Project details" items={[
+            { value: "overview", label: "Overview", content: <><h3>Overview</h3><p>The high-level story and current project status.</p></> },
+            { value: "activity", label: "Activity", content: <><h3>Activity</h3><p>Recent edits, comments, and publishing events.</p></> },
+            { value: "settings", label: "Settings", content: <><h3>Settings</h3><p>Project visibility and collaboration controls.</p></> },
+            { value: "archive", label: "Archive", content: null, disabled: true },
+          ]} />
+        </Example>
+        <Example
+          id="accordion"
+          title="Accordion"
+          description="Single or multiple disclosure sections with semantic buttons and regions."
+          code={'<Accordion type="multiple" items={items} />'}
+        >
+          <Accordion type="multiple" defaultValue="tokens" items={[
+            { value: "tokens", trigger: "What are design tokens?", content: "Named decisions for color, spacing, typography, shape, and motion that keep interfaces consistent." },
+            { value: "themes", trigger: "How do themes work?", content: "Semantic tokens remap the same component structure for light, dark, and future brand themes." },
+            { value: "export", trigger: "Can I export components?", content: "Yes. These React primitives are intentionally small, typed, and composable." },
+          ]} />
+        </Example>
         <Example
           id="button"
           title="Button"

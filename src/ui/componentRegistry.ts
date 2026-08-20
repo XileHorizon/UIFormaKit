@@ -3,7 +3,7 @@ export type ComponentStatus = "verified" | "implemented" | "provisional";
 export interface UIFormaComponentRecord {
   id: string;
   name: string;
-  category: "Actions" | "Forms" | "Color" | "Editor controls";
+  category: "Actions" | "Forms" | "Color" | "Editor controls" | "Navigation" | "Content";
   description: string;
   figmaNodes: readonly string[];
   status: ComponentStatus;
@@ -11,6 +11,21 @@ export interface UIFormaComponentRecord {
 }
 
 export const uiFormaComponentRegistry: readonly UIFormaComponentRecord[] = [
+  {
+    id: "ticker", name: "Ticker", category: "Content", description: "Rotating live status and alert messages.", figmaNodes: ["provisional:ticker"], status: "provisional", variants: ["automatic", "paused"],
+  },
+  {
+    id: "carousel", name: "Carousel", category: "Content", description: "Sequential content with arrow, dot, and keyboard navigation.", figmaNodes: ["provisional:carousel"], status: "provisional", variants: ["manual", "auto play"],
+  },
+  {
+    id: "marquee", name: "Marquee", category: "Content", description: "Continuous looping content strip with reduced-motion support.", figmaNodes: ["provisional:marquee"], status: "provisional", variants: ["left", "right", "pause on hover"],
+  },
+  {
+    id: "tabs", name: "Tabs", category: "Navigation", description: "Keyboard-navigable views with roving focus.", figmaNodes: ["provisional:tabs"], status: "provisional", variants: ["active", "disabled"],
+  },
+  {
+    id: "accordion", name: "Accordion", category: "Content", description: "Expandable disclosure sections in single or multiple mode.", figmaNodes: ["provisional:accordion"], status: "provisional", variants: ["single", "multiple", "disabled"],
+  },
   {
     id: "button",
     name: "Button",

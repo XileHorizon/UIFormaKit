@@ -1,0 +1,40 @@
+.uf-ticker { display:flex; align-items:center; gap:var(--uf-space-3); width:100%; min-height:var(--uf-control-lg); padding:0 var(--uf-space-4); overflow:hidden; border:var(--uf-border-hairline) solid var(--uf-color-border-default); border-radius:var(--uf-radius-sm); color:var(--uf-color-text-primary); background:var(--uf-color-background-raised); }
+.uf-ticker__marker { width:8px; height:8px; flex:none; border-radius:50%; background:var(--uf-color-action-primary-default); box-shadow:0 0 0 4px color-mix(in srgb,var(--uf-color-action-primary-default) 16%,transparent); }
+.uf-ticker__viewport { min-width:0; flex:1; overflow:hidden; }
+.uf-ticker__item { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; animation:uf-ticker-in 280ms ease both; }
+.uf-ticker__count { color:var(--uf-color-text-disabled); font:11px/1 var(--uf-font-mono); }
+@keyframes uf-ticker-in { from { opacity:0; transform:translateY(8px); } }
+
+.uf-marquee { width:100%; overflow:hidden; mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+.uf-marquee__track { display:flex; width:max-content; animation:uf-marquee var(--uf-marquee-duration,24s) linear infinite; }
+.uf-marquee__group { display:flex; align-items:center; gap:var(--uf-space-8); min-width:max-content; padding-right:var(--uf-space-8); }
+.uf-marquee[data-direction="right"] .uf-marquee__track { animation-direction:reverse; }
+.uf-marquee[data-pause-on-hover]:hover .uf-marquee__track { animation-play-state:paused; }
+@keyframes uf-marquee { to { transform:translateX(-50%); } }
+
+.uf-carousel { width:min(100%,680px); }
+.uf-carousel__viewport { overflow:hidden; border:var(--uf-border-hairline) solid var(--uf-color-border-subtle); border-radius:var(--uf-radius-md); background:var(--uf-color-background-raised); }
+.uf-carousel__slide { min-height:220px; padding:var(--uf-space-8); animation:uf-carousel-in 220ms ease both; }
+@keyframes uf-carousel-in { from { opacity:.35; transform:translateX(12px); } }
+.uf-carousel__controls { display:grid; grid-template-columns:40px 1fr 40px; align-items:center; gap:var(--uf-space-3); margin-top:var(--uf-space-3); }
+.uf-carousel__controls > button { width:40px; height:40px; border:var(--uf-border-hairline) solid var(--uf-color-border-default); border-radius:50%; color:var(--uf-color-text-primary); background:var(--uf-color-background-raised); cursor:pointer; }
+.uf-carousel__dots { display:flex; justify-content:center; gap:var(--uf-space-2); }
+.uf-carousel__dots button { width:8px; height:8px; padding:0; border:0; border-radius:50%; background:var(--uf-color-text-disabled); cursor:pointer; }
+.uf-carousel__dots button[aria-current] { width:24px; border-radius:var(--uf-radius-full); background:var(--uf-color-action-primary-default); }
+
+.uf-tabs { width:min(100%,680px); }
+.uf-tabs__list { display:flex; gap:var(--uf-space-1); overflow-x:auto; border-bottom:var(--uf-border-hairline) solid var(--uf-color-border-default); }
+.uf-tabs__list button { position:relative; padding:var(--uf-space-3) var(--uf-space-4); border:0; color:var(--uf-color-text-secondary); background:transparent; cursor:pointer; }
+.uf-tabs__list button[aria-selected="true"] { color:var(--uf-color-text-primary); }
+.uf-tabs__list button[aria-selected="true"]::after { content:""; position:absolute; inset:auto 0 -1px; height:2px; background:var(--uf-color-action-primary-default); }
+.uf-tabs__panel { min-height:150px; padding:var(--uf-space-6) var(--uf-space-4); outline-offset:2px; }
+
+.uf-accordion { width:min(100%,680px); border-block:var(--uf-border-hairline) solid var(--uf-color-border-default); }
+.uf-accordion__item + .uf-accordion__item { border-top:var(--uf-border-hairline) solid var(--uf-color-border-subtle); }
+.uf-accordion h3 { margin:0; }
+.uf-accordion h3 button { display:flex; justify-content:space-between; align-items:center; width:100%; padding:var(--uf-space-4) 0; border:0; color:var(--uf-color-text-primary); background:transparent; text-align:left; cursor:pointer; }
+.uf-accordion h3 button > span:last-child { transition:transform var(--uf-motion-fast); }
+.uf-accordion h3 button[aria-expanded="true"] > span:last-child { transform:rotate(45deg); }
+.uf-accordion__panel { padding:0 var(--uf-space-8) var(--uf-space-5) 0; color:var(--uf-color-text-secondary); line-height:1.55; }
+
+@media (prefers-reduced-motion:reduce) { .uf-ticker__item,.uf-marquee__track,.uf-carousel__slide { animation:none; } }

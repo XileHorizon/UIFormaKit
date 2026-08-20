@@ -1,12 +1,16 @@
 export * from "./Autocomplete";
+export * from "./Accordion";
 export * from "./Button";
+export * from "./Carousel";
 export * from "./ColorChip";
 export * from "./ColorControls";
 export * from "./Dropdown";
+export * from "./Marquee";
 export * from "./SegmentedControl";
 export * from "./Slider";
 export * from "./Switch";
+export * from "./Tabs";
 export * from "./TextField";
+export * from "./Ticker";
 export * from "./componentRegistry";
 export * from "./tokens";
-
