@@ -11,9 +11,9 @@ describe("UI Forma tokens", () => {
   it("preserves every supplied primitive color family and step", () => {
     expect(UI_FORMA_PRIMITIVE_FAMILIES).toHaveLength(9);
     expect(UI_FORMA_COLOR_STEPS).toHaveLength(11);
-    expect(uiFormaPrimitives.primary[600]).toBe("#3F2DC3");
+    expect(uiFormaPrimitives.primary[600]).toBe("#412EC2");
     expect(uiFormaPrimitives.neutral[1000]).toBe("#121212");
-    expect(uiFormaPrimitives.danger[400]).toBe("#D63D7A");
+    expect(uiFormaPrimitives.danger[400]).toBe("#D63D79");
   });
 
   it("maps supplied foundations without rounding or renaming values", () => {
@@ -26,7 +26,7 @@ describe("UI Forma tokens", () => {
   it("keeps light and dark semantic modes distinct", () => {
     expect(uiFormaThemes.light.background.page).toBe("#FAFAFA");
     expect(uiFormaThemes.dark.background.page).toBe("#121212");
-    expect(uiFormaThemes.light.action.primary.default).toBe("#3F2DC3");
-    expect(uiFormaThemes.dark.action.primary.default).toBe("#636AFC");
+    expect(uiFormaThemes.light.action.primary.default).toBe("#412EC2");
+    expect(uiFormaThemes.dark.action.primary.default).toBe("#6669FB");
   });
 });

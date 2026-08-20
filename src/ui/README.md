@@ -6,13 +6,16 @@ already exist here.
 
 ## Source of truth
 
-- `tokens/source/*.tokens.json` preserves Kevin's supplied Figma variable exports unchanged.
+- `tokens/source/*.tokens.json` preserves Kevin's supplied UI Forma variable exports unchanged.
 - `tokens/index.ts` provides a typed JavaScript API for primitives, foundations, and semantic modes.
-- `tokens/tokens.css` exposes the same values as `--uf-*` CSS custom properties.
+- `tokens/tokens.css` is generated from those sources and exposes the values as `--uf-*` CSS custom properties.
 - `componentRegistry.ts` records component status, variants, and Figma-node provenance.
 
 Use semantic variables in component styles whenever a semantic role exists. Reach for primitive values
 only when the design intentionally describes a fixed palette value rather than a theme role.
+
+After replacing a variable export, run `npm run tokens:build`. CI-style validation is included in
+`npm run check`, which fails when the generated CSS no longer matches the JSON sources.
 
 ## Public components
 
@@ -33,4 +36,3 @@ configure those APIs instead of duplicating markup and CSS.
 
 Update `componentRegistry.ts` only after checking the current Figma component page. Do not silently mark a
 component verified because it resembles an older screenshot.
-

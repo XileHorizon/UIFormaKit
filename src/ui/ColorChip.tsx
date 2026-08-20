@@ -4,7 +4,7 @@ import "./color-chip.css";
 export type ColorChipSize = "large" | "medium" | "wide" | "small";
 
 const defaultColors: Record<ColorChipSize, string> = {
-  large: "#3f2dc3",
+  large: "#412ec2",
   medium: "#3c3e46",
   wide: "#3c3e46",
   small: "#4e545c",

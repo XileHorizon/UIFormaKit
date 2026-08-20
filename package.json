@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
+    "tokens:build": "node scripts/generate-tokens.mjs",
+    "tokens:check": "node scripts/generate-tokens.mjs --check",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "vitest run",
-    "check": "tsc --noEmit && vitest run && vite build"
+    "check": "npm run tokens:check && tsc --noEmit && vitest run && vite build"
   },
   "dependencies": {
     "react": "^19.0.0",

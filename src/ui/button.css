@@ -74,13 +74,13 @@
 }
 .uf-button--tertiary {
   color: var(--uf-color-background-page);
-  background: #653887;
+  background: var(--uf-color-tertiary-600);
 }
 .uf-button--tertiary:hover {
-  background: #51256f;
+  background: var(--uf-color-tertiary-700);
 }
 .uf-button--tertiary:active {
-  background: #401558;
+  background: var(--uf-color-tertiary-800);
 }
 .uf-button--link {
   color: var(--uf-color-action-primary-default);

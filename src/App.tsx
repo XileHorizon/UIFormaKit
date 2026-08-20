@@ -30,13 +30,6 @@ const groups = [
       ["foundations", "Foundations"],
     ],
   },
-   {
-    label: "primitives",
-    links: [
-      ["colors", "Color Chips"],
-      ["button", "Button"],
-    ],
-  },
   {
     label: "Actions",
     links: [
@@ -231,8 +224,8 @@ export default function App() {
             <div className="orbit orbit-a" />
             <div className="orbit orbit-b" />
             <div className="token-card">
-              <small>Action / Primary</small>
-              <strong>#3F2DC3</strong>
+              <small>Primary / 600</small>
+              <strong>{uiFormaPrimitives.primary[600]}</strong>
               <div>
                 {Object.values(uiFormaPrimitives.primary).map((color) => (
                   <i key={color} style={{ background: color }} />
@@ -266,121 +259,6 @@ export default function App() {
                 <p>{value}</p>
               </article>
             ))}
-          </div>
-        </section>
-        <section className="primitives-section" id="primitives">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">The Building Blocks of The System</p>
-              <h2>Build a button.</h2>
-              <p>
-                Configure the same primitive across appearance, scale, content,
-                icons, radius, and internal spacing.
-              </p>
-            </div>
-            <a href="#button-playground">#</a>
-          </div>
-          <div className="playground-card">
-            <div className="button-preview">
-              <Button
-                appearance={buttonAppearance}
-                size={buttonSize}
-                shape={buttonRound ? "rounded" : "square"}
-                contentGap={buttonGap}
-                leadingIcon={
-                  buttonLeftIcon ? (
-                    <span aria-hidden="true">＋</span>
-                  ) : undefined
-                }
-                trailingIcon={buttonRightIcon ? <IconArrowRight /> : undefined}
-                aria-label={buttonText ? undefined : "Continue"}
-              >
-                {buttonText ? "Continue" : undefined}
-              </Button>
-              <p>
-                {buttonText
-                  ? "A familiar call to action"
-                  : "The same component, now icon-only"}
-              </p>
-            </div>
-            <div className="config-panel">
-              <fieldset>
-                <legend>Color style</legend>
-                <div className="choice-row">
-                  {(
-                    [
-                      "primary",
-                      "surface",
-                      "secondary",
-                      "tertiary",
-                      "link",
-                    ] as ButtonAppearance[]
-                  ).map((item) => (
-                    <button
-                      key={item}
-                      data-active={buttonAppearance === item || undefined}
-                      onClick={() => setButtonAppearance(item)}
-                    >
-                      {item}
-                    </button>
-                  ))}
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend>Scale</legend>
-                <SegmentedControl
-                  value={buttonSize}
-                  onValueChange={setButtonSize}
-                  label="Button scale"
-                  items={(["compact", "standard", "huge"] as ButtonSize[]).map(
-                    (value) => ({
-                      value,
-                      label:
-                        value === "compact"
-                          ? "Small"
-                          : value === "standard"
-                            ? "Medium"
-                            : "Large",
-                    }),
-                  )}
-                />
-              </fieldset>
-              <div className="switch-grid">
-                <Switch
-                  checked={buttonText}
-                  onCheckedChange={setButtonText}
-                  label="Text"
-                />
-                <Switch
-                  checked={buttonLeftIcon}
-                  onCheckedChange={setButtonLeftIcon}
-                  label="Left icon"
-                />
-                <Switch
-                  checked={buttonRightIcon}
-                  onCheckedChange={setButtonRightIcon}
-                  label="Right icon"
-                />
-                <Switch
-                  checked={buttonRound}
-                  onCheckedChange={setButtonRound}
-                  label="Round"
-                />
-              </div>
-              <label className="gap-control">
-                <span>
-                  Internal spacing <output>{buttonGap}px</output>
-                </span>
-                <input
-                  type="range"
-                  min="0"
-                  max="24"
-                  step="2"
-                  value={buttonGap}
-                  onChange={(event) => setButtonGap(Number(event.target.value))}
-                />
-              </label>
-            </div>
           </div>
         </section>
         <section className="component-section" id="button-playground">
