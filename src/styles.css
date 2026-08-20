@@ -23,7 +23,7 @@ input {
   --docs-grid: var(--uf-color-border-subtle);
   --docs-text: var(--uf-color-text-primary);
   --docs-text-soft: var(--uf-color-text-secondary);
-  --docs-panel-text:var(--uf-color-background-page:);
+  --docs-panel-text: var(--uf-color-background-page);
   --line: var(--uf-color-border-subtle);
   --muted: var(--uf-color-text-secondary);
   --accent: var(--uf-color-action-primary-default);
