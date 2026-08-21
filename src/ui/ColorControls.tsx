@@ -4,7 +4,7 @@ import {
   type CSSProperties,
   type PointerEvent as ReactPointerEvent,
 } from "react";
-import "./color-controls.css";
+import "./content-components.css";
 
 export type ColorHarmony =
   | "monochromatic"

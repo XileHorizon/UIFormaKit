@@ -6,6 +6,7 @@ export * from "./ColorChip";
 export * from "./ColorControls";
 export * from "./Dropdown";
 export * from "./Marquee";
+export * from "./Scroll";
 export * from "./SegmentedControl";
 export * from "./Slider";
 export * from "./Switch";

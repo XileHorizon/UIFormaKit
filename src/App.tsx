@@ -12,6 +12,7 @@ import {
   Dropdown,
   HarmonyWheel,
   Marquee,
+  Scroll,
   SegmentedControl,
   Slider,
   Switch,
@@ -31,6 +32,7 @@ const groups = [
       ["ticker", "Ticker"],
       ["carousel", "Carousel"],
       ["marquee", "Marquee"],
+      ["scroll", "Scroll"],
       ["tabs", "Tabs"],
       ["accordion", "Accordion"],
     ],
@@ -420,6 +422,16 @@ export default function App() {
           <Marquee label="UI Forma capabilities">
             {["Tokens", "Components", "Themes", "Accessibility", "React", "Figma"].map((item) => <span className="marquee-pill" key={item}>{item}</span>)}
           </Marquee>
+        </Example>
+        <Example
+          id="scroll"
+          title="Scrolling Alert"
+          description="A continuous content rail for logos, tags, stats, or expressive display text."
+          code={'<Scroll><span>Design</span><span>Build</span><span>Ship</span></Scroll>'}
+        >
+          <Scroll label="UI Forma capabilities">
+            {["This is a notice, but not like a bad one, yanno?"].map((item) => <span className="scroll-pill" key={item}>{item}</span>)}
+          </Scroll>
         </Example>
         <Example
           id="tabs"
