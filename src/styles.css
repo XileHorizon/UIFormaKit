@@ -19,7 +19,7 @@ input {
 .starter-slide h3 { margin:40px 0 8px; font-size:28px; }
 .starter-slide p,.uf-tabs__panel p { margin:0; color:var(--uf-color-text-secondary); }
 .uf-tabs__panel h3 { margin:0 0 8px; }
-.marquee-pill { padding:10px 18px; border:1px solid var(--uf-color-border-default); border-radius:var(--uf-radius-full); background:var(--uf-color-background-raised); font:500 13px var(--uf-font-mono); }
+.marquee-pill { padding:10px 18px; border:1px solid var(--uf-color-action-primary-border); border-radius:var(--uf-radius-full); background:var(--uf-color-background-page); font:500 13px var(--uf-font-mono); }
 .docs {
   --docs-page: var(--uf-color-background-page);
   --docs-panel: var(--uf-color-background-raised);

@@ -8,16 +8,18 @@ export interface ScrollProps {
   label?: string;
 }
 
-export function Scroll({ children, duration = 24, direction = "left", pauseOnHover = true, label }: ScrollProps) {
+export function Scroll({ children, duration = 24, direction = "right", pauseOnHover = true, label }: ScrollProps) {
   const style = { "--uf-scroll-duration": `${duration}s` } as CSSProperties;
   return (
     <div className="uf-scroll" data-direction={direction} data-pause-on-hover={pauseOnHover || undefined} aria-label={label} style={style}>
-      
       <div className="uf-scroll__track">
         <div className="uf-scroll__group">{children}</div>
         <div className="uf-scroll__group" aria-hidden="true">{children}</div>
       </div>
+      <div>
       <button> </button>
     </div>
+    </div>
+    
   );
 }
