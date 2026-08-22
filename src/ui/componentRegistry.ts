@@ -12,13 +12,16 @@ export interface UIFormaComponentRecord {
 
 export const uiFormaComponentRegistry: readonly UIFormaComponentRecord[] = [
   {
-    id: "ticker", name: "Ticker", category: "Content", description: "Rotating live status and alert messages.", figmaNodes: ["provisional:ticker"], status: "provisional", variants: ["automatic", "paused"],
+    id: "scroll", name: "Scroll", category: "Content", description: "Rotating live status and alert messages.", figmaNodes: ["provisional:scroll"], status: "provisional", variants: ["automatic", "paused"],
   },
   {
     id: "carousel", name: "Carousel", category: "Content", description: "Sequential content with arrow, dot, and keyboard navigation.", figmaNodes: ["provisional:carousel"], status: "provisional", variants: ["manual", "auto play"],
   },
   {
     id: "marquee", name: "Marquee", category: "Content", description: "Continuous looping content strip with reduced-motion support.", figmaNodes: ["provisional:marquee"], status: "provisional", variants: ["left", "right", "pause on hover"],
+  },
+  {
+    id: "ticker", name: "Ticker", category: "Content", description: "Semantic scrolling message with optional icon and action.", figmaNodes: ["provisional:ticker"], status: "provisional", variants: ["info", "warning", "danger", "success"],
   },
   {
     id: "tabs", name: "Tabs", category: "Navigation", description: "Keyboard-navigable views with roving focus.", figmaNodes: ["provisional:tabs"], status: "provisional", variants: ["active", "disabled"],

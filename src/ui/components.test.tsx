@@ -4,6 +4,7 @@ import { Button } from "./Button";
 import { Accordion } from "./Accordion";
 import { Carousel } from "./Carousel";
 import { Marquee } from "./Marquee";
+import { Scroll } from "./Scroll";
 import { SegmentedControl } from "./SegmentedControl";
 import { Switch } from "./Switch";
 import { TextField } from "./TextField";
@@ -70,8 +71,13 @@ describe("UI Forma component primitives", () => {
     expect(carousel).toContain('aria-roledescription="carousel"');
     expect(carousel).toContain('aria-label="Next slide"');
 
-    const ticker = renderToStaticMarkup(<Ticker items={[{ id: "one", content: "Alert" }]} />);
-    expect(ticker).toContain('aria-live="polite"');
+    const scroll = renderToStaticMarkup(<Scroll items={[{ id: "one", content: "Alert" }]} />);
+    expect(scroll).toContain('aria-live="polite"');
+
+    const ticker = renderToStaticMarkup(<Ticker variant="warning" action={{ label: "Details", href: "/details" }}>Alert</Ticker>);
+    expect(ticker).toContain('data-variant="warning"');
+    expect(ticker).toContain('href="/details"');
+    expect(ticker).toContain('aria-hidden="true"');
 
     const marquee = renderToStaticMarkup(<Marquee><span>Loop</span></Marquee>);
     expect(marquee).toContain('aria-hidden="true"');

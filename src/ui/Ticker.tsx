@@ -1,36 +1,79 @@
-import { useEffect, useState, type ReactNode } from "react";
+import type { CSSProperties, MouseEventHandler, ReactNode } from "react";
+import {
+  IconAlertTriangle,
+  IconArrowRight,
+  IconCircleCheck,
+  IconCircleX,
+  IconInfoCircle,
+} from "@tabler/icons-react";
 
-export interface TickerItem {
-  id: string;
-  content: ReactNode;
+export type TickerVariant = "info" | "warning" | "danger" | "success";
+
+export interface TickerAction {
+  label: string;
+  ariaLabel?: string;
+  href?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  target?: string;
+  showLabel?: boolean;
 }
 
 export interface TickerProps {
-  items: readonly TickerItem[];
-  interval?: number;
+  children: ReactNode;
+  variant?: TickerVariant;
+  icon?: ReactNode | false;
+  action?: TickerAction;
+  duration?: number;
+  direction?: "left" | "right";
+  pauseOnHover?: boolean;
   label?: string;
-  paused?: boolean;
 }
 
-export function Ticker({ items, interval = 4000, label = "Latest alerts", paused = false }: TickerProps) {
-  const [index, setIndex] = useState(0);
+const variantIcons: Record<TickerVariant, ReactNode> = {
+  info: <IconInfoCircle aria-hidden="true" />,
+  warning: <IconAlertTriangle aria-hidden="true" />,
+  danger: <IconCircleX aria-hidden="true" />,
+  success: <IconCircleCheck aria-hidden="true" />,
+};
 
-  useEffect(() => {
-    if (paused || items.length < 2) return;
-    const timer = window.setInterval(() => setIndex((current) => (current + 1) % items.length), interval);
-    return () => window.clearInterval(timer);
-  }, [interval, items.length, paused]);
-
-  if (!items.length) return null;
-  const activeIndex = index % items.length;
+export function Ticker({
+  children,
+  variant = "info",
+  icon,
+  action,
+  duration = 24,
+  direction = "left",
+  pauseOnHover = true,
+  label,
+}: TickerProps) {
+  const style = { "--uf-ticker-duration": `${duration}s` } as CSSProperties;
+  const actionContent = <><span>{action?.label}</span><IconArrowRight aria-hidden="true" /></>;
 
   return (
-    <div className="uf-ticker" role="status" aria-label={label} aria-live="polite">
-      <span className="uf-ticker__marker" aria-hidden="true" />
+    <section
+      className="uf-ticker"
+      data-variant={variant}
+      data-direction={direction}
+      data-pause-on-hover={pauseOnHover || undefined}
+      aria-label={label}
+      style={style}
+    >
+      {icon !== false && <span className="uf-ticker__icon">{icon ?? variantIcons[variant]}</span>}
       <div className="uf-ticker__viewport">
-        <span key={items[activeIndex].id} className="uf-ticker__item">{items[activeIndex].content}</span>
+        <div className="uf-ticker__track">
+          <div className="uf-ticker__group">{children}</div>
+          <div className="uf-ticker__group" aria-hidden="true">{children}</div>
+        </div>
       </div>
-      <span className="uf-ticker__count" aria-hidden="true">{activeIndex + 1} / {items.length}</span>
-    </div>
+      {action && (action.href ? (
+        <a className="uf-ticker__action" href={action.href} target={action.target} aria-label={action.ariaLabel ?? action.label} data-show-label={action.showLabel || undefined}>
+          {actionContent}
+        </a>
+      ) : (
+        <button className="uf-ticker__action" type="button" onClick={action.onClick} aria-label={action.ariaLabel ?? action.label} data-show-label={action.showLabel || undefined}>
+          {actionContent}
+        </button>
+      ))}
+    </section>
   );
 }

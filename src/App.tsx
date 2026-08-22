@@ -29,10 +29,10 @@ const groups = [
   {
     label: "Content & navigation",
     links: [
-      ["ticker", "Ticker"],
+      ["scroll", "Scroll"],
       ["carousel", "Carousel"],
       ["marquee", "Marquee"],
-      ["scroll", "Scroll"],
+      ["ticker", "Ticker"],
       ["tabs", "Tabs"],
       ["accordion", "Accordion"],
     ],
@@ -392,12 +392,12 @@ export default function App() {
           </div>
         </section>
         <Example
-          id="ticker"
-          title="Ticker"
+          id="scroll"
+          title="Scroll"
           description="A polite live region that rotates concise alerts, updates, or system status messages."
-          code={'<Ticker items={alerts} interval={4000} />'}
+          code={'<Scroll items={updates} interval={4000} />'}
         >
-          <Ticker items={[
+          <Scroll items={[
             { id: "deploy", content: "Deployment completed successfully" },
             { id: "team", content: "Three teammates are editing this project" },
             { id: "save", content: "All changes saved 12 seconds ago" },
@@ -424,14 +424,18 @@ export default function App() {
           </Marquee>
         </Example>
         <Example
-          id="scroll"
-          title="Scrolling Alert"
-          description="A continuous content rail for logos, tags, stats, or expressive display text."
-          code={'<Scroll><span>Design</span><span>Build</span><span>Ship</span></Scroll>'}
+          id="ticker"
+          title="Ticker"
+          description="A semantic scrolling message with an optional status icon and redirect or action control."
+          code={'<Ticker variant="info" action={{ label: "Learn more", href: "/updates" }}>Information ticker</Ticker>'}
         >
-          <Scroll label="UI Forma capabilities">
-            {["This is a notice, but not like a bad one, yanno?"].map((item) => <span className="scroll-pill" key={item}>{item}</span>)}
-          </Scroll>
+          <Ticker
+            variant="info"
+            label="Information ticker"
+            action={{ label: "Details", href: "#overview", ariaLabel: "View information details" }}
+          >
+            <span>This is an information ticker, not anything super serious, just info.</span>
+          </Ticker>
         </Example>
         <Example
           id="tabs"
