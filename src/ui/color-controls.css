@@ -73,7 +73,7 @@
   --uf-handle-width: calc(31px * var(--uf-handle-scale));
   --uf-handle-height: calc(13px * var(--uf-handle-scale));
   position: absolute;
-  top: 50%;
+  top: var(--uf-handle-top, 50%);
   left: 50%;
   width: var(--uf-handle-width);
   height: var(--uf-handle-height);

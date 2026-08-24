@@ -90,6 +90,7 @@ export function HarmonyWheel({
   const [internalValue, setInternalValue] = useState(defaultValue);
   const { hue, saturation, value } = controlledValue ?? internalValue;
   const markerScale = size / 250;
+  const handleTop = size < 250 ? "40%" : "50%";
   const pickerColor = picker ? `hsl(${hue} 100% 50%)` : color;
 
   const updateHue = (clientX: number, clientY: number) => {
@@ -193,6 +194,7 @@ export function HarmonyWheel({
             {
               "--uf-angle": `${angle + hue - 190}deg`,
               "--uf-handle-scale": markerScale,
+              "--uf-handle-top": handleTop,
             } as CSSProperties
           }
         />
