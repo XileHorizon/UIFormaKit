@@ -205,13 +205,77 @@ input {
 }
 .hero-art {
   position: relative;
-  display: grid;
-  place-items: center;
   min-height: 400px;
   overflow: hidden;
   border: 1px solid var(--uf-color-border-subtle);
   border-radius: 24px;
-  background:  var(--uf-color-background-subtle);
+  background:
+    radial-gradient(circle at 78% 16%, color-mix(in srgb, var(--accent), transparent 72%), transparent 34%),
+    linear-gradient(var(--docs-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--docs-grid) 1px, transparent 1px),
+    var(--uf-color-background-subtle);
+  background-size: auto, 32px 32px, 32px 32px, auto;
+  isolation: isolate;
+}
+.hero-art::after {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(90deg, var(--uf-color-background-subtle), transparent 14% 86%, var(--uf-color-background-subtle));
+  content: "";
+  pointer-events: none;
+}
+.hero-marquee-field {
+  position: absolute;
+  inset: -12% -38%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  transform: rotate(-11deg);
+}
+.hero-marquee {
+  padding: 15px 0;
+  border-block: 1px solid color-mix(in srgb, currentColor, transparent 78%);
+  box-shadow: 0 16px 40px #0002;
+  color: var(--uf-color-text-primary);
+  background: color-mix(in srgb, var(--uf-color-background-page), transparent 5%);
+}
+.hero-marquee .uf-marquee {
+  mask-image: none;
+}
+.hero-marquee .uf-marquee__group {
+  gap: clamp(38px, 6vw, 72px);
+  padding-right: clamp(38px, 6vw, 72px);
+}
+.hero-marquee-primary {
+  color: var(--uf-color-primary-0);
+  background: var(--uf-color-action-primary-default);
+}
+.hero-marquee-surface {
+  transform: translateX(5%);
+}
+.hero-marquee-accent {
+  color: var(--uf-color-primary-0);
+  background: var(--accent);
+}
+.hero-ticker-copy {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  white-space: nowrap;
+  font: 600 15px/1.25 "DM Mono";
+  letter-spacing: -0.03em;
+}
+.hero-ticker-copy b {
+  opacity: 0.58;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hero-ticker-mark {
+  opacity: 0.62;
+  font-size: 16px;
 }
 .orbit {
   position: absolute;

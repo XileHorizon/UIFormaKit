@@ -236,114 +236,31 @@ export default function App() {
             </div>
           </div>
           <div className="hero-art" aria-hidden="true">
-            <Marquee pauseOnHover={false} duration={24}>
-                
-              <Button
-                appearance={buttonAppearance}
-                size={buttonSize}
-                shape={buttonRound ? "rounded" : "square"}
-                contentGap={buttonGap}
-                leadingIcon={
-                  buttonLeftIcon ? (
-                    <span aria-hidden="true">＋</span>
-                  ) : undefined
-                }
-                trailingIcon={buttonRightIcon ? <IconArrowRight /> : undefined}
-                aria-label={buttonText ? undefined : "Continue"}
-              >
-                {buttonText ? "Continue" : undefined}
-              </Button>
-              <fieldset>
-                <legend>Color style</legend>
-                <div className="choice-row">
-                  {(
-                    [
-                      "primary",
-                      "surface",
-                      "secondary",
-                      "tertiary",
-                      "link",
-                    ] as ButtonAppearance[]
-                  ).map((item) => (
-                    <button
-                      key={item}
-                      data-active={buttonAppearance === item || undefined}
-                      onClick={() => setButtonAppearance(item)}
-                    >
-                      {item}
-                    </button>
-                  ))}
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend>Scale</legend>
-                <SegmentedControl
-                  value={buttonSize}
-                  onValueChange={setButtonSize}
-                  label="Button scale"
-                  items={(["compact", "standard", "huge"] as ButtonSize[]).map(
-                    (value) => ({
-                      value,
-                      label:
-                        value === "compact"
-                          ? "Small"
-                          : value === "standard"
-                            ? "Medium"
-                            : "Large",
-                    }),
-                  )}
-                />
-              </fieldset>
-              
-                <Switch
-                  checked={buttonText}
-                  onCheckedChange={setButtonText}
-                  label="Text"
-                />
-                <Switch
-                  checked={buttonLeftIcon}
-                  onCheckedChange={setButtonLeftIcon}
-                  label="Left icon"
-                />
-                <Switch
-                  checked={buttonRightIcon}
-                  onCheckedChange={setButtonRightIcon}
-                  label="Right icon"
-                />
-                <Switch
-                  checked={buttonRound}
-                  onCheckedChange={setButtonRound}
-                  label="Round"
-                />
-              
-              <label className="gap-control">
-                <span>
-                  Internal spacing <output>{buttonGap}px</output>
-                </span>
-                <input
-                  type="range"
-                  min="0"
-                  max="24"
-                  step="2"
-                  value={buttonGap}
-                  onChange={(event) => setButtonGap(Number(event.target.value))}
-                />
-              </label>
-            </Marquee>
-            <Marquee direction="right">
-              <button>test 1</button>
-            <button>test 2</button>
-            <button>test 3</button>
-            <button>test 4</button>
-            <button>test 5</button>
-            </Marquee>
-            <Marquee>
-              <button>test 1</button>
-            <button>test 2</button>
-            <button>test 3</button>
-            <button>test 4</button>
-            <button>test 5</button>
-            </Marquee>
+            <div className="hero-marquee-field">
+              <div className="hero-marquee hero-marquee-primary">
+                <Marquee pauseOnHover duration={34}>
+                  <span className="hero-ticker-copy"><b>01</b> Design in Figma</span>
+                  <span className="hero-ticker-mark">✦</span>
+                  <span className="hero-ticker-copy"><b>02</b> Build in React</span>
+                  <span className="hero-ticker-mark">✦</span>
+                </Marquee>
+              </div>
+              <div className="hero-marquee hero-marquee-surface">
+                <Marquee direction="right" pauseOnHover duration={40}>
+                  <span className="hero-ticker-copy"><b>99</b> color tokens</span>
+                  <span className="hero-ticker-copy"><b>4px</b> spacing grid</span>
+                  <span className="hero-ticker-copy"><b>AA</b> accessible states</span>
+                </Marquee>
+              </div>
+              <div className="hero-marquee hero-marquee-accent">
+                <Marquee pauseOnHover duration={37}>
+                  <span className="hero-ticker-copy">One system</span>
+                  <span className="hero-ticker-mark">→</span>
+                  <span className="hero-ticker-copy">Every screen</span>
+                  <span className="hero-ticker-mark">→</span>
+                </Marquee>
+              </div>
+            </div>
           </div>
         </section>
         <section className="foundation-section" id="foundations">
