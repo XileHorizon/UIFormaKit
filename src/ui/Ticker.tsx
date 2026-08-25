@@ -42,7 +42,7 @@ export function Ticker({
   icon,
   action,
   duration = 24,
-  direction = "left",
+  direction = "right",
   pauseOnHover = true,
   label,
 }: TickerProps) {

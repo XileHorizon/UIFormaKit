@@ -211,7 +211,7 @@ input {
   overflow: hidden;
   border: 1px solid var(--uf-color-border-subtle);
   border-radius: 24px;
-  background: radial-gradient(circle, var(--uf-color-action-primary-default) 0, var(--uf-color-action-primary-subtle) 34%, var(--uf-color-background-subtle) 72%);
+  background:  var(--uf-color-background-subtle);
 }
 .orbit {
   position: absolute;
@@ -607,7 +607,7 @@ footer p {
 .docs .foundation-grid article,.docs .example-card,.docs .playground-card,.docs .source-control-grid > article { background:var(--docs-panel-soft); }
 .docs .config-panel { background:var(--docs-panel-soft); border-top-right-radius: 16px;border-bottom-right-radius: 16px;}
 .docs .button-preview,.docs .example-stage { background-color:var(--docs-panel-soft); background-image:linear-gradient(var(--docs-grid) 1px,transparent 1px),linear-gradient(90deg,var(--docs-grid) 1px,transparent 1px); border-radius: 16px; }
-.docs .color-feature-grid article,.docs .harmony-grid article { background:linear-gradient(145deg,var(--docs-panel-soft),var(--docs-panel)); }
+.docs .color-feature-grid article,.docs .harmony-grid article { background: var(--docs-panel-soft); }
 .docs[data-uiforma-theme="light"] .token-card { color:#fff; }
 
 @media (max-width: 900px) {

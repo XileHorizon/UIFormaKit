@@ -236,17 +236,114 @@ export default function App() {
             </div>
           </div>
           <div className="hero-art" aria-hidden="true">
-            <div className="orbit orbit-a" />
-            <div className="orbit orbit-b" />
-            <div className="token-card">
-              <small>Primary / 600</small>
-              <strong>{uiFormaPrimitives.primary[600]}</strong>
-              <div>
-                {Object.values(uiFormaPrimitives.primary).map((color) => (
-                  <i key={color} style={{ background: color }} />
-                ))}
-              </div>
-            </div>
+            <Marquee pauseOnHover={false} duration={24}>
+                
+              <Button
+                appearance={buttonAppearance}
+                size={buttonSize}
+                shape={buttonRound ? "rounded" : "square"}
+                contentGap={buttonGap}
+                leadingIcon={
+                  buttonLeftIcon ? (
+                    <span aria-hidden="true">＋</span>
+                  ) : undefined
+                }
+                trailingIcon={buttonRightIcon ? <IconArrowRight /> : undefined}
+                aria-label={buttonText ? undefined : "Continue"}
+              >
+                {buttonText ? "Continue" : undefined}
+              </Button>
+              <fieldset>
+                <legend>Color style</legend>
+                <div className="choice-row">
+                  {(
+                    [
+                      "primary",
+                      "surface",
+                      "secondary",
+                      "tertiary",
+                      "link",
+                    ] as ButtonAppearance[]
+                  ).map((item) => (
+                    <button
+                      key={item}
+                      data-active={buttonAppearance === item || undefined}
+                      onClick={() => setButtonAppearance(item)}
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Scale</legend>
+                <SegmentedControl
+                  value={buttonSize}
+                  onValueChange={setButtonSize}
+                  label="Button scale"
+                  items={(["compact", "standard", "huge"] as ButtonSize[]).map(
+                    (value) => ({
+                      value,
+                      label:
+                        value === "compact"
+                          ? "Small"
+                          : value === "standard"
+                            ? "Medium"
+                            : "Large",
+                    }),
+                  )}
+                />
+              </fieldset>
+              
+                <Switch
+                  checked={buttonText}
+                  onCheckedChange={setButtonText}
+                  label="Text"
+                />
+                <Switch
+                  checked={buttonLeftIcon}
+                  onCheckedChange={setButtonLeftIcon}
+                  label="Left icon"
+                />
+                <Switch
+                  checked={buttonRightIcon}
+                  onCheckedChange={setButtonRightIcon}
+                  label="Right icon"
+                />
+                <Switch
+                  checked={buttonRound}
+                  onCheckedChange={setButtonRound}
+                  label="Round"
+                />
+              
+              <label className="gap-control">
+                <span>
+                  Internal spacing <output>{buttonGap}px</output>
+                </span>
+                <input
+                  type="range"
+                  min="0"
+                  max="24"
+                  step="2"
+                  value={buttonGap}
+                  onChange={(event) => setButtonGap(Number(event.target.value))}
+                />
+              </label>
+            </Marquee>
+            <Marquee direction="right">
+              <button>test 1</button>
+            <button>test 2</button>
+            <button>test 3</button>
+            <button>test 4</button>
+            <button>test 5</button>
+            </Marquee>
+            <Marquee>
+              <button>test 1</button>
+            <button>test 2</button>
+            <button>test 3</button>
+            <button>test 4</button>
+            <button>test 5</button>
+            </Marquee>
           </div>
         </section>
         <section className="foundation-section" id="foundations">
@@ -422,6 +519,13 @@ export default function App() {
           <Marquee label="UI Forma capabilities">
             {["Tokens", "Components", "Themes", "Accessibility", "React", "Figma"].map((item) => <span className="marquee-pill" key={item}>{item}</span>)}
           </Marquee>
+          <Marquee>
+            <button>test 1</button>
+            <button>test 2</button>
+            <button>test 3</button>
+            <button>test 4</button>
+            <Ticker>the text is scrolling on this ticker the opposite of the marquee</Ticker>
+          </Marquee>
         </Example>
         <Example
           id="ticker"
@@ -447,6 +551,7 @@ export default function App() {
             { value: "overview", label: "Overview", content: <><h3>Overview</h3><p>The high-level story and current project status.</p></> },
             { value: "activity", label: "Activity", content: <><h3>Activity</h3><p>Recent edits, comments, and publishing events.</p></> },
             { value: "settings", label: "Settings", content: <><h3>Settings</h3><p>Project visibility and collaboration controls.</p></> },
+            { value: "settingss", label: "Settings", content: <><h3>Settings</h3><p>Project visibility and collaboration controls.</p></> },
             { value: "archive", label: "Archive", content: null, disabled: true },
           ]} />
         </Example>
