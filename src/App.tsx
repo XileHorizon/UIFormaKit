@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ColorFoundations } from "./ColorFoundations";
 import { SliderShowcase } from "./SliderShowcase";
+import { StudioRecreation } from "./StudioRecreation";
 import {
   Autocomplete,
   Accordion,
@@ -176,6 +177,10 @@ export default function App() {
     [query],
   );
 
+  if (new URLSearchParams(window.location.search).get("view") === "studio") {
+    return <StudioRecreation />;
+  }
+
   useEffect(() => {
     window.localStorage.setItem("uiforma-theme", theme);
     document.documentElement.style.colorScheme = theme;
@@ -211,6 +216,12 @@ export default function App() {
             <i aria-hidden="true" />
             <span aria-hidden="true"><IconMoon /></span>
           </button>
+          <a
+            className="figma-link"
+            href="?view=studio"
+          >
+            Open studio demo <IconArrowRight />
+          </a>
           <a
             className="figma-link"
             href="https://www.figma.com/design/6UMDGsdfnSovglFsEN4L1W/UIForma-Kit?node-id=193-7341&m=dev"
