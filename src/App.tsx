@@ -25,7 +25,14 @@ import {
   uiFormaComponentRegistry,
   uiFormaPrimitives,
 } from "./ui";
+import HarmonyAnalogous from "./ui/tokens/harmony-analogous.svg?react";
+import HarmonyComplementary from "./ui/tokens/harmony-complementary.svg?react";
+import HarmonyQuad from "./ui/tokens/harmony-quad.svg?react";
+import HarmonySplit from "./ui/tokens/harmony-split.svg?react";
+import HarmonyTriad from "./ui/tokens/harmony-triad.svg?react";
+import HarmonyMonochrome from "./ui/tokens/harmony-monochrome.svg?react";
 import { IconArrowRight, IconSearch, IconChevronRight, IconSun, IconMoon } from '@tabler/icons-react';
+import { ControlStack } from "./ui/ControlStack";
 const groups = [
   {
     label: "Content & navigation",
@@ -130,6 +137,7 @@ export default function App() {
   });
   const [query, setQuery] = useState("");
   const [dropdown, setDropdown] = useState("soft");
+  const [harmony, setHarmony] = useState("");
   const [autocomplete, setAutocomplete] = useState("");
   const [enabled, setEnabled] = useState(true);
   const [format, setFormat] = useState("HEX");
@@ -708,6 +716,72 @@ export default function App() {
               label: value,
             }))}
           />
+        </Example>
+        <Example
+          id="control-stack"
+          title="Control stack"
+          description="Mutually exclusive options presented as a connected control group."
+          code={
+            '<ControlStack label="Color format" value={format} items={items} onValueChange={setFormat} />'
+          }
+        >
+          <ControlStack
+  radio
+  label="Color harmony"
+  value={harmony}
+  onValueChange={setHarmony}
+  className="harmony-stack"
+  items={[
+    {
+      value: "monochrome",
+      label: "Monochrome",
+      buttonProps: {
+        appearance: "tertiary",
+        leadingIcon: <HarmonyMonochrome />,
+      },
+    },
+    {
+      value: "complement",
+      label: "Complement",
+      buttonProps: {
+        appearance: "tertiary",
+        leadingIcon: <HarmonyComplementary />,
+      },
+    },
+    {
+      value: "split",
+      label: "Split",
+      buttonProps: {
+        appearance: "tertiary",
+        leadingIcon: <HarmonySplit />,
+      },
+    },
+    {
+      value: "triad",
+      label: "Triad",
+      buttonProps: {
+        appearance: "tertiary",
+        leadingIcon: <HarmonyTriad />,
+      },
+    },
+    {
+      value: "analogous",
+      label: "Analogous",
+      buttonProps: {
+        appearance: "tertiary",
+        leadingIcon: <HarmonyAnalogous />,
+      },
+    },
+    {
+      value: "quadrad",
+      label: "Quadrad",
+      buttonProps: {
+        appearance: "tertiary",
+        leadingIcon: <HarmonyQuad />,
+      },
+    },
+  ]}
+/>
         </Example>
         <ColorFoundations />
         <section className="component-section" id="color-studio">

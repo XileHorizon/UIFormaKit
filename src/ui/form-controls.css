@@ -39,6 +39,14 @@
   background: var(--uf-color-background-page);
 }
 
+.uf-control-stack {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--uf-space-2);
+  color: var(--uf-color-text-secondary);
+  font: 400 14px/1.3 var(--uf-font-body);
+}
+
 .uf-segmented-control {
   display: inline-flex;
   gap: var(--uf-space-1);

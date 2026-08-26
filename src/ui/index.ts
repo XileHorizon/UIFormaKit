@@ -4,6 +4,7 @@ export * from "./Button";
 export * from "./Carousel";
 export * from "./ColorChip";
 export * from "./ColorControls";
+export * from "./ControlStack";
 export * from "./Dropdown";
 export * from "./Marquee";
 export * from "./Scroll";
