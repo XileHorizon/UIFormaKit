@@ -93,6 +93,15 @@ export const uiFormaComponentRegistry: readonly UIFormaComponentRecord[] = [
     variants: ["two items", "three items", "four items"],
   },
   {
+    id: "control-stack",
+    name: "Control stack",
+    category: "Forms",
+    description: "Actions or radio choices arranged as a connected vertical control.",
+    figmaNodes: ["provisional:control-stack"],
+    status: "provisional",
+    variants: ["standard", "radio", "disabled"],
+  },
+  {
     id: "slider",
     name: "Slider",
     category: "Editor controls",

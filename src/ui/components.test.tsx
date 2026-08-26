@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { Button } from "./Button";
 import { Accordion } from "./Accordion";
 import { Carousel } from "./Carousel";
+import { ControlStack } from "./ControlStack";
 import { Marquee } from "./Marquee";
 import { Scroll } from "./Scroll";
 import { SegmentedControl } from "./SegmentedControl";
@@ -41,6 +42,26 @@ describe("UI Forma component primitives", () => {
     );
     expect(segmentedMarkup).toContain('role="radiogroup"');
     expect(segmentedMarkup).toContain('aria-checked="true"');
+  });
+
+  it("renders control stacks as actions or a radio group", () => {
+    const markup = renderToStaticMarkup(
+      <ControlStack
+        radio
+        label="Harmony"
+        value="triad"
+        onValueChange={() => undefined}
+        items={[
+          { value: "mono", label: "Monochrome" },
+          { value: "triad", label: "Triad" },
+        ]}
+      />,
+    );
+    expect(markup).toContain('class="uf-control-stack"');
+    expect(markup).toContain('role="radiogroup"');
+    expect(markup).toContain('aria-label="Harmony"');
+    expect(markup).toContain('aria-checked="true"');
+    expect(markup).toContain('data-state="checked"');
   });
 
   it("links field errors to the input", () => {

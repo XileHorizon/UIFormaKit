@@ -42,10 +42,28 @@
 .uf-control-stack {
   display: inline-flex;
   flex-direction: column;
-  gap: var(--uf-space-2);
+  align-items: stretch;
+  gap: 0;
   color: var(--uf-color-text-secondary);
   font: 400 14px/1.3 var(--uf-font-body);
 }
+.uf-control-stack > .uf-button {
+  width: 100%;
+  justify-content: flex-start;
+  border-radius: 0;
+}
+.uf-control-stack > .uf-button + .uf-button { margin-top: -1px; }
+.uf-control-stack > .uf-button:first-child { border-radius: var(--uf-radius-md) var(--uf-radius-md) 0 0; }
+.uf-control-stack > .uf-button:last-child { border-radius: 0 0 var(--uf-radius-md) var(--uf-radius-md); }
+.uf-control-stack > .uf-button:only-child { border-radius: var(--uf-radius-md); }
+.uf-control-stack > .uf-button[data-state="checked"] {
+  z-index: 1;
+  color: var(--uf-color-action-primary-text);
+  background: var(--uf-color-action-primary-subtle);
+  box-shadow: inset 3px 0 0 var(--uf-color-action-primary-default);
+}
+.uf-control-stack svg { color: currentColor; }
+.uf-control-stack svg path { stroke: currentColor; }
 
 .uf-segmented-control {
   display: inline-flex;
