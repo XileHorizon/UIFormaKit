@@ -6,7 +6,6 @@ import {
   Accordion,
   Button,
   Carousel,
-  COLOR_HARMONIES,
   ColorChip,
   ColorPicker,
   ColorWheel,
@@ -23,6 +22,8 @@ import {
   Ticker,
   type ButtonAppearance,
   type ButtonSize,
+  type ColorHarmony,
+  type StackedItem,
   uiFormaComponentRegistry,
   uiFormaPrimitives,
 } from "./ui";
@@ -33,6 +34,16 @@ import HarmonySplit from "./ui/tokens/harmony-split.svg?react";
 import HarmonyTriad from "./ui/tokens/harmony-triad.svg?react";
 import HarmonyMonochrome from "./ui/tokens/harmony-monochrome.svg?react";
 import { IconArrowRight, IconSearch, IconChevronRight, IconSun, IconMoon } from '@tabler/icons-react';
+
+const harmonyStackItems: readonly StackedItem<ColorHarmony>[] = [
+  { value: "monochromatic", label: "Monochromatic", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyMonochrome /> } },
+  { value: "complementary", label: "Complementary", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyComplementary /> } },
+  { value: "split-complementary", label: "Split complementary", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonySplit /> } },
+  { value: "triadic", label: "Triadic", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyTriad /> } },
+  { value: "analogous", label: "Analogous", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyAnalogous /> } },
+  { value: "quadratic", label: "Quadratic", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyQuad /> } },
+];
+
 const groups = [
   {
     label: "Content & navigation",
@@ -138,7 +149,7 @@ export default function App() {
   });
   const [query, setQuery] = useState("");
   const [dropdown, setDropdown] = useState("soft");
-  const [harmony, setHarmony] = useState("monochrome");
+  const [harmony, setHarmony] = useState<ColorHarmony>("monochromatic");
   const [autocomplete, setAutocomplete] = useState("");
   const [enabled, setEnabled] = useState(true);
   const [format, setFormat] = useState("HEX");
@@ -732,14 +743,7 @@ export default function App() {
             value={harmony}
             onValueChange={setHarmony}
             className="harmony-stack"
-            items={[
-              { value: "monochrome", label: "Monochrome",  buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyMonochrome /> } },
-              { value: "complementary", label: "Complementary", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyComplementary /> } },
-              { value: "split", label: "Split", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonySplit /> } },
-              { value: "triad", label: "Triad", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyTriad /> } },
-              { value: "analogous", label: "Analogous", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyAnalogous /> } },
-              { value: "quad", label: "Quad", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyQuad /> } },
-            ]}
+            items={harmonyStackItems}
           />
         </Example>
         <ColorFoundations />
@@ -773,27 +777,36 @@ export default function App() {
           </div>
           <div className="subsection-heading">
             <p className="eyebrow">Color relations</p>
-            <h3>Harmony wheels</h3>
+            <h3>Harmony workspace</h3>
           </div>
-          <div className="harmony-grid">
-            {COLOR_HARMONIES.map((harmony) => (
-              <article key={harmony}>
-                <HarmonyWheel harmony={harmony} size={190} />
-                <span>{harmony.replace("-", " ")}</span>
-              </article>
-            ))}
-          </div>
-          <div className="subsection-heading">
-            <p className="eyebrow">Picker variants</p>
-            <h3>Every harmony, editable</h3>
-          </div>
-          <div className="harmony-grid">
-            {COLOR_HARMONIES.map((harmony) => (
-              <article key={harmony}>
-                <ColorPicker harmony={harmony} size={190} />
-                <span>{harmony.replace("-", " ")}</span>
-              </article>
-            ))}
+          <div className="harmony-workspace">
+            <aside>
+              <span className="harmony-workspace-label">Relationship</span>
+              <ControlStack
+                radio
+                label="Choose a color harmony"
+                value={harmony}
+                onValueChange={setHarmony}
+                className="harmony-stack"
+                items={harmonyStackItems}
+              />
+            </aside>
+            <article>
+              <header>
+                <span>Relationship</span>
+                <strong>{harmony.replace("-", " ")}</strong>
+              </header>
+              <HarmonyWheel harmony={harmony} size={250} />
+              <p>See the selected hues distributed around the color wheel.</p>
+            </article>
+            <article>
+              <header>
+                <span>Editable picker</span>
+                <strong>{harmony.replace("-", " ")}</strong>
+              </header>
+              <ColorPicker harmony={harmony} size={250} />
+              <p>Adjust hue, saturation, and value while preserving the relationship.</p>
+            </article>
           </div>
         </section>
         <SliderShowcase />
