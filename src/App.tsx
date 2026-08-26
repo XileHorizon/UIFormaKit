@@ -36,12 +36,12 @@ import HarmonyMonochrome from "./ui/tokens/harmony-monochrome.svg?react";
 import { IconArrowRight, IconSearch, IconChevronRight, IconSun, IconMoon } from '@tabler/icons-react';
 
 const harmonyStackItems: readonly StackedItem<ColorHarmony>[] = [
-  { value: "monochromatic", label: "Monochromatic", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyMonochrome /> } },
-  { value: "complementary", label: "Complementary", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyComplementary /> } },
-  { value: "split-complementary", label: "Split complementary", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonySplit /> } },
-  { value: "triadic", label: "Triadic", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyTriad /> } },
+  { value: "monochromatic", label: "Monochrome", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyMonochrome /> } },
+  { value: "complementary", label: "Complement", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyComplementary /> } },
+  { value: "split-complementary", label: "Split", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonySplit /> } },
+  { value: "triadic", label: "Triad", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyTriad /> } },
   { value: "analogous", label: "Analogous", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyAnalogous /> } },
-  { value: "quadratic", label: "Quadratic", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyQuad /> } },
+  { value: "quadratic", label: "Quad", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyQuad /> } },
 ];
 
 const groups = [
