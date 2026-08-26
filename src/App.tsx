@@ -733,12 +733,12 @@ export default function App() {
             onValueChange={setHarmony}
             className="harmony-stack"
             items={[
-              { value: "monochrome", label: "Monochrome", buttonProps: { appearance: "tertiary", leadingIcon: <HarmonyMonochrome /> } },
-              { value: "complementary", label: "Complementary", buttonProps: { appearance: "tertiary", leadingIcon: <HarmonyComplementary /> } },
-              { value: "split", label: "Split", buttonProps: { appearance: "tertiary", leadingIcon: <HarmonySplit /> } },
-              { value: "triad", label: "Triad", buttonProps: { appearance: "tertiary", leadingIcon: <HarmonyTriad /> } },
-              { value: "analogous", label: "Analogous", buttonProps: { appearance: "tertiary", leadingIcon: <HarmonyAnalogous /> } },
-              { value: "quad", label: "Quad", buttonProps: { appearance: "tertiary", leadingIcon: <HarmonyQuad /> } },
+              { value: "monochrome", label: "Monochrome",  buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyMonochrome /> } },
+              { value: "complementary", label: "Complementary", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyComplementary /> } },
+              { value: "split", label: "Split", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonySplit /> } },
+              { value: "triad", label: "Triad", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyTriad /> } },
+              { value: "analogous", label: "Analogous", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyAnalogous /> } },
+              { value: "quad", label: "Quad", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyQuad /> } },
             ]}
           />
         </Example>

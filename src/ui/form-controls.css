@@ -43,24 +43,36 @@
   display: inline-flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0;
+  gap: var(--uf-space-2);
   color: var(--uf-color-text-secondary);
   font: 400 14px/1.3 var(--uf-font-body);
+  background: var(--uf-color-background-page);
+  padding: var(--uf-space-2);
+  border-radius: var(--uf-radius-md);
+
 }
 .uf-control-stack > .uf-button {
   width: 100%;
   justify-content: flex-start;
-  border-radius: 0;
+}
+.uf-control-stack > .uf-button--surface {
+  width: 100%;
+  justify-content: flex-start;
+  border-color: transparent;
+}
+.uf-control-stack > .uf-button[data-state="checked"] {
+  width: 100%;
+  justify-content: flex-start;
+  border-color: transparent;
+  background: var(--uf-color-action-primary);
+  color: var(--uf-color-background-page);
 }
 .uf-control-stack > .uf-button + .uf-button { margin-top: -1px; }
-.uf-control-stack > .uf-button:first-child { border-radius: var(--uf-radius-md) var(--uf-radius-md) 0 0; }
-.uf-control-stack > .uf-button:last-child { border-radius: 0 0 var(--uf-radius-md) var(--uf-radius-md); }
 .uf-control-stack > .uf-button:only-child { border-radius: var(--uf-radius-md); }
 .uf-control-stack > .uf-button[data-state="checked"] {
   z-index: 1;
-  color: var(--uf-color-action-primary-text);
-  background: var(--uf-color-action-primary-subtle);
-  box-shadow: inset 3px 0 0 var(--uf-color-action-primary-default);
+  background: var(--uf-color-action-primary-default);
+  color: var(--uf-color-background-page);
 }
 .uf-control-stack svg { color: currentColor; }
 .uf-control-stack svg path { stroke: currentColor; }
