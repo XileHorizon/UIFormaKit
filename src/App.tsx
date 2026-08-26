@@ -239,7 +239,7 @@ export default function App() {
           <div className="hero-art" aria-hidden="true">
             <div className="hero-marquee-field">
               <div className="hero-marquee hero-marquee-one">
-                <Marquee pauseOnHover duration={38}>
+                <Marquee pauseOnHover={false} duration={38}>
                   <span className="hero-component-card hero-component-buttons">
                     <Button tabIndex={-1}>Create project</Button>
                     <Button appearance="secondary" shape="rounded" tabIndex={-1}>Preview</Button>
@@ -263,7 +263,7 @@ export default function App() {
                 </Marquee>
               </div>
               <div className="hero-marquee hero-marquee-two">
-                <Marquee direction="right" pauseOnHover duration={44}>
+                <Marquee direction="right" pauseOnHover={false} duration={44}>
                   <span className="hero-component-card hero-component-field">
                     <TextField
                       label="Project name"
@@ -287,7 +287,7 @@ export default function App() {
                 </Marquee>
               </div>
               <div className="hero-marquee hero-marquee-three">
-                <Marquee pauseOnHover duration={40}>
+                <Marquee pauseOnHover={false} duration={40}>
                   <span className="hero-component-card hero-component-colors">
                     <span className="hero-component-label">Primary</span>
                     {["#10003f", "#3412a5", "#6669fb", "#9faeff", "#c6d1ff"].map((color) => (
@@ -303,6 +303,75 @@ export default function App() {
                     {["#352e00", "#7a6800", "#b59700", "#d6b100", "#f2d163"].map((color) => (
                       <ColorChip key={color} size="small" color={color} />
                     ))}
+                  </span>
+                </Marquee>
+              </div>
+              <div className="hero-marquee hero-marquee-one">
+                <Marquee direction="right" pauseOnHover={false} duration={60}>
+                  
+                  <span className="hero-component-card hero-component-segments">
+                    <SegmentedControl
+                      label="View"
+                      value="canvas"
+                      onValueChange={() => undefined}
+                      items={[
+                        { value: "canvas", label: "Canvas" },
+                        { value: "code", label: "Code" },
+                        { value: "inspect", label: "Inspect" },
+                      ]}
+                    />
+                  </span>
+                  <span className="hero-component-card hero-component-buttons">
+                    <Button appearance="surface" leadingIcon={<span>＋</span>} tabIndex={-1}>Add layer</Button>
+                    <Button appearance="tertiary" trailingIcon={<IconArrowRight />} tabIndex={-1}>Share</Button>
+                  </span>
+                  <span className="hero-component-card hero-component-buttons">
+                    <Button tabIndex={-1}>Create project</Button>
+                    <Button appearance="secondary" shape="rounded" tabIndex={-1}>Preview</Button>
+                  </span>
+                </Marquee>
+              </div>
+              <div className="hero-marquee hero-marquee-two">
+                <Marquee pauseOnHover={false} duration={78}>
+                  <span className="hero-component-card hero-component-switches">
+                    <Switch checked label="Snap to grid" tabIndex={-1} />
+                    <Switch checked={false} label="Dark mode" tabIndex={-1} />
+                  </span>
+                  <span className="hero-component-card hero-component-field">
+                    <TextField
+                      label="Project name"
+                      value="Untitled interface"
+                      readOnly
+                      tabIndex={-1}
+                    />
+                  </span>
+                  <span className="hero-component-card hero-component-slider">
+                    <Slider
+                      label="Radius"
+                      value={64}
+                      onValueChange={() => undefined}
+                      tabIndex={-1}
+                    />
+                  </span>
+                </Marquee>
+              </div>
+              <div className="hero-marquee hero-marquee-three">
+                <Marquee direction="right" pauseOnHover={false} duration={88}>
+                  <span className="hero-component-card hero-component-colors">
+                    <span className="hero-component-label">Primary</span>
+                    {["#10003f", "#3412a5", "#6669fb", "#9faeff", "#c6d1ff"].map((color) => (
+                      <ColorChip key={color} size="small" color={color} />
+                    ))}
+                  </span>
+                  <span className="hero-component-card hero-component-colors">
+                    <span className="hero-component-label">Secondary</span>
+                    {["#352e00", "#7a6800", "#b59700", "#d6b100", "#f2d163"].map((color) => (
+                      <ColorChip key={color} size="small" color={color} />
+                    ))}
+                  </span>
+                  <span className="hero-component-card hero-component-status">
+                    <span className="hero-status-dot" />
+                    <span><b>All systems ready</b><small>12 components available</small></span>
                   </span>
                 </Marquee>
               </div>
