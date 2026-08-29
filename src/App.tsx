@@ -45,49 +45,90 @@ const harmonyStackItems: readonly StackedItem<ColorHarmony>[] = [
   { value: "quadratic", label: "Quad", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyQuad /> } },
 ];
 
+const componentLevels: Record<string, "Atoms" | "Molecules" | "Organisms"> = {
+  button: "Atoms",
+  "text-field": "Atoms",
+  switch: "Atoms",
+  slider: "Atoms",
+  dropdown: "Molecules",
+  autocomplete: "Molecules",
+  "segmented-control": "Molecules",
+  "control-stack": "Molecules",
+  tabs: "Molecules",
+  ticker: "Molecules",
+  scroll: "Organisms",
+  carousel: "Organisms",
+  marquee: "Organisms",
+  accordion: "Organisms",
+};
+
+const sectionOrder: Record<string, number> = {
+  button: 21,
+  "text-field": 22,
+  switch: 23,
+  slider: 25,
+  dropdown: 30,
+  autocomplete: 31,
+  "segmented-control": 32,
+  "control-stack": 33,
+  tabs: 34,
+  ticker: 35,
+  scroll: 40,
+  carousel: 41,
+  marquee: 42,
+  accordion: 43,
+};
+
 const groups = [
-  {
-    label: "Content & navigation",
-    links: [
-      ["scroll", "Scroll"],
-      ["carousel", "Carousel"],
-      ["marquee", "Marquee"],
-      ["ticker", "Ticker"],
-      ["tabs", "Tabs"],
-      ["accordion", "Accordion"],
-    ],
-  },
   {
     label: "Getting started",
     links: [
       ["overview", "Overview"],
-      ["foundations", "Foundations"],
+      ["hierarchy", "How the kit is built"],
     ],
   },
   {
-    label: "Actions",
+    label: "Subatomic",
+    links: [
+      ["foundations", "Quarks"],
+      ["color-foundations", "Particles"],
+    ],
+  },
+  {
+    label: "Atoms",
     links: [
       ["button-playground", "Button playground"],
       ["button", "Button"],
+      ["text-field", "Text field"],
+      ["switch", "Switch"],
+      ["slider", "Slider"],
     ],
   },
   {
-    label: "Forms",
+    label: "Molecules",
     links: [
-      ["text-field", "Text field"],
       ["dropdown", "Dropdown"],
       ["autocomplete", "Autocomplete"],
-      ["switch", "Switch"],
       ["segmented-control", "Segmented control"],
       ["control-stack", "Control stack"],
+      ["tabs", "Tabs"],
+      ["ticker", "Ticker"],
     ],
   },
   {
-    label: "Editor controls",
+    label: "Organisms",
     links: [
-      ["color-foundations", "Color foundations"],
-      ["color-studio", "Color studio"],
-      ["slider", "Slider"],
+      ["scroll", "Scroll"],
+      ["carousel", "Carousel"],
+      ["marquee", "Marquee"],
+      ["accordion", "Accordion"],
+    ],
+  },
+  {
+    label: "Structures",
+    links: [
+      ["layouts", "Layouts"],
+      ["pages", "Pages"],
     ],
   },
 ] as const;
@@ -108,10 +149,10 @@ function Example({
   const record = uiFormaComponentRegistry.find((item) => item.id === id);
   const [showCode, setShowCode] = useState(false);
   return (
-    <section className="component-section" id={id}>
+    <section className="component-section" id={id} style={{ order: sectionOrder[id] }}>
       <div className="section-heading">
         <div>
-          <p className="eyebrow">{record?.category}</p>
+          <p className="eyebrow">{componentLevels[id] ?? record?.category}</p>
           <h2>{title}</h2>
           <p>{description}</p>
         </div>
@@ -198,8 +239,8 @@ export default function App() {
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search components"
-            aria-label="Search components"
+            placeholder="Search the kit"
+            aria-label="Search the kit"
           />
           <kbd>⌘ K</kbd>
         </label>
@@ -252,9 +293,9 @@ export default function App() {
             <p className="eyebrow">UI Forma design system</p>
             <h1>A flexible kit for expressive product interfaces.</h1>
             <p className="lede">
-              Reusable React components and design tokens reconstructed from the
-              UI Forma Figma library. Browse every component, interact with its
-              states, and copy the source into your product.
+              Start with the smallest design decisions, then follow them as they
+              grow into components and complete interfaces. Everything in the
+              kit has a place, from a single color value to an entire page.
             </p>
             <div className="hero-actions">
               <Button
@@ -409,11 +450,55 @@ export default function App() {
             </div>
           </div>
         </section>
+        <section className="hierarchy-section" id="hierarchy">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">How the kit is built</p>
+              <h2>Small decisions become complete interfaces.</h2>
+              <p>
+                UI Forma follows atomic design, with a subatomic layer for the
+                values and styles that exist before a component takes shape.
+              </p>
+            </div>
+          </div>
+          <div className="hierarchy-grid">
+            <article>
+              <span>Subatomic</span>
+              <h3>Quarks</h3>
+              <p>Raw values for color, spacing, type, shape, and motion.</p>
+            </article>
+            <article>
+              <span>Subatomic</span>
+              <h3>Particles</h3>
+              <p>Named styles and roles made from the raw values beneath them.</p>
+            </article>
+            <article>
+              <span>Atomic</span>
+              <h3>Atoms</h3>
+              <p>The smallest interactive pieces, ready to do one clear job.</p>
+            </article>
+            <article>
+              <span>Atomic</span>
+              <h3>Molecules</h3>
+              <p>Small groups of atoms working together as one control.</p>
+            </article>
+            <article>
+              <span>Atomic</span>
+              <h3>Organisms</h3>
+              <p>Reusable sections that coordinate content, controls, and behavior.</p>
+            </article>
+            <article>
+              <span>Structures</span>
+              <h3>Layouts &amp; pages</h3>
+              <p>Arrangements and finished examples that show the full system at work.</p>
+            </article>
+          </div>
+        </section>
         <section className="foundation-section" id="foundations">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">Foundations</p>
-              <h2>Built from tokens, not guesses.</h2>
+              <p className="eyebrow">Subatomic · Quarks</p>
+              <h2>The smallest decisions in the system.</h2>
               <p>
                 Primitive color ramps, semantic roles, spacing, shape,
                 typography, and control dimensions stay synchronized beneath
@@ -840,6 +925,32 @@ export default function App() {
             />
           </div>
         </Example>
+        <section className="structures-section" id="layouts">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Structures · Layouts</p>
+              <h2>Where components find their place.</h2>
+              <p>
+                Layout documentation will collect the shells, grids, and
+                responsive arrangements built from UI Forma organisms.
+              </p>
+            </div>
+            <span className="collection-status">Collection growing</span>
+          </div>
+        </section>
+        <section className="structures-section" id="pages">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Structures · Pages</p>
+              <h2>The whole system, working together.</h2>
+              <p>
+                Page examples will show UI Forma layouts filled with realistic
+                components, content, and responsive behavior.
+              </p>
+            </div>
+            <span className="collection-status">Collection growing</span>
+          </div>
+        </section>
         <footer>
           <span>UI Forma Kit</span>
           <p>Built from the Figma source at node 193:7341.</p>
