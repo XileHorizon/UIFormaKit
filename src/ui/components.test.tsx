@@ -11,6 +11,15 @@ import { Switch } from "./Switch";
 import { TextField } from "./TextField";
 import { Tabs } from "./Tabs";
 import { Ticker } from "./Ticker";
+import { Alert, Status } from "./Alert";
+import { CodeBlock } from "./CodeBlock";
+import { FileInput } from "./FileInput";
+import { NumberField } from "./NumberField";
+import { Panel } from "./Panel";
+import { Select } from "./Select";
+import { Sidebar } from "./Sidebar";
+import { SplitPane } from "./SplitPane";
+import { WorkbenchShell } from "./WorkbenchShell";
 import { uiFormaComponentRegistry } from "./componentRegistry";
 
 describe("UI Forma component primitives", () => {
@@ -69,6 +78,41 @@ describe("UI Forma component primitives", () => {
     expect(markup).toContain('aria-invalid="true"');
     expect(markup).toContain('aria-describedby="name-description"');
     expect(markup).toContain('id="name-description"');
+  });
+
+  it("renders reusable form fields with native semantics", () => {
+    const select = renderToStaticMarkup(<Select id="theme" label="Theme" value="dark" onChange={() => undefined} options={[{ value: "light", label: "Light" }, { value: "dark", label: "Dark" }]} />);
+    expect(select).toContain("<select");
+    expect(select).toContain('value="dark" selected=""');
+    const number = renderToStaticMarkup(<NumberField id="columns" label="Columns" value={12} suffix="cols" readOnly />);
+    expect(number).toContain('type="number"');
+    expect(number).toContain("cols");
+    const file = renderToStaticMarkup(<FileInput label="Import project" accept="application/json" />);
+    expect(file).toContain('type="file"');
+    expect(file).toContain("Choose file");
+  });
+
+  it("renders semantic surfaces and application layout primitives", () => {
+    const alert = renderToStaticMarkup(<Alert tone="danger" title="Not saved">Try again</Alert>);
+    expect(alert).toContain('role="alert"');
+    expect(alert).toContain('data-tone="danger"');
+    expect(renderToStaticMarkup(<Status tone="success">Saved</Status>)).toContain("Saved");
+    expect(renderToStaticMarkup(<Panel header="Header" footer="Footer">Body</Panel>)).toContain("uf-panel__body");
+    expect(renderToStaticMarkup(<CodeBlock code="const value = 1;" language="ts" />)).toContain('data-language="ts"');
+    const shell = renderToStaticMarkup(<WorkbenchShell header="Header" navigation="Nav" tools="Tools">Main</WorkbenchShell>);
+    expect(shell).toContain("uf-workbench__main");
+    const split = renderToStaticMarkup(<SplitPane value={40} onValueChange={() => undefined} first="Editor" second="Preview" />);
+    expect(split).toContain('role="separator"');
+    expect(split).toContain('aria-valuenow="40"');
+  });
+
+  it("renders adaptive sidebars at compact rail or wide panel sizes", () => {
+    const rail = renderToStaticMarkup(<Sidebar label="Tools" size="rail">Rail actions</Sidebar>);
+    expect(rail).toContain('data-size="rail"');
+    expect(rail).toContain('aria-label="Tools"');
+    const panel = renderToStaticMarkup(<Sidebar label="Properties" side="right" size="wide" open onOpenChange={() => undefined}>Form controls</Sidebar>);
+    expect(panel).toContain('data-size="wide"');
+    expect(panel).toContain('data-adaptive="sidebar"');
   });
 
   it("tracks implementation and Figma provenance for every public component", () => {

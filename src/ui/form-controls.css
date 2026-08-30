@@ -113,6 +113,19 @@
 .uf-text-field[data-invalid] .uf-text-field__control { border-color: var(--uf-color-error-border); }
 .uf-text-field[data-invalid] .uf-text-field__description { color: var(--uf-color-error-text); }
 
+.uf-select,.uf-file-input { display:grid; gap:var(--uf-space-2); color:var(--uf-color-text-secondary); }
+.uf-select__label,.uf-file-input__label { font:500 13px/1.2 var(--uf-font-body); }
+.uf-select__control { position:relative; display:flex; align-items:center; min-height:var(--uf-control-lg); border:var(--uf-border-hairline) solid var(--uf-color-border-default); border-radius:var(--uf-radius-sm); background:var(--uf-color-background-page); }
+.uf-select__control:focus-within { border-color:var(--uf-color-action-primary-border); box-shadow:0 0 0 3px color-mix(in srgb,var(--uf-color-action-primary-default) 22%,transparent); }
+.uf-select select { width:100%; min-height:inherit; padding:0 calc(var(--uf-space-8) + var(--uf-space-2)) 0 var(--uf-space-3); appearance:none; border:0; outline:0; color:var(--uf-color-text-primary); background:transparent; font:400 14px/1 var(--uf-font-body); }
+.uf-select__chevron { position:absolute; right:var(--uf-space-3); pointer-events:none; }
+.uf-select__description { color:var(--uf-color-text-secondary); font:400 12px/1.4 var(--uf-font-body); }
+.uf-select[data-invalid] .uf-select__control { border-color:var(--uf-color-error-border); }
+.uf-select[data-invalid] .uf-select__description { color:var(--uf-color-error-text); }
+.uf-file-input > input { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.uf-file-input__control { display:flex; align-items:center; gap:var(--uf-space-3); }
+.uf-file-input__control > span { overflow:hidden; color:var(--uf-color-text-secondary); font:400 13px/1.3 var(--uf-font-body); text-overflow:ellipsis; white-space:nowrap; }
+
 .uf-dropdown { position: relative; display: grid; justify-items: start; gap: var(--uf-space-2); width: min(100%, 300px); }
 .uf-dropdown__label { color: var(--uf-color-text-secondary); font: 500 13px/1.2 var(--uf-font-body); }
 .uf-dropdown > .uf-button { width: 100%; justify-content: space-between; }

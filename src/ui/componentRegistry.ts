@@ -12,6 +12,36 @@ export interface UIFormaComponentRecord {
 
 export const uiFormaComponentRegistry: readonly UIFormaComponentRecord[] = [
   {
+    id: "sidebar", name: "Sidebar", category: "Navigation", description: "Adaptive side region that becomes a compact-screen drawer and ranges from an icon rail to form-capable panel widths.", figmaNodes: ["provisional:sidebar"], status: "provisional", variants: ["rail", "narrow", "wide", "collapsed", "left", "right"],
+  },
+  {
+    id: "workbench-shell", name: "Workbench shell", category: "Content", description: "Responsive application frame with header, navigation, content, and tool regions.", figmaNodes: ["provisional:workbench-shell"], status: "provisional", variants: ["desktop", "compact"],
+  },
+  {
+    id: "split-pane", name: "Split pane", category: "Content", description: "Keyboard and pointer resizable pair of content regions.", figmaNodes: ["provisional:split-pane"], status: "provisional", variants: ["horizontal", "vertical"],
+  },
+  {
+    id: "panel", name: "Panel", category: "Content", description: "Token-driven content surface with optional header and footer regions.", figmaNodes: ["provisional:panel"], status: "provisional", variants: ["default", "subtle", "raised"],
+  },
+  {
+    id: "alert", name: "Alert and status", category: "Content", description: "Semantic feedback surfaces and compact status indicators.", figmaNodes: ["provisional:alert"], status: "provisional", variants: ["neutral", "info", "success", "warning", "danger"],
+  },
+  {
+    id: "dialog", name: "Dialog", category: "Content", description: "Modal content surface built on the native dialog element.", figmaNodes: ["provisional:dialog"], status: "provisional", variants: ["open", "closed"],
+  },
+  {
+    id: "code-block", name: "Code block", category: "Content", description: "Code output surface with optional label and toolbar actions.", figmaNodes: ["provisional:code-block"], status: "provisional", variants: ["scroll", "wrap"],
+  },
+  {
+    id: "select", name: "Select", category: "Forms", description: "Semantic single-value selection field with groups and validation messaging.", figmaNodes: ["provisional:select"], status: "provisional", variants: ["standard", "error", "disabled"],
+  },
+  {
+    id: "number-field", name: "Number field", category: "Forms", description: "Numeric text field with bounds, steps, and optional prefix or suffix.", figmaNodes: ["provisional:number-field"], status: "provisional", variants: ["standard", "prefix", "suffix"],
+  },
+  {
+    id: "file-input", name: "File input", category: "Forms", description: "Accessible file selection control composed with the universal button.", figmaNodes: ["provisional:file-input"], status: "provisional", variants: ["empty", "selected", "multiple"],
+  },
+  {
     id: "scroll", name: "Scroll", category: "Content", description: "Rotating live status and alert messages.", figmaNodes: ["provisional:scroll"], status: "provisional", variants: ["automatic", "paused"],
   },
   {
