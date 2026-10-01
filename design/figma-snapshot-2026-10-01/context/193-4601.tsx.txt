@@ -1,0 +1,11 @@
+type ColorChipsProps = {
+  className?: string;
+  size?: "Small" | "Medium" | "Large" | "Wide Chip";
+};
+
+export default function ColorChips({ className, size = "Large" }: ColorChipsProps) {
+  const isMedium = size === "Medium";
+  const isSmall = size === "Small";
+  const isWideChip = size === "Wide Chip";
+  return <div className={className || `${String.raw`relative rounded-[var(--radius\/md,8px)] `}${isSmall ? "bg-[#4e545c] size-[24px]" : isWideChip ? "bg-[#3c3e46] h-[24px] w-[205px]" : isMedium ? String.raw`bg-[var(--text\/secondary,#3c3e46)] size-[32px]` : "bg-[#3f2dc3] h-[40px] w-[60px]"}`} id={isSmall ? "node-193_4605" : isWideChip ? "node-193_4604" : isMedium ? "node-193_4603" : "node-193_4602"} />;
+}

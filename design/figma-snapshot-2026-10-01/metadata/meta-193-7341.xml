@@ -1,0 +1,65 @@
+<section id="193:7341" name="Molecules" x="-406" y="-122" width="2725" height="1836">
+  <instance id="193:4536" name="Button Block" x="1876" y="89" width="350" height="120" />
+  <instance id="193:4552" name="Position Inputs" x="1425" y="337" width="350" height="60" />
+  <frame id="193:4583" name="Icon Label" x="779" y="1069" width="94" height="390">
+    <symbol id="193:4584" name="Property 1=Primary, Big=False" x="20" y="20" width="54" height="54" />
+    <symbol id="193:4586" name="Property 1=Primary, Big=True" x="20" y="168" width="54" height="54" />
+    <symbol id="193:4588" name="Property 1=No Back, Big=False" x="20" y="94" width="54" height="54" />
+    <symbol id="193:4590" name="Property 1=No Back, Big=True" x="20" y="242" width="54" height="54" />
+  </frame>
+  <instance id="193:4597" name="Sidebar Slider" x="1425" y="892" width="350" height="24" />
+  <instance id="193:4598" name="Lighting Settings" x="1425" y="440" width="370" height="433" />
+  <instance id="193:4599" name="Transform" x="1425" y="89" width="370" height="229" />
+  <instance id="193:4606" name="Color Settings" x="1864" y="732" width="370" height="187" />
+  <frame id="193:4609" name="Color Primitive" x="1864" y="269" width="806" height="224">
+    <symbol id="193:4610" name="Property 1=Frame 14" x="1" y="17" width="804" height="66" />
+    <symbol id="193:4627" name="Property 1=Frame 15" x="1" y="123" width="804" height="84" />
+  </frame>
+  <frame id="193:4668" name="Color Relations" x="55" y="89" width="604" height="910">
+    <symbol id="193:4669" name="Property 1=Monochromatic" x="21" y="21" width="256" height="256" />
+    <symbol id="193:4693" name="Property 1=Complementary" x="327" y="21" width="256" height="256" />
+    <symbol id="193:4717" name="Property 1=Quadratic" x="21" y="327" width="256" height="256" />
+    <symbol id="193:4741" name="Property 1=Triadic" x="327" y="327" width="256" height="256" />
+    <symbol id="193:4766" name="Property 1=Analogous" x="21" y="633" width="256" height="256" />
+    <symbol id="193:4794" name="Property 1=Split Complementary" x="327" y="633" width="256" height="256" />
+  </frame>
+  <frame id="193:4818" name="Color Picker" x="740" y="89" width="604" height="910">
+    <symbol id="193:4819" name="Property 1=Monochromatic" x="21" y="21" width="256" height="256" />
+    <symbol id="193:4844" name="Property 1=Complementary" x="327" y="21" width="256" height="256" />
+    <symbol id="193:4869" name="Property 1=Quadratic" x="21" y="327" width="256" height="256" />
+    <symbol id="193:4894" name="Property 1=Triadic" x="327" y="327" width="256" height="256" />
+    <symbol id="193:4920" name="Property 1=Analogous" x="21" y="633" width="256" height="256" />
+    <symbol id="193:4966" name="Property 1=Split Complementary" x="327" y="633" width="256" height="256" />
+  </frame>
+  <frame id="193:4999" name="Component 13" x="905" y="1069" width="1362" height="294">
+    <symbol id="193:5000" name="Property 1=HEX" x="21" y="21" width="248" height="228" />
+    <symbol id="193:5011" name="Property 1=RGB" x="289" y="21" width="248" height="212" />
+    <symbol id="193:5017" name="Property 1=HSL" x="557" y="21" width="248" height="212" />
+    <symbol id="193:5023" name="Property 1=CMYK" x="825" y="21" width="248" height="252" />
+    <symbol id="193:5030" name="Property 1=Variant5" x="1093" y="21" width="248" height="252" />
+  </frame>
+  <frame id="193:5038" name="Color Slider" x="1864" y="549" width="288" height="170">
+    <symbol id="193:5039" name="Property 1=Default" x="20" y="20" width="248" height="30" />
+    <symbol id="193:5044" name="Property 1=Variant2" x="20" y="70" width="248" height="30" />
+    <symbol id="193:5049" name="Property 1=Variant3" x="20" y="120" width="233" height="30" />
+  </frame>
+  <frame id="193:7174" name="Button Group" x="2203" y="549" width="290" height="277">
+    <symbol id="193:7175" name="Property 1=1" x="21" y="21" width="248" height="46" />
+    <symbol id="193:7180" name="Property 1=2" x="21" y="84" width="248" height="46" />
+    <symbol id="193:7182" name="Property 1=3" x="21" y="147" width="248" height="46" />
+    <symbol id="193:7184" name="Property 1=4" x="21" y="210" width="248" height="46" />
+  </frame>
+  <frame id="193:7199" name="Frame 38" x="933" y="1433" width="210" height="314">
+    <symbol id="193:7200" name="Property 1=Variant3" x="23" y="21" width="170" height="84" />
+    <symbol id="193:7209" name="Property 1=Default" x="23" y="115" width="170" height="84" />
+    <symbol id="193:7218" name="Property 1=Variant2" x="23" y="209" width="170" height="84" />
+  </frame>
+  <frame id="193:7227" name="Search Menu" x="55" y="1069" width="664" height="257">
+    <symbol id="193:7228" name="Property 1=Expanded" x="344" y="20" width="300" height="217" />
+    <symbol id="193:7234" name="Property 1=Collapsed" x="20" y="20" width="300" height="50" />
+  </frame>
+  <frame id="193:7236" name="Dropdown Menu" x="55" y="1381" width="664" height="257">
+    <symbol id="193:7237" name="Property 1=Expanded" x="344" y="20" width="300" height="217" />
+    <symbol id="193:7243" name="Property 1=Collapsed" x="20" y="20" width="300" height="50" />
+  </frame>
+</section>

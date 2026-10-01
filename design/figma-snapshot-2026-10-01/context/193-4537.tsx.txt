@@ -1,0 +1,61 @@
+type BasicTextInputProps = {
+  className?: string;
+  labelText?: string;
+  labelVisible?: boolean;
+  primaryText?: string;
+  property1?: "Tall" | "Standard" | "Slim";
+  secondaryText?: string;
+  secondaryTextVisible?: boolean;
+};
+
+export default function BasicTextInput({ className, labelText = "Placeholder Label", labelVisible = false, primaryText = "This is placeholder text", property1 = "Standard", secondaryText = "This is placeholder secondary text", secondaryTextVisible = true }: BasicTextInputProps) {
+  const isSlim = property1 === "Slim";
+  const isStandard = property1 === "Standard";
+  const isStandardOrSlim = ["Standard", "Slim"].includes(property1);
+  const isTall = property1 === "Tall";
+  return (
+    <div className={className || `${String.raw`content-stretch flex flex-col gap-[6px] items-start justify-center relative rounded-[var(--radius\/md,8px)] `}${isTall ? "h-[200px] min-h-[200px] w-[510px]" : "[word-break:break-word] leading-[normal] whitespace-nowrap"}`} id={isTall ? "node-193_4548" : isSlim ? "node-193_4543" : "node-193_4538"}>
+      {isStandardOrSlim && labelVisible && (
+        <p className="font-['Geist:Regular'] font-normal relative shrink-0 text-[14px] text-[color:var(--color\/primary,#6b5b7b)]" data-node-id="193:4539">
+          {labelText}
+        </p>
+      )}
+      {isStandardOrSlim && (
+        <div className={`${String.raw`bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid content-stretch flex font-["Space_Mono:Regular"] items-center justify-between not-italic py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0 `}${isSlim ? "h-[20px] px-[8px] text-[12px]" : "px-[12px]"}`} id={isSlim ? "node-193_4545" : "node-193_4540"}>
+          {isStandard && (
+            <p className="relative shrink-0 text-[16px] text-[color:var(--color\/primary-dark,#1a1620)]" data-node-id="193:4541">
+              {primaryText}
+            </p>
+          )}
+          {isStandard && secondaryTextVisible && (
+            <p className="relative shrink-0 text-[12px] text-[color:var(--action\/primary\/default,#3f2dc3)]" data-node-id="193:4542">
+              {secondaryText}
+            </p>
+          )}
+          {isSlim && (
+            <p className="relative shrink-0 text-[color:var(--color\/primary-dark,#1a1620)]" data-node-id="193:4546">
+              {primaryText}
+            </p>
+          )}
+          {isSlim && secondaryTextVisible && (
+            <p className="relative shrink-0 text-[color:var(--action\/primary\/default,#3f2dc3)]" data-node-id="193:4547">
+              {secondaryText}
+            </p>
+          )}
+        </div>
+      )}
+      {isTall && labelVisible && (
+        <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[normal] relative shrink-0 text-[14px] text-[color:var(--color\/primary,#6b5b7b)] whitespace-nowrap" data-node-id="193:4549">
+          {labelText}
+        </p>
+      )}
+      {isTall && (
+        <div className="bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid content-stretch flex flex-[1_0_0] items-start justify-between min-h-px px-[12px] py-[6px] relative rounded-[var(--radius\/md,8px)] w-full" data-node-id="193:4550">
+          <p className="[word-break:break-word] font-['Geist:Regular'] font-normal leading-[1.5] relative shrink-0 text-[24px] text-[color:var(--color\/primary-dark,#1a1620)] whitespace-nowrap" data-node-id="193:4551">
+            {primaryText}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}

@@ -7,8 +7,9 @@ import { ControlStack } from "./ControlStack";
 import { Marquee } from "./Marquee";
 import { Scroll } from "./Scroll";
 import { SegmentedControl } from "./SegmentedControl";
-import { Switch } from "./Switch";
-import { TextField } from "./TextField";
+import { Switch, ThemeSwitch } from "./Switch";
+import { TextArea, TextField } from "./TextField";
+import { Slider } from "./Slider";
 import { Tabs } from "./Tabs";
 import { Ticker } from "./Ticker";
 import { Alert, Status } from "./Alert";
@@ -34,10 +35,28 @@ describe("UI Forma component primitives", () => {
     expect(renderToStaticMarkup(<Button wrapLabel={false}><strong>Rich action</strong></Button>)).not.toContain("uf-button__label");
   });
 
+  it("renders Figma text field and slider sizes", () => {
+    const standard = renderToStaticMarkup(<TextField label="Seed" supportingText="HEX" defaultValue="#3F2DC3" />);
+    expect(standard).toContain("uf-text-field--standard");
+    expect(standard).toContain('<span class="uf-text-field__supporting">HEX</span>');
+    expect(renderToStaticMarkup(<TextField size="slim" />)).toContain("uf-text-field--slim");
+    const area = renderToStaticMarkup(<TextArea label="Notes" />);
+    expect(area).toContain("uf-text-field--tall");
+    expect(area).toContain("<textarea");
+    expect(renderToStaticMarkup(<Slider value={25} onValueChange={() => undefined} size="compact" />)).toContain("uf-slider--compact");
+    expect(renderToStaticMarkup(<Slider value={25} onValueChange={() => undefined} gradient="red" />)).toContain("data-gradient");
+  });
+
   it("renders accessible switch and segmented states", () => {
     const switchMarkup = renderToStaticMarkup(<Switch checked label="Enabled" />);
     expect(switchMarkup).toContain('role="switch"');
     expect(switchMarkup).toContain('aria-checked="true"');
+    expect(renderToStaticMarkup(<Switch checked={false} />)).toContain('data-state="unchecked"');
+    const lightTheme = renderToStaticMarkup(<ThemeSwitch theme="light" />);
+    expect(lightTheme).toContain("uf-control-switch--theme");
+    expect(lightTheme).toContain('data-theme="light"');
+    expect(lightTheme).toContain('aria-checked="false"');
+    expect(renderToStaticMarkup(<ThemeSwitch theme="dark" />)).toContain('aria-checked="true"');
 
     const segmentedMarkup = renderToStaticMarkup(
       <SegmentedControl

@@ -1,0 +1,22 @@
+const imgProperty1Subtract = "http://localhost:3845/assets/605df67006253aabdc7499679915d6469aa777f4.svg";
+type ColorSliderHandleProps = {
+  className?: string;
+  property1?: "Rectangle 39" | "Rectangle 43" | "Subtract";
+};
+
+export default function ColorSliderHandle({ className, property1 = "Rectangle 43" }: ColorSliderHandleProps) {
+  const isRectangle43 = property1 === "Rectangle 43";
+  const isSubtract = property1 === "Subtract";
+  return (
+    <div className={className || `relative ${isRectangle43 ? "h-[31px] w-[13px]" : isSubtract ? "h-[30px] w-[17px]" : "h-[30px] w-[18px]"}`} id={isRectangle43 ? "node-193_4996" : isSubtract ? "node-193_4994" : "node-193_4992"}>
+      {["Rectangle 39", "Rectangle 43"].includes(property1) && (
+        <div className="absolute flex inset-0 items-center justify-center" id={isRectangle43 ? "node-193_4997" : "node-193_4993"} style={{ containerType: "size" }}>
+          <div className="flex-none h-[100cqw] rotate-90 w-[100cqh]">
+            <div className={`${String.raw`border-[var(--background\/page,#fafafa)] border-solid relative rounded-[3px] size-full `}${isRectangle43 ? "border-3" : "border-5"}`} />
+          </div>
+        </div>
+      )}
+      {isSubtract && <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgProperty1Subtract} />}
+    </div>
+  );
+}

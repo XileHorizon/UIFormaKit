@@ -1,3 +1,6 @@
+@import "@fontsource/space-mono/400.css";
+@import "@fontsource/space-mono/700.css";
+
 .uf-control-switch-row {
   display: inline-flex;
   align-items: center;
@@ -13,9 +16,8 @@
   flex: none;
   padding: 2px;
   border: 0;
-  border-radius: var(--uf-radius-full);
-  background: var(--uf-color-background-raised);
-  box-shadow: inset 0 0 0 var(--uf-border-hairline) var(--uf-color-border-default);
+  border-radius: 10px;
+  background: var(--uf-color-state-selected);
   cursor: pointer;
   transition: background var(--uf-motion-fast), border-color var(--uf-motion-fast);
 }
@@ -25,18 +27,56 @@
   width: 16px;
   height: 16px;
   border-radius: var(--uf-radius-full);
-  background: var(--uf-color-text-disabled);
+  background: var(--uf-color-background-page);
   transition: transform var(--uf-motion-fast), background var(--uf-motion-fast);
 }
 
-.uf-control-switch[data-state="checked"] {
+.uf-control-switch:not(.uf-control-switch--theme)[data-state="checked"] {
   background: var(--uf-color-action-primary-default);
-  box-shadow: none;
 }
 
-.uf-control-switch[data-state="checked"] > span {
+.uf-control-switch:not(.uf-control-switch--theme)[data-state="checked"] > span {
   transform: translateX(14px);
-  background: var(--uf-color-background-page);
+}
+
+.uf-control-switch--theme {
+  width: 52px;
+  height: 28px;
+  border-radius: var(--uf-radius-sm);
+  background: var(--uf-color-action-primary-subtle-hover);
+}
+
+.uf-control-switch--theme > span {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--uf-radius-xs);
+  color: var(--uf-color-action-primary-default);
+}
+
+.uf-control-switch--theme > span > svg {
+  width: 20px;
+  height: 20px;
+}
+
+.uf-control-switch--theme[data-theme="light"] {
+  background: var(--uf-color-action-secondary-subtle-hover);
+}
+
+.uf-control-switch--theme[data-theme="light"] > span {
+  transform: translateX(24px);
+  color: var(--uf-color-action-secondary-default);
+}
+
+.uf-control-switch:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--uf-color-action-primary-default) 35%, transparent);
+  outline-offset: 2px;
+}
+
+.uf-control-switch:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .uf-control-stack {
@@ -102,14 +142,22 @@
   background: var(--uf-color-action-primary-default);
 }
 
-.uf-text-field { display: grid; gap: var(--uf-space-2); color: var(--uf-color-text-secondary); }
-.uf-text-field__label { font: 500 13px/1.2 var(--uf-font-body); }
-.uf-text-field__control { display: flex; align-items: center; gap: var(--uf-space-2); min-height: var(--uf-control-lg); padding: 0 var(--uf-space-3); border: var(--uf-border-hairline) solid var(--uf-color-border-default); border-radius: var(--uf-radius-sm); background: var(--uf-color-background-page); }
-.uf-text-field__control:focus-within { border-color: var(--uf-color-action-primary-border); box-shadow: 0 0 0 3px color-mix(in srgb, var(--uf-color-action-primary-default) 22%, transparent); }
-.uf-text-field__control input { min-width: 0; flex: 1; border: 0; outline: 0; color: var(--uf-color-text-primary); background: transparent; font: 400 14px/1 var(--uf-font-body); }
+.uf-text-field { display: grid; gap: 6px; color: var(--uf-color-text-secondary); }
+.uf-text-field__label { font: 400 14px/1.2 var(--uf-font-body); }
+.uf-text-field__control { display: flex; align-items: center; gap: var(--uf-space-2); padding: 6px var(--uf-space-3); border: var(--uf-border-hairline) solid var(--uf-color-action-primary-default); border-radius: var(--uf-radius-md); background: var(--uf-color-background-page); font-family: "Space Mono", monospace; }
+.uf-text-field__control:focus-within { box-shadow: 0 0 0 3px color-mix(in srgb, var(--uf-color-action-primary-default) 22%, transparent); }
+.uf-text-field__control input,
+.uf-text-field__control textarea { min-width: 0; flex: 1; padding: 0; border: 0; outline: 0; color: var(--uf-color-text-primary); background: transparent; font: 400 16px/normal "Space Mono", monospace; }
+.uf-text-field__control input::placeholder,
+.uf-text-field__control textarea::placeholder { color: var(--uf-color-text-disabled); }
+.uf-text-field__supporting { flex: none; color: var(--uf-color-action-primary-default); font-size: 12px; white-space: nowrap; }
 .uf-text-field__icon { display: grid; place-items: center; color: var(--uf-color-text-secondary); }
 .uf-text-field__icon svg { width: var(--uf-icon-md); height: var(--uf-icon-md); }
 .uf-text-field__description { color: var(--uf-color-text-secondary); font: 400 12px/1.4 var(--uf-font-body); }
+.uf-text-field--slim .uf-text-field__control { height: 20px; padding: 0 var(--uf-space-2); }
+.uf-text-field--slim .uf-text-field__control input { font-size: 12px; }
+.uf-text-field--tall .uf-text-field__control { align-items: stretch; min-height: 200px; }
+.uf-text-field--tall .uf-text-field__control textarea { resize: vertical; font: 400 24px/1.5 var(--uf-font-body); }
 .uf-text-field[data-invalid] .uf-text-field__control { border-color: var(--uf-color-error-border); }
 .uf-text-field[data-invalid] .uf-text-field__description { color: var(--uf-color-error-text); }
 
@@ -140,14 +188,20 @@
 .uf-slider { display: grid; gap: var(--uf-space-2); width: 100%; color: var(--uf-color-text-secondary); }
 .uf-slider__heading { display: flex; justify-content: space-between; font: 500 13px/1.2 var(--uf-font-body); }
 .uf-slider__heading output { color: var(--uf-color-text-primary); font-family: var(--uf-font-mono); }
-.uf-slider input { width: 100%; height: 24px; margin: 0; appearance: none; background: transparent; cursor: pointer; }
-.uf-slider input::-webkit-slider-runnable-track { height: 8px; border-radius: var(--uf-radius-full); background: var(--uf-slider-gradient, linear-gradient(90deg, var(--uf-color-action-primary-default) 0 var(--uf-slider-progress), var(--uf-color-background-subtle) var(--uf-slider-progress) 100%)); }
-.uf-slider input::-moz-range-track { height: 8px; border-radius: var(--uf-radius-full); background: var(--uf-slider-gradient, var(--uf-color-background-subtle)); }
-.uf-slider input::-moz-range-progress { height: 8px; border-radius: var(--uf-radius-full); background: var(--uf-color-action-primary-default); }
-.uf-slider input::-webkit-slider-thumb { width: 24px; height: 24px; margin-top: -8px; appearance: none; border: 0; border-radius: 50%; background: var(--uf-color-action-primary-default); box-shadow: none; }
-.uf-slider input::-moz-range-thumb { width: 24px; height: 24px; border: 0; border-radius: 50%; background: var(--uf-color-action-primary-default); box-shadow: none; }
-.uf-slider input:hover::-webkit-slider-thumb { box-shadow: 0 0 0 3px var(--uf-color-background-page), 0 0 0 5px var(--uf-color-action-primary-default); }
-.uf-slider input:hover::-moz-range-thumb { box-shadow: 0 0 0 3px var(--uf-color-background-page), 0 0 0 5px var(--uf-color-action-primary-default); }
+/* Figma paints the unfilled track with a literal #ede8f2 that has no semantic variable yet. */
+.uf-slider { --uf-slider-track: #ede8f2; --uf-slider-track-height: 10px; --uf-slider-thumb: 24px; }
+.uf-slider--compact { --uf-slider-track-height: 8px; --uf-slider-thumb: 16px; }
+.uf-slider input { width: 100%; height: calc(var(--uf-slider-thumb) + 10px); margin: 0; appearance: none; background: transparent; cursor: pointer; }
+.uf-slider input::-webkit-slider-runnable-track { height: var(--uf-slider-track-height); border-radius: 6px; background: var(--uf-slider-gradient, linear-gradient(90deg, var(--uf-color-action-primary-default) 0 var(--uf-slider-progress), var(--uf-slider-track) var(--uf-slider-progress) 100%)); box-shadow: inset 0 0 0 var(--uf-border-hairline) var(--uf-color-action-primary-default); }
+.uf-slider input::-moz-range-track { height: var(--uf-slider-track-height); box-sizing: border-box; border: var(--uf-border-hairline) solid var(--uf-color-action-primary-default); border-radius: 6px; background: var(--uf-slider-gradient, var(--uf-slider-track)); }
+.uf-slider input::-moz-range-progress { height: var(--uf-slider-track-height); border-radius: 6px 0 0 6px; background: var(--uf-color-action-primary-default); }
+.uf-slider[data-gradient] input::-webkit-slider-runnable-track { box-shadow: none; }
+.uf-slider[data-gradient] input::-moz-range-track { border: 0; }
+.uf-slider[data-gradient] input::-moz-range-progress { background: transparent; }
+.uf-slider input::-webkit-slider-thumb { width: var(--uf-slider-thumb); height: var(--uf-slider-thumb); margin-top: calc((var(--uf-slider-track-height) - var(--uf-slider-thumb)) / 2); appearance: none; border: 0; border-radius: 50%; background: var(--uf-color-action-primary-default); box-shadow: none; transition: box-shadow var(--uf-motion-fast); }
+.uf-slider input::-moz-range-thumb { width: var(--uf-slider-thumb); height: var(--uf-slider-thumb); border: 0; border-radius: 50%; background: var(--uf-color-action-primary-default); box-shadow: none; transition: box-shadow var(--uf-motion-fast); }
+.uf-slider input:active::-webkit-slider-thumb { box-shadow: 0 0 0 5px #fff; }
+.uf-slider input:active::-moz-range-thumb { box-shadow: 0 0 0 5px #fff; }
 .uf-slider input:focus-visible { outline: none; }
 .uf-slider input:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 3px var(--uf-color-background-page), 0 0 0 5px var(--uf-color-action-primary-default); }
 .uf-slider input:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 3px var(--uf-color-background-page), 0 0 0 5px var(--uf-color-action-primary-default); }

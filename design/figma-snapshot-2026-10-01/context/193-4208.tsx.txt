@@ -1,0 +1,638 @@
+const imgArrowsChevronRight = "http://localhost:3845/assets/c108e96bb08e6af5aa7a760adb738c2d3d5e73ef.svg";
+const imgArrowsChevronRight1 = "http://localhost:3845/assets/8128e46dae90f3b9e9c07fb9142dc1356e7d35cd.svg";
+const imgArrowsChevronRight2 = "http://localhost:3845/assets/0f5e425102ce610eae3d0a2c703394988840888b.svg";
+const imgArrowsChevronRight3 = "http://localhost:3845/assets/46140eaa2e8650630a8225a306f4973a90d143a8.svg";
+const imgArrowsChevronRight4 = "http://localhost:3845/assets/fb552c510f0c7eea0551d6802dffe849ebe901a8.svg";
+const imgArrowsChevronRight5 = "http://localhost:3845/assets/adb140a9f8566069aa79d0be9565d3aa97029263.svg";
+type ButtonProps = {
+  className?: string;
+  iconLeft?: React.ReactNode | null;
+  iconLeftVisible?: boolean;
+  iconRight?: React.ReactNode | null;
+  iconRightVisible?: boolean;
+  property1?: "Primary" | "Secondary" | "Tertiary" | "Link Button" | "Surface";
+  round?: boolean;
+  showText?: boolean;
+  state?: "Default" | "Hover" | "Pressed";
+  text?: string;
+};
+
+export default function Button({ className, iconLeft = null, iconLeftVisible = false, iconRight = null, iconRightVisible = true, property1 = "Primary", round = false, showText = true, state = "Default", text = "Continue" }: ButtonProps) {
+  if (property1 === "Primary" && state === "Default" && round) {
+    return (
+      <div className={className || "bg-[var(--action\\/primary\\/default,#3f2dc3)] content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4213" data-name="Property 1=Primary, State=Default, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4214" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4215">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4216" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Surface" && state === "Default" && !round) {
+    return (
+      <button className={className || "border border-[var(--action\\/primary\\/default,#3f2dc3)] border-solid content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4217" data-name="Property 1=Surface, State=Default, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4218" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="193:4219">
+          {text}
+        </p>
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4220" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight2} />
+            </div>
+          ))}
+      </button>
+    );
+  }
+  if (property1 === "Surface" && state === "Default" && round) {
+    return (
+      <div className={className || "border border-[var(--action\\/primary\\/default,#3f2dc3)] border-solid content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4221" data-name="Property 1=Surface, State=Default, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4222" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="193:4223">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4224" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight2} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Secondary" && state === "Default" && !round) {
+    return (
+      <div className={className || "bg-[var(--action\\/secondary\\/default,#5e5000)] border border-[var(--border\\/default,#7d808b)] border-solid content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4225" data-name="Property 1=Secondary, State=Default, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4226" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4227">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4228" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Secondary" && state === "Default" && round) {
+    return (
+      <div className={className || "bg-[var(--action\\/secondary\\/default,#5e5000)] border border-[var(--border\\/default,#7d808b)] border-solid content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4229" data-name="Property 1=Secondary, State=Default, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4230" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4231">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4232" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Tertiary" && state === "Default" && !round) {
+    return (
+      <div className={className || "bg-[var(--tertiary\\/600,#7062ad)] content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4233" data-name="Property 1=Tertiary, State=Default, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4234" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4235">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4236" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Tertiary" && state === "Default" && round) {
+    return (
+      <div className={className || "bg-[var(--tertiary\\/600,#7062ad)] content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4237" data-name="Property 1=Tertiary, State=Default, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4238" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4239">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4240" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Link Button" && state === "Default" && !round) {
+    return (
+      <div className={className || "content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[16px]"} data-node-id="193:4241" data-name="Property 1=Link Button, State=Default, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4242" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center whitespace-nowrap" data-node-id="193:4243">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4244" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight3} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Primary" && state === "Hover" && !round) {
+    return (
+      <div className={className || "bg-[var(--action\\/primary\\/hover,#3311a7)] content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4245" data-name="Property 1=Primary, State=Hover, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4246" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4247">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4248" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Primary" && state === "Hover" && round) {
+    return (
+      <div className={className || "bg-[var(--action\\/primary\\/hover,#3311a7)] content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4249" data-name="Property 1=Primary, State=Hover, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4250" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4251">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4252" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Surface" && state === "Hover" && !round) {
+    return (
+      <div className={className || "bg-[var(--action\\/primary\\/subtle,#c5d1ff)] border border-[var(--action\\/primary\\/default,#3f2dc3)] border-solid content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4253" data-name="Property 1=Surface, State=Hover, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4254" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="193:4255">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4256" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight2} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Surface" && state === "Hover" && round) {
+    return (
+      <div className={className || "bg-[var(--action\\/primary\\/subtle,#c5d1ff)] border border-[var(--action\\/primary\\/default,#3f2dc3)] border-solid content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4257" data-name="Property 1=Surface, State=Hover, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4258" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="193:4259">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4260" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight2} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Secondary" && state === "Hover" && !round) {
+    return (
+      <div className={className || "bg-[var(--action\\/secondary\\/hover,#483e00)] border border-[var(--action\\/secondary\\/hover,#483e00)] border-solid content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4261" data-name="Property 1=Secondary, State=Hover, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4262" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4263">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4264" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Secondary" && state === "Hover" && round) {
+    return (
+      <div className={className || "bg-[var(--action\\/secondary\\/hover,#483e00)] border border-[var(--action\\/secondary\\/hover,#483e00)] border-solid content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4265" data-name="Property 1=Secondary, State=Hover, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4266" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4267">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4268" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Tertiary" && state === "Hover" && !round) {
+    return (
+      <div className={className || "bg-[var(--tertiary\\/700,#56458d)] content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4269" data-name="Property 1=Tertiary, State=Hover, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4270" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4271">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4272" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Tertiary" && state === "Hover" && round) {
+    return (
+      <div className={className || "bg-[var(--tertiary\\/700,#56458d)] content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4273" data-name="Property 1=Tertiary, State=Hover, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4274" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4275">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4276" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Link Button" && state === "Hover" && !round) {
+    return (
+      <div className={className || "content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[16px]"} data-node-id="193:4277" data-name="Property 1=Link Button, State=Hover, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4278" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--action\/primary\/hover,#3311a7)] text-center underline whitespace-nowrap" data-node-id="193:4279">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4280" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight4} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Primary" && state === "Pressed" && !round) {
+    return (
+      <div className={className || "bg-[var(--action\\/primary\\/pressed,#270085)] content-stretch flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4281" data-name="Property 1=Primary, State=Pressed, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4282" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4283">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4284" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Primary" && state === "Pressed" && round) {
+    return (
+      <div className={className || "bg-[var(--action\\/primary\\/pressed,#270085)] content-stretch flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4285" data-name="Property 1=Primary, State=Pressed, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4286" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4287">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4288" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Surface" && state === "Pressed" && !round) {
+    return (
+      <div className={className || "bg-[var(--action\\/primary\\/subtlehover,#9eafff)] border border-[var(--action\\/primary\\/default,#3f2dc3)] border-solid content-stretch flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4289" data-name="Property 1=Surface, State=Pressed, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4290" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="193:4291">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4292" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight2} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Surface" && state === "Pressed" && round) {
+    return (
+      <div className={className || "bg-[var(--action\\/primary\\/subtlehover,#9eafff)] border border-[var(--action\\/primary\\/default,#3f2dc3)] border-solid content-stretch flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4293" data-name="Property 1=Surface, State=Pressed, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4294" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="193:4295">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4296" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight2} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Secondary" && state === "Pressed" && !round) {
+    return (
+      <div className={className || "bg-[var(--action\\/secondary\\/pressed,#352e00)] border border-[var(--action\\/secondary\\/pressed,#352e00)] border-solid content-stretch flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4297" data-name="Property 1=Secondary, State=Pressed, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4298" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4299">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4300" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Secondary" && state === "Pressed" && round) {
+    return (
+      <div className={className || "bg-[var(--action\\/secondary\\/pressed,#352e00)] border border-[var(--action\\/secondary\\/pressed,#352e00)] border-solid content-stretch flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4301" data-name="Property 1=Secondary, State=Pressed, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4302" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4303">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4304" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Tertiary" && state === "Pressed" && !round) {
+    return (
+      <div className={className || "bg-[var(--tertiary\\/800,#3e2c6d)] content-stretch flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4305" data-name="Property 1=Tertiary, State=Pressed, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4306" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4307">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4308" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Tertiary" && state === "Pressed" && round) {
+    return (
+      <div className={className || "bg-[var(--tertiary\\/800,#3e2c6d)] content-stretch flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/full,9999px)]"} data-node-id="193:4309" data-name="Property 1=Tertiary, State=Pressed, Round=True">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4310" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4311">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4312" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  if (property1 === "Link Button" && state === "Pressed" && !round) {
+    return (
+      <div className={className || "content-stretch flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[16px]"} data-node-id="193:4313" data-name="Property 1=Link Button, State=Pressed, Round=False">
+        {iconLeftVisible &&
+          (iconLeft || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4314" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+            </div>
+          ))}
+        {showText && (
+          <p className="[text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--action\/primary\/pressed,#270085)] text-center underline whitespace-nowrap" data-node-id="193:4315">
+            {text}
+          </p>
+        )}
+        {iconRightVisible &&
+          (iconRight || (
+            <div className="relative shrink-0 size-[24px]" data-node-id="193:4316" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight5} />
+            </div>
+          ))}
+      </div>
+    );
+  }
+  return (
+    <div className={className || "bg-[var(--action\\/primary\\/default,#3f2dc3)] content-stretch cursor-pointer flex gap-[8px] h-[50px] items-center justify-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\\/sm,4px)]"} data-node-id="193:4209" data-name="Property 1=Primary, State=Default, Round=False">
+      {iconLeftVisible &&
+        (iconLeft || (
+          <div className="relative shrink-0 size-[24px]" data-node-id="193:4210" data-name="Arrows/chevron-right">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+          </div>
+        ))}
+      {showText && (
+        <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4211">
+          {text}
+        </p>
+      )}
+      {iconRightVisible &&
+        (iconRight || (
+          <div className="relative shrink-0 size-[24px]" data-node-id="193:4212" data-name="Arrows/chevron-right">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+          </div>
+        ))}
+    </div>
+  );
+}

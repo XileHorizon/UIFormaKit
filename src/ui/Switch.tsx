@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
 import "./form-controls.css";
 
 export interface SwitchProps
@@ -35,3 +36,39 @@ export function Switch({ checked, onCheckedChange, label, className = "", ...pro
   );
 }
 
+
+export type ThemeSwitchTheme = "light" | "dark";
+
+export interface ThemeSwitchProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "role"> {
+  theme: ThemeSwitchTheme;
+  onThemeChange?: (theme: ThemeSwitchTheme) => void;
+}
+
+export function ThemeSwitch({
+  theme,
+  onThemeChange,
+  className = "",
+  "aria-label": ariaLabel = "Dark mode",
+  ...props
+}: ThemeSwitchProps) {
+  const light = theme === "light";
+  return (
+    <button
+      {...props}
+      type="button"
+      role="switch"
+      aria-label={ariaLabel}
+      aria-checked={!light}
+      className={`uf-control-switch uf-control-switch--theme ${className}`.trim()}
+      data-state={light ? "unchecked" : "checked"}
+      data-theme={theme}
+      onClick={(event) => {
+        props.onClick?.(event);
+        if (!event.defaultPrevented) onThemeChange?.(light ? "dark" : "light");
+      }}
+    >
+      <span aria-hidden="true">{light ? <IconSunFilled /> : <IconMoonFilled />}</span>
+    </button>
+  );
+}

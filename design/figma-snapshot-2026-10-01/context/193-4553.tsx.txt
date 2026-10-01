@@ -1,0 +1,48 @@
+const imgSliderHandle = "http://localhost:3845/assets/7114be85b7c3d52ed4640aa1320e6d1c486c35ff.svg";
+const imgEllipse2 = "http://localhost:3845/assets/c61f700853d959dfc119cf42b2afa38a4914c940.svg";
+const imgSliderHandle1 = "http://localhost:3845/assets/832b7ce2693afb5338891a2806e1315f06968142.svg";
+const imgEllipse3 = "http://localhost:3845/assets/e0c31d122b409b191b8429383a0e2f482171e20e.svg";
+type SliderProps = {
+  className?: string;
+  dragging?: boolean;
+  property1?: "50" | "100" | "75" | "25" | "0";
+};
+
+export default function Slider({ className, dragging = false, property1 = "0" }: SliderProps) {
+  const is100 = property1 === "100";
+  const is25 = property1 === "25";
+  const is50 = property1 === "50";
+  const is75 = property1 === "75";
+  return (
+    <div className={className || `relative w-[570px] ${is25 ? "h-[16px]" : "h-[34px]"}`} id={is100 ? "node-193_4577" : is75 ? "node-193_4571" : is50 ? "node-193_4565" : is25 ? "node-193_4559" : "node-193_4554"}>
+      <div className={`absolute contents ${is25 ? "-translate-y-1/2 left-0 right-0 top-1/2" : "inset-[35.29%_0]"}`} id={is100 ? "node-193_4578" : is75 ? "node-193_4572" : is50 ? "node-193_4566" : is25 ? "node-193_4560" : "node-193_4555"}>
+        <div className={`${String.raw`absolute bg-[var(--action\/primary\/default,#3f2dc3)] rounded-bl-[6px] rounded-tl-[6px] `}${is100 ? "inset-[35.29%_2.11%_35.29%_0]" : is75 ? "inset-[35.29%_24.91%_35.29%_0]" : is50 ? "bottom-[35.29%] left-0 right-1/2 top-[35.29%]" : is25 ? "-translate-y-1/2 h-[8px] left-0 right-[75.09%] top-1/2" : "inset-[35.29%_97.89%_35.29%_0]"}`} id={is100 ? "node-193_4579" : is75 ? "node-193_4573" : is50 ? "node-193_4567" : is25 ? "node-193_4561" : "node-193_4556"} />
+        <div className={`absolute flex items-center justify-center ${is100 ? "inset-[35.29%_0_35.29%_97.89%]" : is75 ? "inset-[35.29%_0_35.29%_75.09%]" : is50 ? "bottom-[35.29%] left-1/2 right-0 top-[35.29%]" : is25 ? "-translate-y-1/2 h-[8px] left-[24.91%] right-0 top-1/2" : "inset-[35.29%_0_35.29%_2.11%]"}`} id={is100 ? "node-193_4580" : is75 ? "node-193_4574" : is50 ? "node-193_4568" : is25 ? "node-193_4562" : "node-193_4557"} style={{ containerType: "size" }}>
+          <div className="flex-none h-[100cqh] rotate-180 w-[100cqw]">
+            <div className="bg-[#ede8f2] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid relative rounded-bl-[6px] rounded-tl-[6px] size-full" />
+          </div>
+        </div>
+      </div>
+      {["50", "75", "100"].includes(property1) && dragging && (
+        <div className="absolute inset-[0_47.02%]" data-node-id="193:4569">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse3} />
+        </div>
+      )}
+      {["0", "50", "75", "100"].includes(property1) && (
+        <div className={`-translate-x-1/2 -translate-y-1/2 absolute size-[24px] top-1/2 ${is100 ? "left-[calc(50%+273px)]" : is75 ? "left-[calc(50%+143px)]" : is50 ? "left-1/2" : "left-[calc(50%-273px)]"}`} id={is100 ? "node-193_4582" : is75 ? "node-193_4576" : is50 ? "node-193_4570" : "node-193_4558"} data-name="Slider Handle">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSliderHandle} />
+        </div>
+      )}
+      {is25 && dragging && (
+        <div className="absolute inset-[0_47.02%]" data-node-id="193:4563">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse2} />
+        </div>
+      )}
+      {is25 && (
+        <div className="absolute aspect-[24/24] left-[23.51%] right-[73.68%] top-0" data-node-id="193:4564" data-name="Slider Handle">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSliderHandle1} />
+        </div>
+      )}
+    </div>
+  );
+}

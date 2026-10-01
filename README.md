@@ -45,3 +45,6 @@ npm run check
 ## Figma source
 
 [UIForma-Kit, frame 193:7341](https://www.figma.com/design/6UMDGsdfnSovglFsEN4L1W/UIForma-Kit?node-id=193-7341&m=dev)
+
+An offline snapshot of the Atoms and Molecules pages, with the latest fidelity notes and token drift, lives in
+[`design/figma-snapshot-2026-10-01`](design/figma-snapshot-2026-10-01/README.md).

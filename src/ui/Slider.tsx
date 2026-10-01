@@ -2,12 +2,13 @@ import { useId, type CSSProperties, type InputHTMLAttributes, type ReactNode } f
 import "./form-controls.css";
 
 export interface SliderProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "value" | "onChange"> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "value" | "onChange" | "size"> {
   label?: ReactNode;
   value: number;
   onValueChange: (value: number) => void;
   showValue?: boolean;
   gradient?: string;
+  size?: "standard" | "compact";
 }
 
 export function Slider({
@@ -16,6 +17,7 @@ export function Slider({
   onValueChange,
   showValue = true,
   gradient,
+  size = "standard",
   id: suppliedId,
   min = 0,
   max = 100,
@@ -29,7 +31,11 @@ export function Slider({
   const maximum = Number(max);
   const percentage = ((value - minimum) / (maximum - minimum)) * 100;
   return (
-    <label className={`uf-slider ${className}`.trim()} htmlFor={id}>
+    <label
+      className={`uf-slider uf-slider--${size} ${className}`.trim()}
+      htmlFor={id}
+      data-gradient={gradient ? true : undefined}
+    >
       {(label || showValue) && (
         <span className="uf-slider__heading">
           <span>{label}</span>

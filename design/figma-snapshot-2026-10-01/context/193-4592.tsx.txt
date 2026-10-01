@@ -1,0 +1,45 @@
+const imgToggleHandle = "http://localhost:3845/assets/158c3ab67071be0a66b2c4555390b63612b78595.svg";
+const imgWeatherSun = "http://localhost:3845/assets/b444b9a11584f7bb5d1999ae74bf1bfaed7c1277.svg";
+const imgToggleHandle1 = "http://localhost:3845/assets/91aae61e633f654613e5cab035dbd728fe01d356.svg";
+const imgWeatherMoon = "http://localhost:3845/assets/a94b4025212718cbf50c37a5fc618efcfd20e7c5.svg";
+type ToggleProps = {
+  className?: string;
+  property1?: "Toggle Off" | "Toggle On" | "Variant3" | "Variant4";
+};
+
+export default function Toggle({ className, property1 = "Toggle On" }: ToggleProps) {
+  const isToggleOff = property1 === "Toggle Off";
+  const isVariant3 = property1 === "Variant3";
+  const isVariant4 = property1 === "Variant4";
+  return (
+    <button className={className || `content-stretch flex items-center justify-end p-[2px] relative ${isVariant4 ? String.raw`bg-[var(--action\/primary\/subtlehover,#9eafff)] h-[28px] rounded-[var(--radius\/sm,4px)] w-[52px]` : isToggleOff ? String.raw`bg-[var(--state\/selected\/container,#c5d1ff)] h-[20px] rounded-[10px] w-[34px]` : isVariant3 ? String.raw`bg-[var(--action\/secondary\/subtlehover,#d7b100)] h-[28px] rounded-[var(--radius\/sm,4px)] w-[52px]` : String.raw`bg-[var(--action\/primary\/default,#3f2dc3)] h-[20px] rounded-[10px] w-[34px]`}`} id={isVariant4 ? "node-298_3176" : isToggleOff ? "node-193_4595" : isVariant3 ? "node-298_3174" : "node-193_4593"}>
+      {["Toggle On", "Toggle Off"].includes(property1) && (
+        <div className="relative shrink-0 size-[16px]" id={isToggleOff ? "node-193_4596" : "node-193_4594"} data-name="toggle-handle">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={isToggleOff ? imgToggleHandle1 : imgToggleHandle} />
+        </div>
+      )}
+      {["Variant3", "Variant4"].includes(property1) && (
+        <div className={`flex items-center justify-center relative shrink-0 ${isVariant4 ? String.raw`bg-[var(--background\/page,#fafafa)] content-stretch flex-col rounded-[var(--radius\/xs,2px)] size-[24px]` : ""}`} id={isVariant4 ? "node-298_3199" : "node-298_3200"}>
+          <div className={isVariant4 ? "flex items-center justify-center relative shrink-0" : "flex-none rotate-180"} id={isVariant4 ? "node-298_3185" : undefined}>
+            <div className={isVariant4 ? "flex-none rotate-180" : String.raw`bg-[var(--background\/page,#fafafa)] content-stretch flex flex-col items-center justify-center relative rounded-[var(--radius\/xs,2px)] size-[24px]`}>
+              {isVariant3 && (
+                <div className="flex items-center justify-center relative shrink-0" data-node-id="298:3202">
+                  <div className="flex-none rotate-180">
+                    <div className="relative size-[20px]" data-name="Weather/sun">
+                      <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWeatherSun} />
+                    </div>
+                  </div>
+                </div>
+              )}
+              {isVariant4 && (
+                <div className="relative size-[20px]" data-name="Weather/moon">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWeatherMoon} />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </button>
+  );
+}

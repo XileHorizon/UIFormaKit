@@ -19,7 +19,9 @@ import {
   Slider,
   Switch,
   Tabs,
+  TextArea,
   TextField,
+  ThemeSwitch,
   Ticker,
   type ButtonAppearance,
   type ButtonSize,
@@ -751,6 +753,18 @@ export default function App() {
               readOnly
               error="Enter a valid email address"
             />
+            <TextField
+              label="Seed color"
+              defaultValue="#3F2DC3"
+              supportingText="HEX"
+            />
+            <TextField
+              label="Slim"
+              size="slim"
+              defaultValue="0.0"
+              supportingText="deg"
+            />
+            <TextArea label="Notes" placeholder="Describe the palette intent" />
           </div>
         </Example>
         <Example
@@ -805,6 +819,7 @@ export default function App() {
               label="Snap to grid"
             />
             <Switch checked={false} disabled label="Disabled" />
+            <ThemeSwitch theme={theme} onThemeChange={setTheme} />
           </div>
         </Example>
         <Example
@@ -916,6 +931,7 @@ export default function App() {
         >
           <div className="slider-stack">
             <Slider label="Exposure" value={slider} onValueChange={setSlider} />
+            <Slider label="Compact" size="compact" value={slider} onValueChange={setSlider} />
             <Slider
               label="Hue"
               value={slider}

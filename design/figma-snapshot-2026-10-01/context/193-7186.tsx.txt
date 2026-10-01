@@ -1,0 +1,23 @@
+const imgProperty1Monochrome = "http://localhost:3845/assets/8e3265ffc4d37a622dcc30765efadbf074286c9b.svg";
+const imgProperty1Complementary = "http://localhost:3845/assets/de96d8880140df737ef634501b291960d325eee9.svg";
+const imgProperty1SplitComplementary = "http://localhost:3845/assets/32a34d638337c761af5f34bad4765f06c98b550b.svg";
+const imgProperty1Triadic = "http://localhost:3845/assets/4ed177f6187e5b5ecacfa23f51fe72225dc5394f.svg";
+const imgProperty1Analogous = "http://localhost:3845/assets/da05d7ad651f23b39b93d7f808e2032b7f2e6ef9.svg";
+const imgProperty1Quadratic = "http://localhost:3845/assets/e49a2d3560cd640e085e7453fe93640afcc9e83a.svg";
+type RelationIconsProps = {
+  className?: string;
+  property1?: "Analogous" | "Complementary" | "Monochrome" | "Quadratic" | "Split Complementary" | "Triadic";
+};
+
+export default function RelationIcons({ className, property1 = "Monochrome" }: RelationIconsProps) {
+  const isAnalogous = property1 === "Analogous";
+  const isComplementary = property1 === "Complementary";
+  const isQuadratic = property1 === "Quadratic";
+  const isSplitComplementary = property1 === "Split Complementary";
+  const isTriadic = property1 === "Triadic";
+  return (
+    <div className={className || "relative size-[24px]"} id={isQuadratic ? "node-193_7197" : isAnalogous ? "node-193_7195" : isTriadic ? "node-193_7193" : isSplitComplementary ? "node-193_7191" : isComplementary ? "node-193_7189" : "node-193_7187"}>
+      <img alt="" className="absolute block inset-0 max-w-none size-full" src={isQuadratic ? imgProperty1Quadratic : isAnalogous ? imgProperty1Analogous : isTriadic ? imgProperty1Triadic : isSplitComplementary ? imgProperty1SplitComplementary : isComplementary ? imgProperty1Complementary : imgProperty1Monochrome} />
+    </div>
+  );
+}

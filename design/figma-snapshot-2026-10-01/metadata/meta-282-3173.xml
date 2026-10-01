@@ -1,0 +1,132 @@
+<section id="282:3173" name="Atoms" x="-3226" y="-122" width="2629" height="1044">
+  <frame id="193:4592" name="Toggle" x="1789" y="351" width="76" height="198.00001525878906">
+    <symbol id="193:4593" name="Property 1=Toggle On" x="21" y="21" width="34" height="20" />
+    <symbol id="298:3174" name="Property 1=Variant3" x="12" y="61" width="52" height="28" />
+    <symbol id="193:4595" name="Property 1=Toggle Off" x="55" y="129" width="34.00000174845559" height="20.000002972374432" />
+    <symbol id="298:3176" name="Property 1=Variant4" x="64" y="177" width="51.999998633140876" height="28.000008360681306" />
+  </frame>
+  <frame id="193:4991" name="Color Slider Handle" x="1931" y="359" width="105" height="72">
+    <symbol id="193:4992" name="Property 1=Rectangle 39" x="44" y="21.5" width="18" height="30" />
+    <symbol id="193:4994" name="Property 1=Subtract" x="68" y="21" width="17" height="30" />
+    <symbol id="193:4996" name="Property 1=Rectangle 43" x="20" y="20" width="13.000000953674316" height="31" />
+  </frame>
+  <frame id="193:4208" name="Button" x="65" y="299" width="1399" height="226">
+    <symbol id="193:4209" name="Property 1=Primary, State=Default, Round=False" x="20" y="20" width="135" height="50" />
+    <symbol id="193:4213" name="Property 1=Primary, State=Default, Round=True" x="173" y="20" width="135" height="50" />
+    <symbol id="193:4217" name="Property 1=Surface, State=Default, Round=False" x="326" y="20" width="135" height="50" />
+    <symbol id="193:4221" name="Property 1=Surface, State=Default, Round=True" x="479" y="20" width="135" height="50" />
+    <symbol id="193:4225" name="Property 1=Secondary, State=Default, Round=False" x="632" y="20" width="135" height="50" />
+    <symbol id="193:4229" name="Property 1=Secondary, State=Default, Round=True" x="785" y="20" width="135" height="50" />
+    <symbol id="193:4233" name="Property 1=Tertiary, State=Default, Round=False" x="938" y="20" width="135" height="50" />
+    <symbol id="193:4237" name="Property 1=Tertiary, State=Default, Round=True" x="1091" y="20" width="135" height="50" />
+    <symbol id="193:4241" name="Property 1=Link Button, State=Default, Round=False" x="1244" y="20" width="135" height="50" />
+    <symbol id="193:4245" name="Property 1=Primary, State=Hover, Round=False" x="20" y="88" width="135" height="50" />
+    <symbol id="193:4249" name="Property 1=Primary, State=Hover, Round=True" x="173" y="88" width="135" height="50" />
+    <symbol id="193:4253" name="Property 1=Surface, State=Hover, Round=False" x="326" y="88" width="135" height="50" />
+    <symbol id="193:4257" name="Property 1=Surface, State=Hover, Round=True" x="479" y="88" width="135" height="50" />
+    <symbol id="193:4261" name="Property 1=Secondary, State=Hover, Round=False" x="632" y="88" width="135" height="50" />
+    <symbol id="193:4265" name="Property 1=Secondary, State=Hover, Round=True" x="785" y="88" width="135" height="50" />
+    <symbol id="193:4269" name="Property 1=Tertiary, State=Hover, Round=False" x="938" y="88" width="135" height="50" />
+    <symbol id="193:4273" name="Property 1=Tertiary, State=Hover, Round=True" x="1091" y="88" width="135" height="50" />
+    <symbol id="193:4277" name="Property 1=Link Button, State=Hover, Round=False" x="1244" y="88" width="135" height="50" />
+    <symbol id="193:4281" name="Property 1=Primary, State=Pressed, Round=False" x="20" y="156" width="135" height="50" />
+    <symbol id="193:4285" name="Property 1=Primary, State=Pressed, Round=True" x="173" y="156" width="135" height="50" />
+    <symbol id="193:4289" name="Property 1=Surface, State=Pressed, Round=False" x="326" y="156" width="135" height="50" />
+    <symbol id="193:4293" name="Property 1=Surface, State=Pressed, Round=True" x="479" y="156" width="135" height="50" />
+    <symbol id="193:4297" name="Property 1=Secondary, State=Pressed, Round=False" x="632" y="156" width="135" height="50" />
+    <symbol id="193:4301" name="Property 1=Secondary, State=Pressed, Round=True" x="785" y="156" width="135" height="50" />
+    <symbol id="193:4305" name="Property 1=Tertiary, State=Pressed, Round=False" x="938" y="156" width="135" height="50" />
+    <symbol id="193:4309" name="Property 1=Tertiary, State=Pressed, Round=True" x="1091" y="156" width="135" height="50" />
+    <symbol id="193:4313" name="Property 1=Link Button, State=Pressed, Round=False" x="1244" y="156" width="135" height="50" />
+  </frame>
+  <frame id="193:4317" name="Button - Huge" x="65" y="575" width="1894" height="286">
+    <symbol id="193:4318" name="Property 1=Primary, State=Default, Round=False" x="20" y="20" width="190" height="70" />
+    <symbol id="193:4322" name="Property 1=Primary, State=Default, Round=True" x="228" y="20" width="190" height="70" />
+    <symbol id="193:4326" name="Property 1=Surface, State=Default, Round=False" x="436" y="20" width="190" height="70" />
+    <symbol id="193:4330" name="Property 1=Surface, State=Default, Round=True" x="644" y="20" width="190" height="70" />
+    <symbol id="193:4334" name="Property 1=Secondary, State=Default, Round=False" x="852" y="20" width="190" height="70" />
+    <symbol id="193:4338" name="Property 1=Secondary, State=Default, Round=True" x="1060" y="20" width="190" height="70" />
+    <symbol id="193:4342" name="Property 1=Tertiary, State=Default, Round=False" x="1268" y="20" width="190" height="70" />
+    <symbol id="193:4346" name="Property 1=Tertiary, State=Default, Round=True" x="1476" y="20" width="190" height="70" />
+    <symbol id="193:4350" name="Property 1=Link Button, State=Default, Round=False" x="1684" y="20" width="190" height="70" />
+    <symbol id="193:4354" name="Property 1=Primary, State=Hover, Round=False" x="20" y="108" width="190" height="70" />
+    <symbol id="193:4358" name="Property 1=Primary, State=Hover, Round=True" x="228" y="108" width="190" height="70" />
+    <symbol id="193:4362" name="Property 1=Surface, State=Hover, Round=False" x="436" y="108" width="190" height="70" />
+    <symbol id="193:4366" name="Property 1=Surface, State=Hover, Round=True" x="644" y="108" width="190" height="70" />
+    <symbol id="193:4370" name="Property 1=Secondary, State=Hover, Round=False" x="852" y="108" width="190" height="70" />
+    <symbol id="193:4374" name="Property 1=Secondary, State=Hover, Round=True" x="1060" y="108" width="190" height="70" />
+    <symbol id="193:4378" name="Property 1=Tertiary, State=Hover, Round=False" x="1268" y="108" width="190" height="70" />
+    <symbol id="193:4382" name="Property 1=Tertiary, State=Hover, Round=True" x="1476" y="108" width="190" height="70" />
+    <symbol id="193:4386" name="Property 1=Link Button, State=Hover, Round=False" x="1684" y="108" width="190" height="70" />
+    <symbol id="193:4390" name="Property 1=Primary, State=Pressed, Round=False" x="20" y="196" width="190" height="70" />
+    <symbol id="193:4394" name="Property 1=Primary, State=Pressed, Round=True" x="228" y="196" width="190" height="70" />
+    <symbol id="193:4398" name="Property 1=Surface, State=Pressed, Round=False" x="436" y="196" width="190" height="70" />
+    <symbol id="193:4402" name="Property 1=Surface, State=Pressed, Round=True" x="644" y="196" width="190" height="70" />
+    <symbol id="193:4406" name="Property 1=Secondary, State=Pressed, Round=False" x="852" y="196" width="190" height="70" />
+    <symbol id="193:4410" name="Property 1=Secondary, State=Pressed, Round=True" x="1060" y="196" width="190" height="70" />
+    <symbol id="193:4414" name="Property 1=Tertiary, State=Pressed, Round=False" x="1268" y="196" width="190" height="70" />
+    <symbol id="193:4418" name="Property 1=Tertiary, State=Pressed, Round=True" x="1476" y="196" width="190" height="70" />
+    <symbol id="193:4422" name="Property 1=Link Button, State=Pressed, Round=False" x="1684" y="196" width="190" height="70" />
+  </frame>
+  <frame id="193:4426" name="Button - Compact" x="65" y="65" width="1399" height="184">
+    <symbol id="193:4427" name="Property 1=Primary, State=Default, Round=False" x="20" y="20" width="135" height="36" />
+    <symbol id="193:4431" name="Property 1=Primary, State=Default, Round=True" x="173" y="20" width="135" height="36" />
+    <symbol id="193:4435" name="Property 1=Surface, State=Default, Round=False" x="326" y="20" width="135" height="36" />
+    <symbol id="193:4439" name="Property 1=Surface, State=Default, Round=True" x="479" y="20" width="135" height="36" />
+    <symbol id="193:4443" name="Property 1=Secondary, State=Default, Round=False" x="632" y="20" width="135" height="36" />
+    <symbol id="193:4447" name="Property 1=Secondary, State=Default, Round=True" x="785" y="20" width="135" height="36" />
+    <symbol id="193:4451" name="Property 1=Tertiary, State=Default, Round=False" x="938" y="20" width="135" height="36" />
+    <symbol id="193:4455" name="Property 1=Tertiary, State=Default, Round=True" x="1091" y="20" width="135" height="36" />
+    <symbol id="193:4459" name="Property 1=Link Button, State=Default, Round=False" x="1244" y="20" width="135" height="36" />
+    <symbol id="193:4463" name="Property 1=Primary, State=Hover, Round=False" x="20" y="74" width="135" height="36" />
+    <symbol id="193:4467" name="Property 1=Primary, State=Hover, Round=True" x="173" y="74" width="135" height="36" />
+    <symbol id="193:4471" name="Property 1=Surface, State=Hover, Round=False" x="326" y="74" width="135" height="36" />
+    <symbol id="193:4475" name="Property 1=Surface, State=Hover, Round=True" x="479" y="74" width="135" height="36" />
+    <symbol id="193:4479" name="Property 1=Secondary, State=Hover, Round=False" x="632" y="74" width="135" height="36" />
+    <symbol id="193:4483" name="Property 1=Secondary, State=Hover, Round=True" x="785" y="74" width="135" height="36" />
+    <symbol id="193:4487" name="Property 1=Tertiary, State=Hover, Round=False" x="938" y="74" width="135" height="36" />
+    <symbol id="193:4491" name="Property 1=Tertiary, State=Hover, Round=True" x="1091" y="74" width="135" height="36" />
+    <symbol id="193:4495" name="Property 1=Link Button, State=Hover, Round=False" x="1244" y="74" width="135" height="36" />
+    <symbol id="193:4499" name="Property 1=Primary, State=Pressed, Round=False" x="20" y="128" width="135" height="36" />
+    <symbol id="193:4503" name="Property 1=Primary, State=Pressed, Round=True" x="173" y="128" width="135" height="36" />
+    <symbol id="193:4507" name="Property 1=Surface, State=Pressed, Round=False" x="326" y="128" width="135" height="36" />
+    <symbol id="193:4511" name="Property 1=Surface, State=Pressed, Round=True" x="479" y="128" width="135" height="36" />
+    <symbol id="193:4515" name="Property 1=Secondary, State=Pressed, Round=False" x="632" y="128" width="135" height="36" />
+    <symbol id="193:4519" name="Property 1=Secondary, State=Pressed, Round=True" x="785" y="128" width="135" height="36" />
+    <symbol id="193:4523" name="Property 1=Tertiary, State=Pressed, Round=False" x="938" y="128" width="135" height="36" />
+    <symbol id="193:4527" name="Property 1=Tertiary, State=Pressed, Round=True" x="1091" y="128" width="135" height="36" />
+    <symbol id="193:4531" name="Property 1=Link Button, State=Pressed, Round=False" x="1244" y="128" width="135" height="36" />
+  </frame>
+  <frame id="193:4537" name="Basic Text Input" x="2007" y="575" width="557" height="371">
+    <symbol id="193:4538" name="Property 1=Standard" x="20" y="20" width="510" height="36" />
+    <symbol id="193:4543" name="Property 1=Slim" x="20" y="106" width="443" height="20" />
+    <symbol id="193:4548" name="Property 1=Tall" x="20" y="176" width="510" height="200" />
+  </frame>
+  <frame id="193:4601" name="Color Chips" x="2078" y="357" width="265" height="192">
+    <symbol id="193:4602" name="Size=Large" x="21" y="21" width="60" height="40" />
+    <symbol id="193:4603" name="Size=Medium" x="21" y="71" width="32" height="32" />
+    <symbol id="193:4604" name="Size=Wide Chip" x="21" y="113" width="205" height="24" />
+    <symbol id="193:4605" name="Size=Small" x="21" y="147" width="24" height="24" />
+  </frame>
+  <frame id="193:4553" name="Slider" x="1931" y="65" width="598" height="272">
+    <symbol id="193:4554" name="Property 1=0" x="14" y="20" width="570" height="34" />
+    <symbol id="193:4559" name="Property 1=25" x="14" y="74" width="570" height="16" />
+    <symbol id="193:4565" name="Property 1=50" x="14" y="110" width="570" height="34" />
+    <symbol id="193:4571" name="Property 1=75" x="14" y="164" width="570" height="34" />
+    <symbol id="193:4577" name="Property 1=100" x="14" y="218" width="570" height="34" />
+  </frame>
+  <instance id="193:4600" name="Color Wheel" x="1562" y="65" width="250" height="250" />
+  <frame id="282:3167" name="Group 14" x="1602" y="360" width="170" height="170">
+    <boolean-operation id="282:3168" name="Intersect" x="1602" y="360" width="170" height="170" />
+  </frame>
+  <instance id="193:4998" name="Color Slider Bar" x="2359" y="360" width="205" height="20" />
+  <frame id="193:7186" name="Relation Icons" x="65" y="913" width="236" height="66">
+    <symbol id="193:7187" name="Property 1=Monochrome" x="21" y="21" width="24" height="24" />
+    <symbol id="193:7189" name="Property 1=Complementary" x="55" y="21" width="24" height="24" />
+    <symbol id="193:7191" name="Property 1=Split Complementary" x="89" y="21" width="24" height="24" />
+    <symbol id="193:7193" name="Property 1=Triadic" x="123" y="21" width="24" height="24" />
+    <symbol id="193:7195" name="Property 1=Analogous" x="157" y="21" width="24" height="24" />
+    <symbol id="193:7197" name="Property 1=Quadratic" x="191" y="21" width="24" height="24" />
+  </frame>
+  <rounded-rectangle id="298:3178" name="Rectangle 76" x="1916" y="484" width="24" height="24" />
+</section>

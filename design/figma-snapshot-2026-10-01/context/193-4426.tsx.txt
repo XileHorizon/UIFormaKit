@@ -1,0 +1,155 @@
+const imgArrowsChevronRight = "http://localhost:3845/assets/c108e96bb08e6af5aa7a760adb738c2d3d5e73ef.svg";
+const imgArrowsChevronRight1 = "http://localhost:3845/assets/8128e46dae90f3b9e9c07fb9142dc1356e7d35cd.svg";
+const imgArrowsChevronRight2 = "http://localhost:3845/assets/fbb73256ccec5f9d47dc90d5b81f346b8b66d452.svg";
+const imgArrowsChevronRight3 = "http://localhost:3845/assets/cb079bd29e64634381d7c703667c874ec6b3fd23.svg";
+const imgArrowsChevronRight4 = "http://localhost:3845/assets/0f5e425102ce610eae3d0a2c703394988840888b.svg";
+const imgArrowsChevronRight5 = "http://localhost:3845/assets/46140eaa2e8650630a8225a306f4973a90d143a8.svg";
+const imgArrowsChevronRight6 = "http://localhost:3845/assets/2f16051be94222ccf4944407df67e1bbcc429717.svg";
+const imgArrowsChevronRight7 = "http://localhost:3845/assets/774215f264d69c49ede6a6eca567ec31716623a3.svg";
+const imgArrowsChevronRight8 = "http://localhost:3845/assets/87095b6d4aafa04fc6871d16459e549be83c9f6b.svg";
+type ButtonCompactProps = {
+  className?: string;
+  iconLeft?: React.ReactNode | null;
+  iconLeftVisible?: boolean;
+  iconRight?: React.ReactNode | null;
+  iconRightVisible?: boolean;
+  property1?: "Primary" | "Secondary" | "Tertiary" | "Link Button" | "Surface";
+  round?: boolean;
+  showText?: boolean;
+  state?: "Default" | "Hover" | "Pressed";
+  text?: string;
+};
+
+export default function ButtonCompact({ className, iconLeft = null, iconLeftVisible = false, iconRight = null, iconRightVisible = true, property1 = "Primary", round = false, showText = true, state = "Default", text = "Continue" }: ButtonCompactProps) {
+  const isDefaultAndIsPrimaryOrSecondaryOrTertiary = state === "Default" && ["Primary", "Secondary", "Tertiary"].includes(property1);
+  const isLinkButtonAndDefaultAndNotRound = property1 === "Link Button" && state === "Default" && !round;
+  const isLinkButtonAndHoverAndNotRound = property1 === "Link Button" && state === "Hover" && !round;
+  const isLinkButtonAndPressedAndNotRound = property1 === "Link Button" && state === "Pressed" && !round;
+  const isPrimaryAndDefaultAndRound = property1 === "Primary" && state === "Default" && round;
+  const isPrimaryAndHover = property1 === "Primary" && state === "Hover";
+  const isPrimaryAndHoverAndNotRound = property1 === "Primary" && state === "Hover" && !round;
+  const isPrimaryAndHoverAndRound = property1 === "Primary" && state === "Hover" && round;
+  const isPrimaryAndPressed = property1 === "Primary" && state === "Pressed";
+  const isPrimaryAndPressedAndNotRound = property1 === "Primary" && state === "Pressed" && !round;
+  const isPrimaryAndPressedAndRound = property1 === "Primary" && state === "Pressed" && round;
+  const isSecondaryAndDefaultAndNotRound = property1 === "Secondary" && state === "Default" && !round;
+  const isSecondaryAndDefaultAndRound = property1 === "Secondary" && state === "Default" && round;
+  const isSecondaryAndHover = property1 === "Secondary" && state === "Hover";
+  const isSecondaryAndHoverAndNotRound = property1 === "Secondary" && state === "Hover" && !round;
+  const isSecondaryAndHoverAndRound = property1 === "Secondary" && state === "Hover" && round;
+  const isSecondaryAndPressed = property1 === "Secondary" && state === "Pressed";
+  const isSecondaryAndPressedAndNotRound = property1 === "Secondary" && state === "Pressed" && !round;
+  const isSecondaryAndPressedAndRound = property1 === "Secondary" && state === "Pressed" && round;
+  const isSurfaceAndDefaultAndNotRound = property1 === "Surface" && state === "Default" && !round;
+  const isSurfaceAndDefaultAndRound = property1 === "Surface" && state === "Default" && round;
+  const isSurfaceAndHoverAndNotRound = property1 === "Surface" && state === "Hover" && !round;
+  const isSurfaceAndHoverAndRound = property1 === "Surface" && state === "Hover" && round;
+  const isSurfaceAndPressedAndNotRound = property1 === "Surface" && state === "Pressed" && !round;
+  const isSurfaceAndPressedAndRound = property1 === "Surface" && state === "Pressed" && round;
+  const isTertiaryAndDefaultAndNotRound = property1 === "Tertiary" && state === "Default" && !round;
+  const isTertiaryAndDefaultAndRound = property1 === "Tertiary" && state === "Default" && round;
+  const isTertiaryAndHover = property1 === "Tertiary" && state === "Hover";
+  const isTertiaryAndHoverAndNotRound = property1 === "Tertiary" && state === "Hover" && !round;
+  const isTertiaryAndHoverAndRound = property1 === "Tertiary" && state === "Hover" && round;
+  const isTertiaryAndPressed = property1 === "Tertiary" && state === "Pressed";
+  const isTertiaryAndPressedAndNotRound = property1 === "Tertiary" && state === "Pressed" && !round;
+  const isTertiaryAndPressedAndRound = property1 === "Tertiary" && state === "Pressed" && round;
+  return (
+    <div className={className || `content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative ${isLinkButtonAndPressedAndNotRound ? "rounded-[16px]" : isTertiaryAndPressedAndRound ? String.raw`bg-[var(--tertiary\/800,#3e2c6d)] rounded-[var(--radius\/full,9999px)]` : isTertiaryAndPressedAndNotRound ? String.raw`bg-[var(--tertiary\/800,#3e2c6d)] rounded-[var(--radius\/sm,4px)]` : isSecondaryAndPressedAndRound ? String.raw`bg-[var(--action\/secondary\/pressed,#352e00)] border border-[var(--action\/secondary\/pressed,#352e00)] border-solid rounded-[var(--radius\/full,9999px)]` : isSecondaryAndPressedAndNotRound ? String.raw`bg-[var(--action\/secondary\/pressed,#352e00)] border border-[var(--action\/secondary\/pressed,#352e00)] border-solid rounded-[var(--radius\/sm,4px)]` : isSurfaceAndPressedAndRound ? String.raw`bg-[var(--action\/primary\/subtlehover,#9eafff)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid rounded-[var(--radius\/full,9999px)]` : isSurfaceAndPressedAndNotRound ? String.raw`bg-[var(--action\/primary\/subtlehover,#9eafff)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid rounded-[var(--radius\/sm,4px)]` : isPrimaryAndPressedAndRound ? String.raw`bg-[var(--action\/primary\/pressed,#270085)] rounded-[var(--radius\/full,9999px)]` : isPrimaryAndPressedAndNotRound ? String.raw`bg-[var(--action\/primary\/pressed,#270085)] rounded-[var(--radius\/sm,4px)]` : isTertiaryAndHoverAndRound ? String.raw`bg-[var(--tertiary\/700,#56458d)] cursor-pointer rounded-[var(--radius\/full,9999px)]` : isTertiaryAndHoverAndNotRound ? String.raw`bg-[var(--tertiary\/700,#56458d)] cursor-pointer rounded-[var(--radius\/sm,4px)]` : isSecondaryAndHoverAndRound ? String.raw`bg-[var(--action\/secondary\/hover,#483e00)] border border-[var(--action\/secondary\/hover,#483e00)] border-solid cursor-pointer rounded-[var(--radius\/full,9999px)]` : isSecondaryAndHoverAndNotRound ? String.raw`bg-[var(--action\/secondary\/hover,#483e00)] border border-[var(--action\/secondary\/hover,#483e00)] border-solid cursor-pointer rounded-[var(--radius\/sm,4px)]` : isSurfaceAndHoverAndRound ? String.raw`bg-[var(--action\/primary\/subtle,#c5d1ff)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid cursor-pointer rounded-[var(--radius\/full,9999px)]` : isSurfaceAndHoverAndNotRound ? String.raw`bg-[var(--action\/primary\/subtle,#c5d1ff)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid cursor-pointer rounded-[var(--radius\/sm,4px)]` : isPrimaryAndHoverAndRound ? String.raw`bg-[var(--action\/primary\/hover,#3311a7)] cursor-pointer rounded-[var(--radius\/full,9999px)]` : isPrimaryAndHoverAndNotRound ? String.raw`bg-[var(--action\/primary\/hover,#3311a7)] cursor-pointer rounded-[var(--radius\/sm,4px)]` : property1 === "Link Button" && !round && ["Default", "Hover"].includes(state) ? "cursor-pointer rounded-[16px]" : isTertiaryAndDefaultAndRound ? String.raw`bg-[var(--tertiary\/600,#7062ad)] cursor-pointer rounded-[var(--radius\/full,9999px)]` : isTertiaryAndDefaultAndNotRound ? String.raw`bg-[var(--tertiary\/600,#7062ad)] cursor-pointer rounded-[var(--radius\/sm,4px)]` : isSecondaryAndDefaultAndRound ? String.raw`bg-[var(--action\/secondary\/default,#5e5000)] border border-[var(--border\/default,#7d808b)] border-solid cursor-pointer rounded-[var(--radius\/full,9999px)]` : isSecondaryAndDefaultAndNotRound ? String.raw`bg-[var(--action\/secondary\/default,#5e5000)] border border-[var(--border\/default,#7d808b)] border-solid cursor-pointer rounded-[var(--radius\/sm,4px)]` : isSurfaceAndDefaultAndRound ? String.raw`border border-[var(--action\/primary\/default,#3f2dc3)] border-solid cursor-pointer rounded-[var(--radius\/full,9999px)]` : isSurfaceAndDefaultAndNotRound ? String.raw`border border-[var(--action\/primary\/default,#3f2dc3)] border-solid rounded-[var(--radius\/sm,4px)]` : isPrimaryAndDefaultAndRound ? String.raw`bg-[var(--action\/primary\/default,#3f2dc3)] cursor-pointer rounded-[var(--radius\/full,9999px)]` : String.raw`bg-[var(--action\/primary\/default,#3f2dc3)] cursor-pointer rounded-[var(--radius\/sm,4px)]`}`} id={isLinkButtonAndPressedAndNotRound ? "node-193_4531" : isTertiaryAndPressedAndRound ? "node-193_4527" : isTertiaryAndPressedAndNotRound ? "node-193_4523" : isSecondaryAndPressedAndRound ? "node-193_4519" : isSecondaryAndPressedAndNotRound ? "node-193_4515" : isSurfaceAndPressedAndRound ? "node-193_4511" : isSurfaceAndPressedAndNotRound ? "node-193_4507" : isPrimaryAndPressedAndRound ? "node-193_4503" : isPrimaryAndPressedAndNotRound ? "node-193_4499" : isLinkButtonAndHoverAndNotRound ? "node-193_4495" : isTertiaryAndHoverAndRound ? "node-193_4491" : isTertiaryAndHoverAndNotRound ? "node-193_4487" : isSecondaryAndHoverAndRound ? "node-193_4483" : isSecondaryAndHoverAndNotRound ? "node-193_4479" : isSurfaceAndHoverAndRound ? "node-193_4475" : isSurfaceAndHoverAndNotRound ? "node-193_4471" : isPrimaryAndHoverAndRound ? "node-193_4467" : isPrimaryAndHoverAndNotRound ? "node-193_4463" : isLinkButtonAndDefaultAndNotRound ? "node-193_4459" : isTertiaryAndDefaultAndRound ? "node-193_4455" : isTertiaryAndDefaultAndNotRound ? "node-193_4451" : isSecondaryAndDefaultAndRound ? "node-193_4447" : isSecondaryAndDefaultAndNotRound ? "node-193_4443" : isSurfaceAndDefaultAndRound ? "node-193_4439" : isSurfaceAndDefaultAndNotRound ? "node-193_4435" : isPrimaryAndDefaultAndRound ? "node-193_4431" : "node-193_4427"}>
+      {(isSurfaceAndDefaultAndNotRound || (state === "Hover" && !round) || isPrimaryAndHoverAndRound || isSurfaceAndHoverAndRound || isSecondaryAndHoverAndRound || isTertiaryAndHoverAndRound || (state === "Pressed" && !round) || isPrimaryAndPressedAndRound || isSurfaceAndPressedAndRound || isSecondaryAndPressedAndRound || isTertiaryAndPressedAndRound) && iconLeftVisible && (
+        <div className="relative shrink-0 size-[24px]" data-node-id="193:4436" data-name="Arrows/chevron-right">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight2} />
+        </div>
+      )}
+      {(isPrimaryAndHover || isSecondaryAndHover || isTertiaryAndHover || isPrimaryAndPressed || isSecondaryAndPressed || isTertiaryAndPressed) && showText && (
+        <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4465">
+          {text}
+        </p>
+      )}
+      {(isPrimaryAndHover || isSecondaryAndHover || isTertiaryAndHover || isPrimaryAndPressed || isSecondaryAndPressed || isTertiaryAndPressed) && iconRightVisible && (
+        <div className="relative shrink-0 size-[24px]" data-node-id="193:4466" data-name="Arrows/chevron-right">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight6} />
+        </div>
+      )}
+      {state === "Default" &&
+        (property1 === "Primary" || (property1 === "Surface" && round) || property1 === "Secondary" || property1 === "Tertiary" || (property1 === "Link Button" && !round)) &&
+        iconLeftVisible &&
+        (iconLeft || (
+          <div className="relative shrink-0 size-[24px]" data-node-id="193:4428" data-name="Arrows/chevron-right">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+          </div>
+        ))}
+      {isDefaultAndIsPrimaryOrSecondaryOrTertiary && showText && (
+        <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="193:4429">
+          {text}
+        </p>
+      )}
+      {isDefaultAndIsPrimaryOrSecondaryOrTertiary &&
+        iconRightVisible &&
+        (iconRight || (
+          <div className="relative shrink-0 size-[24px]" data-node-id="193:4430" data-name="Arrows/chevron-right">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight1} />
+          </div>
+        ))}
+      {property1 === "Surface" && (round || (state === "Hover" && !round) || (state === "Pressed" && !round)) && showText && (
+        <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="193:4441">
+          {text}
+        </p>
+      )}
+      {property1 === "Surface" && ["Hover", "Pressed"].includes(state) && iconRightVisible && (
+        <div className="relative shrink-0 size-[24px]" data-node-id="193:4474" data-name="Arrows/chevron-right">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight3} />
+        </div>
+      )}
+      {isSurfaceAndDefaultAndNotRound && (
+        <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="193:4437">
+          {text}
+        </p>
+      )}
+      {isSurfaceAndDefaultAndNotRound && iconRightVisible && (
+        <div className="relative shrink-0 size-[24px]" data-node-id="193:4438" data-name="Arrows/chevron-right">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight3} />
+        </div>
+      )}
+      {isSurfaceAndDefaultAndRound &&
+        iconRightVisible &&
+        (iconRight || (
+          <div className="relative shrink-0 size-[24px]" data-node-id="193:4442" data-name="Arrows/chevron-right">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight4} />
+          </div>
+        ))}
+      {isLinkButtonAndDefaultAndNotRound && showText && (
+        <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center whitespace-nowrap" data-node-id="193:4461">
+          {text}
+        </p>
+      )}
+      {isLinkButtonAndDefaultAndNotRound &&
+        iconRightVisible &&
+        (iconRight || (
+          <div className="relative shrink-0 size-[24px]" data-node-id="193:4462" data-name="Arrows/chevron-right">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight5} />
+          </div>
+        ))}
+      {isLinkButtonAndHoverAndNotRound && showText && (
+        <p className="[text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--action\/primary\/hover,#3311a7)] text-center underline whitespace-nowrap" data-node-id="193:4497">
+          {text}
+        </p>
+      )}
+      {isLinkButtonAndHoverAndNotRound && iconRightVisible && (
+        <div className="relative shrink-0 size-[24px]" data-node-id="193:4498" data-name="Arrows/chevron-right">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight7} />
+        </div>
+      )}
+      {isLinkButtonAndPressedAndNotRound && showText && (
+        <p className="[text-underline-position:from-font] [word-break:break-word] decoration-from-font decoration-solid font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--action\/primary\/pressed,#270085)] text-center underline whitespace-nowrap" data-node-id="193:4533">
+          {text}
+        </p>
+      )}
+      {isLinkButtonAndPressedAndNotRound && iconRightVisible && (
+        <div className="relative shrink-0 size-[24px]" data-node-id="193:4534" data-name="Arrows/chevron-right">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight8} />
+        </div>
+      )}
+    </div>
+  );
+}

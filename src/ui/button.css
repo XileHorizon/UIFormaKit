@@ -1,3 +1,6 @@
+@import "@fontsource/space-mono/400.css";
+@import "@fontsource/space-mono/700.css";
+
 .uf-button {
   width: fit-content;
   min-width: 0;
@@ -5,7 +8,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--uf-space-2);
-  padding: var(--uf-space-1) var(--uf-space-4);
+  padding: var(--uf-space-1) var(--uf-space-3);
   border: var(--uf-border-hairline) solid transparent;
   border-radius: var(--uf-radius-sm);
   font-family: "Space Mono", monospace;
@@ -24,13 +27,14 @@
 }
 .uf-button--standard {
   height: 50px;
-  padding-block: 12px;
+  padding-block: 6px;
   font-size: 16px;
 }
 .uf-button--huge {
   height: 70px;
-  padding-block: 12px;
+  padding: 6px var(--uf-space-5);
   font-size: 20px;
+  font-weight: 700;
 }
 
 .uf-button--rounded {
@@ -49,19 +53,18 @@
 .uf-button--surface {
   color: var(--uf-color-text-secondary);
   background: transparent;
-  border-color: var(--uf-color-action-primary-border);
+  border-color: var(--uf-color-action-primary-default);
 }
 .uf-button--surface:hover {
-
-  background-color: color-mix(in srgb, var(--uf-color-action-primary-subtle) 50%, transparent);
+  background: var(--uf-color-action-primary-subtle);
 }
 .uf-button--surface:active {
-  background: var(--uf-color-action-primary-subtle);
+  background: var(--uf-color-action-primary-subtle-hover);
 }
 .uf-button--secondary {
   color: var(--uf-color-background-page);
   background: var(--uf-color-action-secondary-default);
-  border-color: var(--uf-color-action-secondary-border);
+  border-color: var(--uf-color-border-default);
 }
 .uf-button--secondary:hover {
   background: var(--uf-color-action-secondary-hover);
