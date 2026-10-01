@@ -13,7 +13,7 @@ export function CodeBlock({ code, language, label, actions, wrap = false, classN
   return (
     <div {...props} className={`uf-code-block ${className}`.trim()} data-wrap={wrap || undefined}>
       {(label || actions) && <div className="uf-code-block__toolbar"><span>{label}</span><div>{actions}</div></div>}
-      <pre><code data-language={language}>{code}</code></pre>
+      <pre tabIndex={0}><code data-language={language}>{code}</code></pre>
     </div>
   );
 }

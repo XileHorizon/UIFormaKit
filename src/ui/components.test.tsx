@@ -31,6 +31,7 @@ describe("UI Forma component primitives", () => {
     expect(markup).toContain("uf-button--huge");
     expect(markup).toContain("uf-button--rounded");
     expect(markup).toContain('data-icon-only="true"');
+    expect(renderToStaticMarkup(<Button wrapLabel={false}><strong>Rich action</strong></Button>)).not.toContain("uf-button__label");
   });
 
   it("renders accessible switch and segmented states", () => {
@@ -98,7 +99,9 @@ describe("UI Forma component primitives", () => {
     expect(alert).toContain('data-tone="danger"');
     expect(renderToStaticMarkup(<Status tone="success">Saved</Status>)).toContain("Saved");
     expect(renderToStaticMarkup(<Panel header="Header" footer="Footer">Body</Panel>)).toContain("uf-panel__body");
-    expect(renderToStaticMarkup(<CodeBlock code="const value = 1;" language="ts" />)).toContain('data-language="ts"');
+    const codeBlock = renderToStaticMarkup(<CodeBlock code="const value = 1;" language="ts" />);
+    expect(codeBlock).toContain('data-language="ts"');
+    expect(codeBlock).toContain('<pre tabindex="0">');
     const shell = renderToStaticMarkup(<WorkbenchShell header="Header" navigation="Nav" tools="Tools">Main</WorkbenchShell>);
     expect(shell).toContain("uf-workbench__main");
     const split = renderToStaticMarkup(<SplitPane value={40} onValueChange={() => undefined} first="Editor" second="Preview" />);

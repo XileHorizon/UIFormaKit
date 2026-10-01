@@ -13,6 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   trailingIcon?: ReactNode;
   loading?: boolean;
   contentGap?: number;
+  wrapLabel?: boolean;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button({
@@ -23,6 +24,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   trailingIcon,
   loading = false,
   contentGap,
+  wrapLabel = true,
   disabled,
   className = "",
   style,
@@ -43,7 +45,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       {...props}
     >
       {loading ? <span className="uf-button__spinner" aria-hidden="true" /> : leadingIcon}
-      {hasText && <span className="uf-button__label">{children}</span>}
+      {hasText && (wrapLabel ? <span className="uf-button__label">{children}</span> : children)}
       {!loading && trailingIcon}
     </button>
   );
