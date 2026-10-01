@@ -1,5 +1,6 @@
 import { useId, useRef, useState, type ChangeEvent, type InputHTMLAttributes, type ReactNode } from "react";
 import { Button } from "./Button";
+import "./tokens/components.css";
 import "./form-controls.css";
 
 export interface FileInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {

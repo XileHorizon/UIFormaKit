@@ -24,6 +24,7 @@ input {
   --docs-page: var(--uf-color-background-page);
   --docs-panel: var(--uf-color-background-raised);
   --docs-panel-soft: var(--uf-color-background-subtle);
+  --uf-color-wheel-hole: var(--docs-panel-soft);
   --docs-field: var(--uf-color-background-raised);
   --docs-grid: var(--uf-color-border-subtle);
   --docs-text: var(--uf-color-text-primary);

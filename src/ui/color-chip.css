@@ -1,26 +1,26 @@
 .uf-color-chip {
   display: inline-block;
   flex: none;
-  border-radius: 8px;
+  border-radius: var(--uf-color-chip-radius);
   background: var(--uf-chip-color);
 }
 
 .uf-color-chip--large {
-  width: 60px;
-  height: 40px;
+  width: var(--uf-color-chip-large-width);
+  height: var(--uf-color-chip-large-height);
 }
 
 .uf-color-chip--medium {
-  width: 32px;
-  height: 32px;
+  width: var(--uf-color-chip-medium-size);
+  height: var(--uf-color-chip-medium-size);
 }
 
 .uf-color-chip--wide {
-  width: 205px;
-  height: 24px;
+  width: var(--uf-color-chip-wide-width);
+  height: var(--uf-color-chip-wide-height);
 }
 
 .uf-color-chip--small {
-  width: 24px;
-  height: 24px;
+  width: var(--uf-color-chip-small-size);
+  height: var(--uf-color-chip-small-size);
 }

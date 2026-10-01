@@ -41,12 +41,12 @@ export function Ticker({
   variant = "info",
   icon,
   action,
-  duration = 24,
+  duration,
   direction = "right",
   pauseOnHover = true,
   label,
 }: TickerProps) {
-  const style = { "--uf-ticker-duration": `${duration}s` } as CSSProperties;
+  const style = (duration === undefined ? {} : { "--uf-ticker-duration": `${duration}s` }) as CSSProperties;
   const actionContent = <><span>{action?.label}</span><IconArrowRight aria-hidden="true" /></>;
 
   return (

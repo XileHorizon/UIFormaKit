@@ -1,5 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { IconMoonFilled, IconSunFilled } from "@tabler/icons-react";
+import "./tokens/components.css";
 import "./form-controls.css";
 
 export interface SwitchProps

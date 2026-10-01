@@ -21,7 +21,7 @@
   position: absolute;
   inset: 10%;
   border-radius: 50%;
-  background: var(--docs-panel-soft);
+  background: var(--uf-color-wheel-hole);
 }
 
 .uf-harmony-wheel {
@@ -34,7 +34,7 @@
   outline: none;
 }
 .uf-harmony-wheel:focus-visible {
-  filter: drop-shadow(0 0 5px var(--uf-color-action-primary-pressed));
+  filter: var(--uf-color-wheel-focus-glow);
 }
 
 .uf-harmony-wheel > .uf-color-wheel {
@@ -61,24 +61,24 @@
   position: absolute;
   top: 31.5%;
   left: 73.5%;
-  width: 10px;
-  height: 10px;
-  border: 2px solid #fff;
+  width: var(--uf-color-wheel-picker-handle-size);
+  height: var(--uf-color-wheel-picker-handle-size);
+  border: var(--uf-color-wheel-picker-handle-border-width) solid var(--uf-color-wheel-picker-handle-color);
   border-radius: 50%;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--uf-color-wheel-picker-handle-outline);
   transform: translate(-50%, -50%);
 }
 
 .uf-wheel-handle {
-  --uf-handle-width: calc(31px * var(--uf-handle-scale));
-  --uf-handle-height: calc(13px * var(--uf-handle-scale));
+  --uf-handle-width: calc(var(--uf-color-wheel-handle-width) * var(--uf-handle-scale));
+  --uf-handle-height: calc(var(--uf-color-wheel-handle-height) * var(--uf-handle-scale));
   position: absolute;
   top: var(--uf-handle-top, 50%);
   left: 50%;
   width: var(--uf-handle-width);
   height: var(--uf-handle-height);
-  border: calc(3px * var(--uf-handle-scale)) solid #fff;
-  border-radius: calc(3px * var(--uf-handle-scale));
+  border: calc(var(--uf-color-wheel-handle-border-width) * var(--uf-handle-scale)) solid var(--uf-color-wheel-handle-color);
+  border-radius: calc(var(--uf-color-wheel-handle-radius) * var(--uf-handle-scale));
   /* The handle center follows the centerline of the 10%-wide hue ring. */
   transform: translate(-50%, -50%) rotate(var(--uf-angle))
     translateX(calc(var(--uf-wheel-size) * 0.45));
@@ -87,29 +87,29 @@
 }
 
 .uf-wheel-handle--primary {
-  --uf-handle-height: calc(18px * var(--uf-handle-scale));
-  border-width: calc(5px * var(--uf-handle-scale));
+  --uf-handle-height: calc(var(--uf-color-wheel-handle-height-primary) * var(--uf-handle-scale));
+  border-width: calc(var(--uf-color-wheel-handle-border-width-primary) * var(--uf-handle-scale));
 }
 
 .uf-slider-handle {
   position: relative;
   display: inline-block;
-  height: 31px;
-  border: 3px solid #fafafa;
-  border-radius: 3px;
+  height: var(--uf-color-slider-handle-height);
+  border: var(--uf-color-slider-handle-border-width) solid var(--uf-color-slider-handle-color);
+  border-radius: var(--uf-color-slider-handle-radius);
   box-sizing: border-box;
 }
 .uf-slider-handle--thin {
-  width: 13px;
+  width: var(--uf-color-slider-handle-width-thin);
 }
 .uf-slider-handle--thick {
-  width: 18px;
-  height: 30px;
-  border-width: 5px;
+  width: var(--uf-color-slider-handle-width-thick);
+  height: var(--uf-color-slider-handle-height-thick);
+  border-width: var(--uf-color-slider-handle-border-width-thick);
 }
 .uf-slider-handle--notched {
-  width: 17px;
-  height: 30px;
+  width: var(--uf-color-slider-handle-width-notched);
+  height: var(--uf-color-slider-handle-height-notched);
   border: 0;
   border-radius: 0;
 }
@@ -117,15 +117,15 @@
 .uf-color-slider {
   position: relative;
   width: 100%;
-  height: 20px;
-  border-radius: 4px;
+  height: var(--uf-color-slider-height);
+  border-radius: var(--uf-color-slider-radius);
   background: linear-gradient(90deg, #ff245a, #a518e8 50%, #176cff);
   cursor: ew-resize;
   touch-action: none;
   outline: none;
 }
 .uf-color-slider:focus-visible {
-  box-shadow: 0 0 0 3px var(--uf-color-action-primary-pressed);
+  box-shadow: var(--uf-color-slider-focus-ring);
 }
 .uf-color-slider__handle {
   position: absolute;

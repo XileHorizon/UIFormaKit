@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import "./tokens/components.css";
 import "./form-controls.css";
 
 export interface SegmentedItem<T extends string> {

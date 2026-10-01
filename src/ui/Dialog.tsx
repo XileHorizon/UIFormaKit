@@ -1,5 +1,6 @@
 import { useEffect, useRef, type DialogHTMLAttributes, type ReactNode } from "react";
 import { Button } from "./Button";
+import "./tokens/components.css";
 import "./layout-components.css";
 
 export interface DialogProps extends Omit<DialogHTMLAttributes<HTMLDialogElement>, "open" | "title"> {

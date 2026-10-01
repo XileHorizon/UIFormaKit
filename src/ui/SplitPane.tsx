@@ -1,4 +1,5 @@
 import { useEffect, useRef, type HTMLAttributes, type KeyboardEvent, type PointerEvent, type ReactNode } from "react";
+import "./tokens/components.css";
 import "./layout-components.css";
 
 export interface SplitPaneProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {

@@ -1,4 +1,5 @@
 import { useId, type CSSProperties, type InputHTMLAttributes, type ReactNode } from "react";
+import "./tokens/components.css";
 import "./form-controls.css";
 
 export interface SliderProps

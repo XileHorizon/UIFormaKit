@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode } from "react";
+import "./tokens/components.css";
 import "./layout-components.css";
 
 export interface PanelProps extends HTMLAttributes<HTMLElement> {

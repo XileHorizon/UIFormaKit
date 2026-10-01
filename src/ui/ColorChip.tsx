@@ -1,4 +1,5 @@
 import type { CSSProperties, HTMLAttributes } from "react";
+import "./tokens/components.css";
 import "./color-chip.css";
 
 export type ColorChipSize = "large" | "medium" | "wide" | "small";

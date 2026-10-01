@@ -1,4 +1,5 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import "./tokens/components.css";
 import "./button.css";
 
 export type ButtonAppearance = "primary" | "surface" | "secondary" | "tertiary" | "link";

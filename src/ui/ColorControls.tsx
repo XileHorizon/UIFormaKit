@@ -4,6 +4,7 @@ import {
   type CSSProperties,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import "./tokens/components.css";
 import "./color-controls.css";
 
 export type ColorHarmony =
@@ -302,7 +303,7 @@ export function ColorSlider({
     >
       <span
         className="uf-color-slider__handle"
-        style={{ left: `calc(9px + (100% - 18px) * ${value / 100})` }}
+        style={{ left: `calc(var(--uf-color-slider-handle-inset) + (100% - 2 * var(--uf-color-slider-handle-inset)) * ${value / 100})` }}
       >
         <ColorSliderHandle style={handleStyle} />
       </span>

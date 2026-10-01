@@ -5,6 +5,7 @@ import {
   type HTMLAttributes,
   type ReactNode,
 } from "react";
+import "./tokens/components.css";
 import "./layout-components.css";
 
 export type SidebarSide = "left" | "right";

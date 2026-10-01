@@ -8,8 +8,8 @@ export interface MarqueeProps {
   label?: string;
 }
 
-export function Marquee({ children, duration = 24, direction = "left", pauseOnHover = true, label }: MarqueeProps) {
-  const style = { "--uf-marquee-duration": `${duration}s` } as CSSProperties;
+export function Marquee({ children, duration, direction = "left", pauseOnHover = true, label }: MarqueeProps) {
+  const style = (duration === undefined ? {} : { "--uf-marquee-duration": `${duration}s` }) as CSSProperties;
   return (
     <div className="uf-marquee" data-direction={direction} data-pause-on-hover={pauseOnHover || undefined} aria-label={label} style={style}>
       <div className="uf-marquee__track">
