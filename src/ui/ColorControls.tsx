@@ -4,6 +4,7 @@ import {
   type CSSProperties,
   type PointerEvent as ReactPointerEvent,
 } from "react";
+import { hexToRgb, rgbToHsl } from "./colorFormats";
 import "./tokens/components.css";
 import "./color-controls.css";
 
@@ -29,11 +30,57 @@ interface ColorWheelProps {
   className?: string;
 }
 
+/**
+ * Hue ring stops from the Figma Color Wheel, clockwise from 12 o'clock. Hue decreases clockwise and
+ * the stops are not evenly spaced in hue, so angle↔hue conversion samples this gradient directly.
+ */
+export const COLOR_WHEEL_STOPS = ["#f000ff", "#2100ff", "#00e9ff", "#00f000", "#dfff00", "#ff7300", "#ff001a", "#f000ff"] as const;
+const wheelGradient = `conic-gradient(from 0deg, ${COLOR_WHEEL_STOPS.join(", ")})`;
+const stopRgb = COLOR_WHEEL_STOPS.map((stop) => hexToRgb(stop)!);
+const WHEEL_SAMPLES = 1440;
+
+/** Hue of the ring colour at a clockwise turn (0–1) from 12 o'clock. */
+function hueAtTurn(turn: number) {
+  const position = (((turn % 1) + 1) % 1) * (stopRgb.length - 1);
+  const index = Math.min(stopRgb.length - 2, Math.floor(position));
+  const mix = position - index;
+  const [from, to] = [stopRgb[index], stopRgb[index + 1]];
+  const lerp = (a: number, b: number) => a + (b - a) * mix;
+  return rgbToHsl({ r: lerp(from.r, to.r), g: lerp(from.g, to.g), b: lerp(from.b, to.b) }).h;
+}
+
+const hueSamples = Array.from({ length: WHEEL_SAMPLES }, (_, index) => hueAtTurn(index / WHEEL_SAMPLES));
+
+/** Clockwise turn (0–1) from 12 o'clock where the ring shows the given hue. */
+function turnForHue(hue: number) {
+  const target = ((hue % 360) + 360) % 360;
+  let best = 0;
+  let bestDistance = Infinity;
+  hueSamples.forEach((sample, index) => {
+    const distance = Math.min(Math.abs(sample - target), 360 - Math.abs(sample - target));
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      best = index;
+    }
+  });
+  return best / WHEEL_SAMPLES;
+}
+
+/** Screen angle in degrees (0 = 3 o'clock, clockwise) for a hue, as used by the ring handles. */
+export function wheelAngleForHue(hue: number) {
+  return turnForHue(hue) * 360 - 90;
+}
+
+/** Hue under a screen angle in degrees (0 = 3 o'clock, clockwise). */
+export function hueForWheelAngle(angle: number) {
+  return hueAtTurn((angle + 90) / 360);
+}
+
 export function ColorWheel({ size = 250, className = "" }: ColorWheelProps) {
   return (
     <div
       className={`uf-color-wheel ${className}`.trim()}
-      style={{ "--uf-wheel-size": `${size}px` } as CSSProperties}
+      style={{ "--uf-wheel-size": `${size}px`, background: wheelGradient } as CSSProperties}
       aria-hidden="true"
     />
   );
@@ -42,6 +89,7 @@ export function ColorWheel({ size = 250, className = "" }: ColorWheelProps) {
 interface HarmonyWheelProps extends ColorWheelProps {
   harmony?: ColorHarmony;
   picker?: boolean;
+  /** Fixed seed colour for the relation wheel; defaults to the wheel's current colour. */
   color?: string;
   value?: ColorPickerValue;
   defaultValue?: ColorPickerValue;
@@ -56,7 +104,7 @@ export interface ColorPickerValue {
 
 const clamp = (value: number, min = 0, max = 1) => Math.min(max, Math.max(min, value));
 
-function hsvColor(hue: number, saturation: number, value: number) {
+export function hsvColor(hue: number, saturation: number, value: number) {
   const chroma = value * saturation;
   const section = hue / 60;
   const x = chroma * (1 - Math.abs((section % 2) - 1));
@@ -79,11 +127,12 @@ function hsvColor(hue: number, saturation: number, value: number) {
 export function HarmonyWheel({
   harmony = "monochromatic",
   picker = false,
-  color = "#1285e7",
+  color,
   size = 250,
   className = "",
   value: controlledValue,
-  defaultValue = { hue: 190, saturation: 0.82, value: 0.92 },
+  // Matches the Figma relation seed, #1285E7.
+  defaultValue = { hue: 208, saturation: 0.92, value: 0.91 },
   onChange,
 }: HarmonyWheelProps) {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -92,7 +141,7 @@ export function HarmonyWheel({
   const { hue, saturation, value } = controlledValue ?? internalValue;
   const markerScale = size / 250;
   const handleTop = size < 250 ? "40%" : "50%";
-  const pickerColor = picker ? `hsl(${hue} 100% 50%)` : color;
+  const pickerColor = picker ? `hsl(${hue} 100% 50%)` : color ?? hsvColor(hue, saturation, value);
 
   const updateHue = (clientX: number, clientY: number) => {
     const bounds = rootRef.current?.getBoundingClientRect();
@@ -104,7 +153,7 @@ export function HarmonyWheel({
       ) *
         180) /
       Math.PI;
-    const nextHue = (angle + 190 + 360) % 360;
+    const nextHue = hueForWheelAngle(angle);
     const next = { hue: nextHue, saturation, value };
     if (!controlledValue) setInternalValue(next);
     onChange?.(next);
@@ -193,7 +242,7 @@ export function HarmonyWheel({
           className={`uf-wheel-handle${index === 0 ? " uf-wheel-handle--primary" : ""}`}
           style={
             {
-              "--uf-angle": `${angle + hue - 190}deg`,
+              "--uf-angle": `${wheelAngleForHue(hue + angle)}deg`,
               "--uf-handle-scale": markerScale,
               "--uf-handle-top": handleTop,
             } as CSSProperties

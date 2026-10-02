@@ -16,15 +16,15 @@ export function SliderShowcase() {
         <div>
           <p className="eyebrow">Slider system</p>
           <h2>Two sliders. Four handles.</h2>
-          <p>The standard slider uses an 8px track and 24px circle. The color slider uses a 20px track and one of three hollow color handles.</p>
+          <p>The standard slider uses a 10px outlined track and a 24px circle, with an 8px / 16px compact size. The color slider uses a 20px track and one of three hollow color handles.</p>
         </div>
         <a href="#slider-family">#</a>
       </div>
       <div className="slider-showcase-grid">
         <article>
-          <header><h3>Standard slider</h3><span>8px track · 24px circle</span></header>
+          <header><h3>Standard slider</h3><span>10px track · 24px circle</span></header>
           <Slider label="Value" value={standard} onValueChange={setStandard} />
-          <p className="slider-note">The circle has no outline at rest. Hover or focus it to show the outline.</p>
+          <p className="slider-note">The circle has no outline at rest. Keyboard focus shows an outline, and dragging shows a white halo.</p>
         </article>
         <article>
           <header><h3>Color slider</h3><span>20px track · 3 hollow handles</span></header>

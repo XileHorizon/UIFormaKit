@@ -14,7 +14,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "vitest run",
-    "check": "npm run tokens:check && tsc --noEmit && vitest run && vite build"
+    "check": "npm run tokens:check && tsc --noEmit && vitest run && vite build",
+    "check:interactions": "node scripts/check-interactions.cjs"
   },
   "dependencies": {
     "@fontsource/space-mono": "^5.3.0",

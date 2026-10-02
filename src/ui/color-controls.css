@@ -3,17 +3,6 @@
   width: var(--uf-wheel-size);
   height: var(--uf-wheel-size);
   border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    #f000ff,
-    #2100ff,
-    #00e9ff,
-    #00f000,
-    #dfff00,
-    #ff7300,
-    #ff001a,
-    #f000ff
-  );
 }
 
 .uf-color-wheel::after {

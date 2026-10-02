@@ -53,11 +53,6 @@ export const UI_FORMA_RUNTIME_VARIABLES = [
 export const UI_FORMA_LITERAL_EXCEPTIONS = [
   {
     file: "color-controls.css",
-    pattern: "conic-gradient hue stops (#f000ff … #ff001a)",
-    reason: "The hue wheel must show the full spectrum regardless of theme.",
-  },
-  {
-    file: "color-controls.css",
     pattern: "linear-gradient(90deg, #ff245a, #a518e8 50%, #176cff)",
     reason: "Placeholder gradient for the unconfigured colour slider; real tracks are set at runtime.",
   },

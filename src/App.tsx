@@ -35,6 +35,7 @@ import {
   type ButtonAppearance,
   type ButtonSize,
   type ColorHarmony,
+  type ColorPickerValue,
   type StackedItem,
   uiFormaComponentRegistry,
   uiFormaPrimitives,
@@ -315,6 +316,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [dropdown, setDropdown] = useState("soft");
   const [harmony, setHarmony] = useState<ColorHarmony>("monochromatic");
+  const [harmonyColor, setHarmonyColor] = useState<ColorPickerValue>({ hue: 208, saturation: 0.92, value: 0.91 });
   const [autocomplete, setAutocomplete] = useState("");
   const [enabled, setEnabled] = useState(true);
   const [format, setFormat] = useState("HEX");
@@ -1029,7 +1031,7 @@ export default function App() {
                 <span>Relationship</span>
                 <strong>{harmony.replace("-", " ")}</strong>
               </header>
-              <HarmonyWheel harmony={harmony} size={250} />
+              <HarmonyWheel harmony={harmony} size={250} value={harmonyColor} onChange={setHarmonyColor} />
               <p>See the selected hues distributed around the color wheel.</p>
             </article>
             <article>
@@ -1037,7 +1039,7 @@ export default function App() {
                 <span>Editable picker</span>
                 <strong>{harmony.replace("-", " ")}</strong>
               </header>
-              <ColorPicker harmony={harmony} size={250} />
+              <ColorPicker harmony={harmony} size={250} value={harmonyColor} onChange={setHarmonyColor} />
               <p>Adjust hue, saturation, and value while preserving the relationship.</p>
             </article>
           </div>
