@@ -30,7 +30,10 @@ export function Slider({
   const id = suppliedId ?? generatedId;
   const minimum = Number(min);
   const maximum = Number(max);
-  const percentage = ((value - minimum) / (maximum - minimum)) * 100;
+  // Match the browser, which snaps the thumb to the step grid, so the fill ends under the thumb.
+  const stepSize = Number(step);
+  const snapped = stepSize > 0 ? minimum + Math.round((value - minimum) / stepSize) * stepSize : value;
+  const percentage = ((Math.min(maximum, Math.max(minimum, snapped)) - minimum) / (maximum - minimum)) * 100;
   return (
     <label
       className={`uf-slider uf-slider--${size} ${className}`.trim()}

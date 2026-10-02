@@ -1,0 +1,39 @@
+type ColorChipsProps = {
+  className?: string;
+  size?: "Large";
+};
+
+function ColorChips({ className, size = "Large" }: ColorChipsProps) {
+  return <div className={className || "bg-[#3f2dc3] h-[40px] relative rounded-[var(--radius\\/md,8px)] w-[60px]"} data-node-id="23:432" />;
+}
+type FrameProps = {
+  className?: string;
+  property1?: "Default" | "Variant2" | "Variant3";
+};
+
+export default function Frame({ className, property1 = "Variant3" }: FrameProps) {
+  const isDefault = property1 === "Default";
+  const isVariant2 = property1 === "Variant2";
+  return (
+    <div className={className || "content-stretch flex flex-col items-start relative rounded-[var(--radius\\/md,8px)] w-[170px]"} id={isVariant2 ? "node-193_7218" : isDefault ? "node-193_7209" : "node-193_7200"}>
+      <div className="bg-[var(--background\/subtle,#d2d3d8)] content-stretch flex flex-col h-[60px] items-start relative rounded-tl-[7px] rounded-tr-[7px] shrink-0 w-full" id={isVariant2 ? "node-193_7219" : isDefault ? "node-193_7210" : "node-193_7201"}>
+        <div className="content-stretch flex flex-[1_0_0] gap-[10px] items-center min-h-px p-[10px] relative w-full" id={isVariant2 ? "node-193_7220" : isDefault ? "node-193_7211" : "node-193_7202"}>
+          <ColorChips className="bg-[#3f2dc3] h-[40px] relative rounded-[var(--radius\/md,8px)] shrink-0 w-[60px]" />
+          <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col font-['Space_Mono:Regular'] gap-[4px] items-end justify-center leading-[normal] min-w-px not-italic relative text-[color:var(--action\/primary\/default,#3f2dc3)] text-center" id={isVariant2 ? "node-193_7222" : isDefault ? "node-193_7213" : "node-193_7204"}>
+            <p className="relative shrink-0 text-[15px] w-full" id={isVariant2 ? "node-193_7223" : isDefault ? "node-193_7214" : "node-193_7205"}>
+              Primary
+            </p>
+            <p className="relative shrink-0 text-[12px] w-full" id={isVariant2 ? "node-193_7224" : isDefault ? "node-193_7215" : "node-193_7206"}>
+              #2068DC
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className={`content-stretch flex items-center px-[15px] py-px relative rounded-bl-[7px] rounded-br-[7px] shrink-0 w-full ${isVariant2 ? String.raw`bg-[var(--warning\/500,#81a300)]` : isDefault ? String.raw`bg-[var(--success\/500,#00ad88)]` : String.raw`bg-[var(--info\/500,#3196fa)]`}`} id={isVariant2 ? "node-193_7225" : isDefault ? "node-193_7216" : "node-193_7207"}>
+        <p className={`[word-break:break-word] font-["Space_Mono:Regular"] leading-[normal] not-italic relative shrink-0 text-[15px] ${["Default", "Variant2"].includes(property1) ? String.raw`text-[color:var(--success\/800,#004636)] w-[83px]` : String.raw`text-[color:var(--info\/800,#003a72)] whitespace-nowrap`}`} id={isVariant2 ? "node-193_7226" : isDefault ? "node-193_7217" : "node-193_7208"}>
+          {isVariant2 ? "Steered" : isDefault ? "Generated" : "Brand Seed"}
+        </p>
+      </div>
+    </div>
+  );
+}

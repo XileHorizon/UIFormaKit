@@ -1,0 +1,62 @@
+const imgSliderHandle = "http://localhost:3845/assets/7114be85b7c3d52ed4640aa1320e6d1c486c35ff.svg";
+const imgEllipse2 = "http://localhost:3845/assets/c61f700853d959dfc119cf42b2afa38a4914c940.svg";
+const imgSliderHandle1 = "http://localhost:3845/assets/832b7ce2693afb5338891a2806e1315f06968142.svg";
+type SliderProps = {
+  className?: string;
+  dragging?: boolean;
+  property1?: "25" | "0";
+};
+
+function Slider({ className, dragging = false, property1 = "0" }: SliderProps) {
+  const is25 = property1 === "25";
+  return (
+    <div className={className || `relative w-[570px] ${is25 ? "h-[16px]" : "h-[34px]"}`} id={is25 ? "node-10_479" : "node-10_474"}>
+      <div className={`absolute contents ${is25 ? "-translate-y-1/2 left-0 right-0 top-1/2" : "inset-[35.29%_0]"}`} id={is25 ? "node-10_480" : "node-10_475"}>
+        <div className={`${String.raw`absolute bg-[var(--action\/primary\/default,#3f2dc3)] rounded-bl-[6px] rounded-tl-[6px] `}${is25 ? "-translate-y-1/2 h-[8px] left-0 right-[75.09%] top-1/2" : "inset-[35.29%_97.89%_35.29%_0]"}`} id={is25 ? "node-10_481" : "node-10_476"} />
+        <div className={`absolute flex items-center justify-center ${is25 ? "-translate-y-1/2 h-[8px] left-[24.91%] right-0 top-1/2" : "inset-[35.29%_0_35.29%_2.11%]"}`} id={is25 ? "node-10_482" : "node-10_477"} style={{ containerType: "size" }}>
+          <div className="flex-none h-[100cqh] rotate-180 w-[100cqw]">
+            <div className="bg-[#ede8f2] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid relative rounded-bl-[6px] rounded-tl-[6px] size-full" />
+          </div>
+        </div>
+      </div>
+      {property1 === "0" && (
+        <div className="-translate-x-1/2 -translate-y-1/2 absolute left-[calc(50%-273px)] size-[24px] top-1/2" data-node-id="10:478" data-name="Slider Handle">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSliderHandle} />
+        </div>
+      )}
+      {is25 && dragging && (
+        <div className="absolute inset-[0_47.02%]" data-node-id="10:483">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse2} />
+        </div>
+      )}
+      {is25 && (
+        <div className="absolute aspect-[24/24] left-[23.51%] right-[73.68%] top-0" data-node-id="10:484" data-name="Slider Handle">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSliderHandle1} />
+        </div>
+      )}
+    </div>
+  );
+}
+type SidebarSliderProps = {
+  className?: string;
+  property?: string;
+  value?: string;
+};
+
+function SidebarSlider({ className, property = "Temperature", value = "0.0" }: SidebarSliderProps) {
+  return (
+    <div className={className || "content-stretch flex items-center justify-between relative w-[350px]"} data-node-id="20:1339" data-name="Sidebar Slider">
+      <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--action\/primary\/default,#3f2dc3)] w-[108px]" data-node-id="20:1335">
+        {property}
+      </p>
+      <Slider className="h-[16px] relative shrink-0 w-[200px]" property1="25" />
+      <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center whitespace-nowrap" data-node-id="20:1337">
+        {value}
+      </p>
+    </div>
+  );
+}
+
+export default function SidebarSlider1() {
+  return <SidebarSlider className="content-stretch flex items-center justify-between relative size-full" />;
+}

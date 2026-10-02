@@ -45,3 +45,27 @@ Remaining non-token gaps:
   semantic surface token exists.
 - Text Input labels and the Tall body text use Geist in Figma. The kit's `--uf-font-body` is Instrument Sans.
 - The slider's `#ede8f2` remainder is a raw value in Figma with no variable.
+
+## Molecules fidelity pass (captured 2026-10-02)
+
+`molecules/` holds design context, screenshots, metadata, assets, and variables for every frame on the
+Molecules page (193:7341).
+
+| Figma frame | Kit | Result |
+| --- | --- | --- |
+| Button Group (193:7174) | `SegmentedControl` | Subtle border, 36px compact items, Space Mono 16 |
+| Dropdown Menu (193:7236) | `Dropdown` | Subtle-border trigger on page fill, right/down chevron, tray attached flush |
+| Search Menu (193:7227) | `Autocomplete` | Button-like field (50px, 4px radius, chevron), attached tray without shadow, 50px rows; footer actions now opt-in via `footer` |
+| Color Slider (193:5038) | `ColorSlider` | 8px bar radius, `min`/`max`, `gradient`, `showValue` pill |
+| Transform / Lighting / Color Settings (193:4599, 4598, 4606) | `SettingsSection` | New, with `standard`/`tight`/`compact` spacing |
+| Button Block (193:4536) | `ButtonBlock` | New |
+| Position Inputs (193:4552) | `FieldRow` | New |
+| Sidebar Slider (193:4597) | `SidebarSlider` | New |
+| Icon Label (193:4583) | `IconLabel` | New |
+| Color Settings swatches (193:4606) | `SwatchGroup` | New |
+| Color Primitive (193:4609) | `ColorRamp` | New |
+| Frame 38 (193:7199) | `ColorRoleCard` | New; the warning card uses `warning-800` text where Figma uses `success-800` |
+| Component 13 (193:4999) | `ColorFormatPanel` | New; readouts match Figma's #2068DC values exactly |
+| Color Relations / Color Picker (193:4668, 4818) | `HarmonyWheel` / `ColorPicker` | Geometry already matched (16% SV inset, 31×13 handles) |
+
+Remaining gap: role-card tags and other tone fills still use the stale token colours listed above.

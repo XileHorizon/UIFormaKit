@@ -1,0 +1,35 @@
+<instance id="193:4606" name="Color Settings" x="1864" y="732" width="370" height="187">
+  <frame id="I193:4606;23:480" name="Frame 5" x="10" y="0" width="350" height="31">
+    <text id="I193:4606;23:481" name="Colors" x="0" y="0.5" width="319" height="30" />
+    <instance id="I193:4606;23:482" name="Icon Label" x="319" y="0" width="31" height="31" />
+  </frame>
+  <frame id="I193:4606;23:500" name="Group 12" x="10" y="35" width="350" height="48">
+    <text id="I193:4606;23:475" name="Neutral" x="10" y="35" width="350" height="22" />
+    <frame id="I193:4606;23:479" name="Frame 11" x="10" y="59" width="164" height="24">
+      <instance id="I193:4606;23:450" name="Color Chips" x="0" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:448" name="Color Chips" x="28" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:454" name="Color Chips" x="56" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:456" name="Color Chips" x="84" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:458" name="Color Chips" x="112" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:460" name="Color Chips" x="140" y="0" width="24" height="24" />
+    </frame>
+  </frame>
+  <frame id="I193:4606;23:499" name="Group 11" x="10" y="87" width="350" height="48">
+    <text id="I193:4606;23:486" name="Vibrant" x="10" y="87" width="350" height="22" />
+    <frame id="I193:4606;23:478" name="Frame 11" x="10" y="111" width="350" height="24">
+      <instance id="I193:4606;23:462" name="Color Chips" x="0" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:464" name="Color Chips" x="28" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:466" name="Color Chips" x="56" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:468" name="Color Chips" x="84" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:470" name="Color Chips" x="112" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:472" name="Color Chips" x="140" y="0" width="24" height="24" />
+      <instance id="I193:4606;23:474" name="Color Chips" x="168" y="0" width="24" height="24" />
+    </frame>
+  </frame>
+  <frame id="I193:4606;23:501" name="Group 13" x="10" y="139" width="350" height="48">
+    <text id="I193:4606;23:502" name="Custom" x="10" y="139" width="350" height="22" />
+    <frame id="I193:4606;23:503" name="Frame 11" x="10" y="163" width="350" height="24">
+      <instance id="I193:4606;23:511" name="Color Chips" x="0" y="0" width="24" height="24" />
+    </frame>
+  </frame>
+</instance>

@@ -1,0 +1,5 @@
+<instance id="193:4552" name="Position Inputs" x="1425" y="337" width="350" height="60">
+  <instance id="I193:4552;20:1570" name="Basic Text Input" x="0" y="0" width="116.66666412353516" height="60" />
+  <instance id="I193:4552;20:1575" name="Basic Text Input" x="116.66666412353516" y="0" width="116.66667175292969" height="60" />
+  <instance id="I193:4552;20:1580" name="Basic Text Input" x="233.33334350585938" y="0" width="116.66667175292969" height="60" />
+</instance>

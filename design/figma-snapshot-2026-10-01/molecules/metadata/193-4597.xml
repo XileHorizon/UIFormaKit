@@ -1,0 +1,5 @@
+<instance id="193:4597" name="Sidebar Slider" x="1425" y="892" width="350" height="24">
+  <text id="I193:4597;20:1335" name="Temperature" x="0" y="0" width="108" height="24" />
+  <instance id="I193:4597;15:1318" name="Slider" x="117.5" y="4" width="200" height="16" />
+  <text id="I193:4597;20:1337" name="0.0" x="327" y="3" width="23" height="18" />
+</instance>

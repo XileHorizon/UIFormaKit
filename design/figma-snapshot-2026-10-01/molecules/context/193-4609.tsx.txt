@@ -1,0 +1,111 @@
+type ColorPrimitiveProps = {
+  className?: string;
+  property1?: "Frame 14" | "Frame 15";
+};
+
+export default function ColorPrimitive({ className, property1 = "Frame 14" }: ColorPrimitiveProps) {
+  const isFrame14 = property1 === "Frame 14";
+  const isFrame15 = property1 === "Frame 15";
+  return (
+    <div className={className || "content-stretch flex flex-col gap-[4px] items-end justify-end relative"} id={isFrame15 ? "node-193_4627" : "node-193_4610"}>
+      <div className={`content-stretch flex gap-[4px] relative shrink-0 ${isFrame15 ? "items-end" : "items-center"}`} id={isFrame15 ? "node-193_4628" : "node-193_4611"}>
+        <div className="[word-break:break-word] content-stretch flex flex-col font-['Space_Mono:Regular'] gap-[6px] items-start leading-[normal] not-italic relative shrink-0 text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[100px]" id={isFrame15 ? "node-193_4629" : "node-193_4612"}>
+          <p className="relative shrink-0 text-[16px] w-full" id={isFrame15 ? "node-193_4630" : "node-193_4613"}>
+            {isFrame15 ? "Primary" : "Secondary"}
+          </p>
+          <p className="relative shrink-0 text-[12px] w-full" id={isFrame15 ? "node-193_4631" : "node-193_4614"}>
+            H ####
+          </p>
+        </div>
+        {isFrame14 && (
+          <>
+            <div className="bg-[var(--primary\/0,#f8faff)] h-[40px] relative rounded-bl-[var(--radius\/md,8px)] rounded-tl-[var(--radius\/md,8px)] shrink-0 w-[60px]" data-node-id="193:4615" data-name="Color Chips" />
+            <div className="bg-[var(--primary\/100,#c5d1ff)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4616" data-name="Color Chips" />
+            <div className="bg-[var(--primary\/200,#9eafff)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4617" data-name="Color Chips" />
+            <div className="bg-[var(--primary\/300,#7d8dff)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4618" data-name="Color Chips" />
+            <div className="bg-[var(--primary\/400,#636afc)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4619" data-name="Color Chips" />
+            <div className="bg-[var(--primary\/500,#514de3)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4620" data-name="Color Chips" />
+            <div className="bg-[var(--primary\/600,#3f2dc3)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4621" data-name="Color Chips" />
+            <div className="bg-[var(--primary\/700,#3311a7)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4622" data-name="Color Chips" />
+            <div className="bg-[var(--primary\/800,#270085)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4623" data-name="Color Chips" />
+            <div className="bg-[var(--primary\/900,#1a0060)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4624" data-name="Color Chips" />
+            <div className="bg-[var(--primary\/1000,#0f003f)] h-[40px] relative rounded-br-[var(--radius\/md,8px)] rounded-tr-[var(--radius\/md,8px)] shrink-0 w-[60px]" data-node-id="193:4625" data-name="Color Chips" />
+          </>
+        )}
+        {isFrame15 && (
+          <>
+            <div className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0" data-node-id="193:4632">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4633">
+                0
+              </p>
+              <div className="bg-[var(--primary\/0,#f8faff)] h-[40px] relative rounded-bl-[var(--radius\/md,8px)] rounded-tl-[var(--radius\/md,8px)] shrink-0 w-[60px]" data-node-id="193:4634" data-name="Color Chips" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="193:4635">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4636">
+                100
+              </p>
+              <div className="bg-[var(--primary\/100,#c5d1ff)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4637" data-name="Color Chips" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="193:4638">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4639">
+                200
+              </p>
+              <div className="bg-[var(--primary\/200,#9eafff)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4640" data-name="Color Chips" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="193:4641">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4642">
+                300
+              </p>
+              <div className="bg-[var(--primary\/300,#7d8dff)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4643" data-name="Color Chips" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="193:4644">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4645">
+                400
+              </p>
+              <div className="bg-[var(--primary\/400,#636afc)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4646" data-name="Color Chips" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="193:4647">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4648">
+                500
+              </p>
+              <div className="bg-[var(--primary\/500,#514de3)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4649" data-name="Color Chips" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="193:4650">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4651">
+                600
+              </p>
+              <div className="bg-[var(--primary\/600,#3f2dc3)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4652" data-name="Color Chips" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="193:4653">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4654">
+                700
+              </p>
+              <div className="bg-[var(--primary\/700,#3311a7)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4655" data-name="Color Chips" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="193:4656">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4657">
+                800
+              </p>
+              <div className="bg-[var(--primary\/800,#270085)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4658" data-name="Color Chips" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0" data-node-id="193:4659">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4660">
+                900
+              </p>
+              <div className="bg-[var(--primary\/900,#1a0060)] h-[40px] relative shrink-0 w-[60px]" data-node-id="193:4661" data-name="Color Chips" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[4px] items-center relative shrink-0" data-node-id="193:4662">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] min-w-full not-italic relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] text-center w-[min-content]" data-node-id="193:4663">
+                1000
+              </p>
+              <div className="content-stretch flex items-center relative shrink-0" data-node-id="193:4664">
+                <div className="bg-[var(--primary\/1000,#0f003f)] h-[40px] relative rounded-br-[var(--radius\/md,8px)] rounded-tr-[var(--radius\/md,8px)] shrink-0 w-[60px]" data-node-id="193:4665" data-name="Color Chips" />
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+      <div className="h-[14px] relative rounded-[var(--radius\/md,8px)] shrink-0 w-[700px]" id={isFrame15 ? "node-193_4666" : "node-193_4626"} style={{ backgroundImage: "linear-gradient(90deg, var(--primary\\/0,rgb(248, 250, 255)) 4.783%, var(--primary\\/100,rgb(197, 209, 255)) 13.603%, var(--primary\\/200,rgb(158, 175, 255)) 23%, var(--primary\\/300,rgb(125, 141, 255)) 32%, var(--primary\\/400,rgb(99, 106, 252)) 41%, var(--primary\\/500,rgb(81, 77, 227)) 50.049%, var(--primary\\/600,rgb(63, 45, 195)) 59.126%, var(--primary\\/700,rgb(51, 17, 167)) 68.381%, var(--primary\\/800,rgb(39, 0, 133)) 77.368%, var(--primary\\/900,rgb(26, 0, 96)) 86.453%, var(--primary\\/1000,rgb(15, 0, 63)) 95.146%)" }} data-name="Color Chips" />
+    </div>
+  );
+}

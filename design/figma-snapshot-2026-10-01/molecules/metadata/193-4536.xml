@@ -1,0 +1,8 @@
+<instance id="193:4536" name="Button Block" x="1876" y="89" width="350" height="120">
+  <instance id="I193:4536;10:721" name="Button" x="0" y="0" width="172" height="36" />
+  <instance id="I193:4536;10:731" name="Button" x="0" y="42" width="172" height="36" />
+  <instance id="I193:4536;10:741" name="Button" x="0" y="84" width="172" height="36" />
+  <instance id="I193:4536;10:716" name="Button" x="178" y="0" width="172" height="36" />
+  <instance id="I193:4536;10:726" name="Button" x="178" y="42" width="172" height="36" />
+  <instance id="I193:4536;10:736" name="Button" x="178" y="84" width="172" height="36" />
+</instance>

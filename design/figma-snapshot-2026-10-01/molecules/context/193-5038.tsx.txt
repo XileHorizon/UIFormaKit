@@ -1,0 +1,53 @@
+const imgProperty1Subtract = "http://localhost:3845/assets/605df67006253aabdc7499679915d6469aa777f4.svg";
+type ColorSliderHandleProps = {
+  className?: string;
+  property1?: "Rectangle 43" | "Subtract";
+};
+
+function ColorSliderHandle({ className, property1 = "Rectangle 43" }: ColorSliderHandleProps) {
+  const isRectangle43 = property1 === "Rectangle 43";
+  return (
+    <div className={className || `relative ${isRectangle43 ? "h-[31px] w-[13px]" : "h-[30px] w-[17px]"}`} id={isRectangle43 ? "node-193_4996" : "node-193_4994"}>
+      {property1 === "Subtract" && <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgProperty1Subtract} />}
+      {isRectangle43 && (
+        <div className="absolute flex inset-0 items-center justify-center" data-node-id="193:4997" style={{ containerType: "size" }}>
+          <div className="flex-none h-[100cqw] rotate-90 w-[100cqh]">
+            <div className="border-3 border-[var(--background\/page,#fafafa)] border-solid relative rounded-[3px] size-full" />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ColorSliderBar({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[20px] relative w-[205px]"} data-node-id="54:1516" data-name="Color Slider Bar">
+      <div className="absolute bg-gradient-to-r from-white inset-0 rounded-[var(--radius\/md,8px)] to-[red]" data-node-id="54:1500" />
+    </div>
+  );
+}
+type ColorSliderProps = {
+  className?: string;
+  property1?: "Default" | "Variant2" | "Variant3";
+};
+
+export default function ColorSlider({ className, property1 = "Default" }: ColorSliderProps) {
+  const isVariant2 = property1 === "Variant2";
+  const isVariant3 = property1 === "Variant3";
+  return (
+    <div className={className || "content-stretch flex gap-[4px] items-center relative"} id={isVariant3 ? "node-193_5049" : isVariant2 ? "node-193_5044" : "node-193_5039"}>
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" id={isVariant3 ? "node-193_5050" : isVariant2 ? "node-193_5045" : "node-193_5040"}>
+        <ColorSliderBar className="col-1 h-[20px] ml-0 mt-[5px] relative row-1 w-[205px]" />
+        <ColorSliderHandle className={`col-1 h-[30px] mt-0 relative row-1 w-[17px] ${isVariant3 ? "ml-[8px]" : isVariant2 ? "ml-[94px]" : "ml-[183px]"}`} property1="Subtract" />
+      </div>
+      <div className="content-stretch flex flex-col gap-[6px] h-[20px] items-start justify-center relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant3 ? "node-193_5053" : isVariant2 ? "node-193_5048" : "node-193_5043"} data-name="Basic Text Input">
+        <div className="bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/border,#636afc)] border-solid content-stretch flex h-[20px] items-center justify-between px-[8px] py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant3 ? "node-I193_5053-193_4545" : isVariant2 ? "node-I193_5048-193_4545" : "node-I193_5043-193_4545"}>
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--color\/primary-dark,#1a1620)] whitespace-nowrap" id={isVariant3 ? "node-I193_5053-193_4546" : isVariant2 ? "node-I193_5048-193_4546" : "node-I193_5043-193_4546"}>
+            {isVariant3 ? "0" : isVariant2 ? "127" : "255"}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

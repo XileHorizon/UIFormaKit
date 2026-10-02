@@ -1,0 +1,301 @@
+const imgProperty1Subtract = "http://localhost:3845/assets/605df67006253aabdc7499679915d6469aa777f4.svg";
+type ColorSliderHandleProps = {
+  className?: string;
+  property1?: "Rectangle 43" | "Subtract";
+};
+
+function ColorSliderHandle({ className, property1 = "Rectangle 43" }: ColorSliderHandleProps) {
+  const isRectangle43 = property1 === "Rectangle 43";
+  return (
+    <div className={className || `relative ${isRectangle43 ? "h-[31px] w-[13px]" : "h-[30px] w-[17px]"}`} id={isRectangle43 ? "node-193_4996" : "node-193_4994"}>
+      {property1 === "Subtract" && <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgProperty1Subtract} />}
+      {isRectangle43 && (
+        <div className="absolute flex inset-0 items-center justify-center" data-node-id="193:4997" style={{ containerType: "size" }}>
+          <div className="flex-none h-[100cqw] rotate-90 w-[100cqh]">
+            <div className="border-3 border-[var(--background\/page,#fafafa)] border-solid relative rounded-[3px] size-full" />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+type ButtonGroupProps = {
+  className?: string;
+  property1?: "1" | "2" | "3" | "4";
+};
+
+function ButtonGroup({ className, property1 = "1" }: ButtonGroupProps) {
+  const is1 = property1 === "1";
+  const is2Or3Or4 = ["2", "3", "4"].includes(property1);
+  const is3 = property1 === "3";
+  const is3Or4 = ["3", "4"].includes(property1);
+  const is4 = property1 === "4";
+  return (
+    <div className={className || `content-stretch flex relative w-[248px] ${is2Or3Or4 ? "items-start" : String.raw`bg-[var(--background\/page,#fafafa)] border border-[var(--border\/subtle,#b2b4bd)] border-solid gap-[4px] items-center p-[4px] rounded-[var(--radius\/md,8px)]`}`} id={is4 ? "node-55_1632" : is3 ? "node-55_1631" : property1 === "2" ? "node-55_1630" : "node-50_1536"}>
+      {is2Or3Or4 && (
+        <div className="bg-[var(--background\/page,#fafafa)] border border-[var(--border\/subtle,#b2b4bd)] border-solid content-stretch flex gap-[4px] items-center p-[4px] relative rounded-[var(--radius\/md,8px)] shrink-0" id={is4 ? "node-55_1613" : is3 ? "node-55_1596" : "node-55_1579"}>
+          <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" id={is4 ? "node-I55_1613-48_821" : is3 ? "node-I55_1596-48_821" : "node-I55_1579-48_821"} data-name="Button - Compact">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" id={is4 ? "node-I55_1613-48_821-48_691" : is3 ? "node-I55_1596-48_821-48_691" : "node-I55_1579-48_821-48_691"}>
+              HEX
+            </p>
+          </div>
+          <div className={`${String.raw`content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0 `}${is3Or4 ? String.raw`bg-[var(--background\/page,#fafafa)]` : String.raw`bg-[var(--action\/primary\/default,#3f2dc3)]`}`} id={is4 ? "node-I55_1613-48_826" : is3 ? "node-I55_1596-48_826" : "node-I55_1579-48_826"} data-name="Button - Compact">
+            <p className={`[word-break:break-word] font-["Space_Mono:Regular"] leading-[normal] not-italic relative shrink-0 text-[16px] text-center whitespace-nowrap ${is3Or4 ? String.raw`text-[color:var(--text\/secondary,#3c3e46)]` : String.raw`text-[color:var(--background\/page,#fafafa)]`}`} id={is4 ? "node-I55_1613-48_826-48_691" : is3 ? "node-I55_1596-48_826-48_691" : "node-I55_1579-48_826-48_683"}>
+              RGB
+            </p>
+          </div>
+          <div className={`${String.raw`content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0 `}${is3 ? String.raw`bg-[var(--action\/primary\/default,#3f2dc3)] cursor-pointer` : String.raw`bg-[var(--background\/page,#fafafa)]`}`} id={is4 ? "node-I55_1613-48_831" : is3 ? "node-I55_1596-48_831" : "node-I55_1579-48_831"} data-name="Button - Compact">
+            <p className={`[word-break:break-word] font-["Space_Mono:Regular"] leading-[normal] not-italic relative shrink-0 text-[16px] text-center whitespace-nowrap ${is3 ? String.raw`text-[color:var(--background\/page,#fafafa)]` : String.raw`text-[color:var(--text\/secondary,#3c3e46)]`}`} id={is4 ? "node-I55_1613-48_831-48_691" : is3 ? "node-I55_1596-48_831-48_683" : "node-I55_1579-48_831-48_691"}>
+              HSL
+            </p>
+          </div>
+          <div className={`${String.raw`content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0 `}${is4 ? String.raw`bg-[var(--action\/primary\/default,#3f2dc3)] cursor-pointer` : String.raw`bg-[var(--background\/page,#fafafa)]`}`} id={is4 ? "node-I55_1613-48_816" : is3 ? "node-I55_1596-48_816" : "node-I55_1579-48_816"} data-name="Button - Compact">
+            <p className={`[word-break:break-word] font-["Space_Mono:Regular"] leading-[normal] not-italic relative shrink-0 text-[16px] text-center whitespace-nowrap ${is4 ? String.raw`text-[color:var(--background\/page,#fafafa)]` : String.raw`text-[color:var(--text\/secondary,#3c3e46)]`}`} id={is4 ? "node-I55_1613-48_816-48_683" : is3 ? "node-I55_1596-48_816-48_691" : "node-I55_1579-48_816-48_691"}>
+              CMYK
+            </p>
+          </div>
+        </div>
+      )}
+      {is1 && (
+        <>
+          <div className="bg-[var(--action\/primary\/default,#3f2dc3)] content-stretch cursor-pointer flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="48:821" data-name="Button - Compact">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="I48:821;48:683">
+              HEX
+            </p>
+          </div>
+          <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="48:826" data-name="Button - Compact">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I48:826;48:691">
+              RGB
+            </p>
+          </div>
+          <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="48:831" data-name="Button - Compact">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I48:831;48:691">
+              HSL
+            </p>
+          </div>
+          <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="48:816" data-name="Button - Compact">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I48:816;48:691">
+              CMYK
+            </p>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function ColorSliderBar({ className }: { className?: string }) {
+  return (
+    <div className={className || "h-[20px] relative w-[205px]"} data-node-id="54:1516" data-name="Color Slider Bar">
+      <div className="absolute bg-gradient-to-r from-white inset-0 rounded-[var(--radius\/md,8px)] to-[red]" data-node-id="54:1500" />
+    </div>
+  );
+}
+type ColorSliderProps = {
+  className?: string;
+  property1?: "Default" | "Variant3";
+};
+
+function ColorSlider({ className, property1 = "Default" }: ColorSliderProps) {
+  const isVariant3 = property1 === "Variant3";
+  return (
+    <div className={className || "content-stretch flex gap-[4px] items-center relative"} id={isVariant3 ? "node-193_5049" : "node-193_5039"}>
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" id={isVariant3 ? "node-193_5050" : "node-193_5040"}>
+        <ColorSliderBar className="col-1 h-[20px] ml-0 mt-[5px] relative row-1 w-[205px]" />
+        <ColorSliderHandle className={`col-1 h-[30px] mt-0 relative row-1 w-[17px] ${isVariant3 ? "ml-[8px]" : "ml-[183px]"}`} property1="Subtract" />
+      </div>
+      <div className="content-stretch flex flex-col gap-[6px] h-[20px] items-start justify-center relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant3 ? "node-193_5053" : "node-193_5043"} data-name="Basic Text Input">
+        <div className="bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/border,#636afc)] border-solid content-stretch flex h-[20px] items-center justify-between px-[8px] py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant3 ? "node-I193_5053-193_4545" : "node-I193_5043-193_4545"}>
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--color\/primary-dark,#1a1620)] whitespace-nowrap" id={isVariant3 ? "node-I193_5053-193_4546" : "node-I193_5043-193_4546"}>
+            {isVariant3 ? "0" : "255"}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+type ComponentProps = {
+  className?: string;
+  property1?: "CMYK" | "HEX" | "HSL" | "RGB" | "Variant5";
+};
+
+export default function Component({ className, property1 = "HEX" }: ComponentProps) {
+  const isCmyk = property1 === "CMYK";
+  const isCmykOrVariant5 = ["CMYK", "Variant5"].includes(property1);
+  const isHex = property1 === "HEX";
+  const isHsl = property1 === "HSL";
+  const isHslOrCmykOrVariant5 = ["HSL", "CMYK", "Variant5"].includes(property1);
+  const isRgb = property1 === "RGB";
+  const isRgbOrHslOrCmykOrVariant5 = ["RGB", "HSL", "CMYK", "Variant5"].includes(property1);
+  const isVariant5 = property1 === "Variant5";
+  return (
+    <div className={className || `content-stretch flex flex-col gap-[10px] relative ${isRgbOrHslOrCmykOrVariant5 ? "items-center w-[248px]" : "items-start justify-center"}`} id={isVariant5 ? "node-193_5030" : isCmyk ? "node-193_5023" : isHsl ? "node-193_5017" : isRgb ? "node-193_5011" : "node-193_5000"}>
+      {isRgbOrHslOrCmykOrVariant5 && (
+        <>
+          <ButtonGroup className="content-stretch flex items-start relative shrink-0 w-full" property1={isCmykOrVariant5 ? "4" : isHsl ? "3" : "2"} />
+          <div className="content-stretch flex flex-col gap-[6px] items-start justify-center relative rounded-[var(--radius\/md,8px)] shrink-0 w-full" id={isVariant5 ? "node-193_5032" : isCmyk ? "node-193_5025" : isHsl ? "node-193_5019" : "node-193_5013"} data-name="Basic Text Input">
+            <div className={`${String.raw`content-stretch flex items-center justify-between px-[12px] py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0 w-full `}${isCmykOrVariant5 ? "bg-[#0ff]" : isHsl ? "bg-[red]" : "bg-[#0f0]"}`} id={isVariant5 ? "node-I193_5032-193_4540" : isCmyk ? "node-I193_5025-193_4540" : isHsl ? "node-I193_5019-193_4540" : "node-I193_5013-193_4540"}>
+              <p className={`[word-break:break-word] font-["Space_Mono:Regular"] leading-[normal] not-italic relative shrink-0 text-[16px] whitespace-nowrap ${isHsl ? "text-white" : String.raw`text-[color:var(--text\/primary,#121212)]`}`} id={isVariant5 ? "node-I193_5032-193_4541" : isCmyk ? "node-I193_5025-193_4541" : isHsl ? "node-I193_5019-193_4541" : "node-I193_5013-193_4541"}>
+                #2068DC
+              </p>
+            </div>
+          </div>
+        </>
+      )}
+      {isHslOrCmykOrVariant5 && (
+        <>
+          <div className="content-stretch flex gap-[4px] items-center relative shrink-0 w-full" id={isVariant5 ? "node-193_5033" : isCmyk ? "node-193_5026" : "node-193_5020"} data-name="Color Slider">
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" id={isVariant5 ? "node-I193_5033-193_5040" : isCmyk ? "node-I193_5026-193_5040" : "node-I193_5020-193_5040"}>
+              <div className="col-1 h-[20px] ml-0 mt-[5px] relative row-1 w-[205px]" id={isVariant5 ? "node-I193_5033-193_5041" : isCmyk ? "node-I193_5026-193_5041" : "node-I193_5020-193_5041"} data-name="Color Slider Bar">
+                <div className={`${String.raw`absolute inset-0 rounded-[var(--radius\/md,8px)] `}${isCmykOrVariant5 ? "bg-gradient-to-r from-white to-[#0ff]" : ""}`} id={isVariant5 ? "node-I193_5033-193_5041-54_1500" : isCmyk ? "node-I193_5026-193_5041-54_1500" : "node-I193_5020-193_5041-54_1500"} style={isHsl ? { backgroundImage: "linear-gradient(90deg, rgb(255, 0, 0) 4.8077%, rgb(255, 255, 0) 20.192%, rgb(0, 255, 0) 35%, rgb(0, 0, 255) 50%, rgb(0, 255, 255) 65%, rgb(255, 0, 255) 80%, rgb(255, 0, 0) 94.712%)" } : undefined} />
+              </div>
+              <ColorSliderHandle className="col-1 h-[30px] ml-[183px] mt-0 relative row-1 w-[17px]" property1="Subtract" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[6px] h-[20px] items-start justify-center relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant5 ? "node-I193_5033-193_5043" : isCmyk ? "node-I193_5026-193_5043" : "node-I193_5020-193_5043"} data-name="Basic Text Input">
+              <div className="bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/border,#636afc)] border-solid content-stretch flex h-[20px] items-center justify-between px-[8px] py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant5 ? "node-I193_5033-193_5043-193_4545" : isCmyk ? "node-I193_5026-193_5043-193_4545" : "node-I193_5020-193_5043-193_4545"}>
+                <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--color\/primary-dark,#1a1620)] whitespace-nowrap" id={isVariant5 ? "node-I193_5033-193_5043-193_4546" : isCmyk ? "node-I193_5026-193_5043-193_4546" : "node-I193_5020-193_5043-193_4546"}>
+                  255
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[4px] items-center relative shrink-0 w-full" id={isVariant5 ? "node-193_5034" : isCmyk ? "node-193_5027" : "node-193_5021"} data-name="Color Slider">
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" id={isVariant5 ? "node-I193_5034-193_5050" : isCmyk ? "node-I193_5027-193_5050" : "node-I193_5021-193_5040"}>
+              <div className="col-1 h-[20px] ml-0 mt-[5px] relative row-1 w-[205px]" id={isVariant5 ? "node-I193_5034-193_5051" : isCmyk ? "node-I193_5027-193_5051" : "node-I193_5021-193_5041"} data-name="Color Slider Bar">
+                <div className={`${String.raw`absolute bg-gradient-to-r inset-0 rounded-[var(--radius\/md,8px)] `}${isCmykOrVariant5 ? "from-white to-[#f0f]" : "from-[#808080] to-[red]"}`} id={isVariant5 ? "node-I193_5034-193_5051-54_1500" : isCmyk ? "node-I193_5027-193_5051-54_1500" : "node-I193_5021-193_5041-54_1500"} />
+              </div>
+              <ColorSliderHandle className={`col-1 h-[30px] mt-0 relative row-1 w-[17px] ${isCmykOrVariant5 ? "ml-[8px]" : "ml-[183px]"}`} property1="Subtract" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[6px] h-[20px] items-start justify-center relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant5 ? "node-I193_5034-193_5053" : isCmyk ? "node-I193_5027-193_5053" : "node-I193_5021-193_5043"} data-name="Basic Text Input">
+              <div className="bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/border,#636afc)] border-solid content-stretch flex h-[20px] items-center justify-between px-[8px] py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant5 ? "node-I193_5034-193_5053-193_4545" : isCmyk ? "node-I193_5027-193_5053-193_4545" : "node-I193_5021-193_5043-193_4545"}>
+                <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--color\/primary-dark,#1a1620)] whitespace-nowrap" id={isVariant5 ? "node-I193_5034-193_5053-193_4546" : isCmyk ? "node-I193_5027-193_5053-193_4546" : "node-I193_5021-193_5043-193_4546"}>
+                  {isCmykOrVariant5 ? "255" : isHsl ? "100" : ""}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[4px] items-center relative shrink-0 w-full" id={isVariant5 ? "node-193_5035" : isCmyk ? "node-193_5028" : "node-193_5022"} data-name="Color Slider">
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" id={isVariant5 ? "node-I193_5035-193_5050" : isCmyk ? "node-I193_5028-193_5050" : "node-I193_5022-193_5045"}>
+              <div className="col-1 h-[20px] ml-0 mt-[5px] relative row-1 w-[205px]" id={isVariant5 ? "node-I193_5035-193_5051" : isCmyk ? "node-I193_5028-193_5051" : "node-I193_5022-193_5046"} data-name="Color Slider Bar">
+                <div className={`${String.raw`absolute bg-gradient-to-r from-white inset-0 rounded-[var(--radius\/md,8px)] `}${isCmykOrVariant5 ? "to-[yellow]" : "to-black via-[#fe0000] via-[49.519%]"}`} id={isVariant5 ? "node-I193_5035-193_5051-54_1500" : isCmyk ? "node-I193_5028-193_5051-54_1500" : "node-I193_5022-193_5046-54_1500"} />
+              </div>
+              <ColorSliderHandle className={`col-1 h-[30px] mt-0 relative row-1 w-[17px] ${isCmykOrVariant5 ? "ml-[8px]" : "ml-[94px]"}`} property1="Subtract" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[6px] h-[20px] items-start justify-center relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant5 ? "node-I193_5035-193_5053" : isCmyk ? "node-I193_5028-193_5053" : "node-I193_5022-193_5048"} data-name="Basic Text Input">
+              <div className="bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/border,#636afc)] border-solid content-stretch flex h-[20px] items-center justify-between px-[8px] py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant5 ? "node-I193_5035-193_5053-193_4545" : isCmyk ? "node-I193_5028-193_5053-193_4545" : "node-I193_5022-193_5048-193_4545"}>
+                <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--color\/primary-dark,#1a1620)] whitespace-nowrap" id={isVariant5 ? "node-I193_5035-193_5053-193_4546" : isCmyk ? "node-I193_5028-193_5053-193_4546" : "node-I193_5022-193_5048-193_4546"}>
+                  {isCmykOrVariant5 ? "255" : isHsl ? "50" : ""}
+                </p>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+      {isCmykOrVariant5 && (
+        <div className="content-stretch flex gap-[4px] items-center relative shrink-0 w-full" id={isVariant5 ? "node-193_5036" : "node-193_5029"} data-name="Color Slider">
+          <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" id={isVariant5 ? "node-I193_5036-193_5050" : "node-I193_5029-193_5050"}>
+            <div className="col-1 h-[20px] ml-0 mt-[5px] relative row-1 w-[205px]" id={isVariant5 ? "node-I193_5036-193_5051" : "node-I193_5029-193_5051"} data-name="Color Slider Bar">
+              <div className="absolute bg-gradient-to-r from-white inset-0 rounded-[var(--radius\/md,8px)] to-black" id={isVariant5 ? "node-I193_5036-193_5051-54_1500" : "node-I193_5029-193_5051-54_1500"} />
+            </div>
+            <ColorSliderHandle className="col-1 h-[30px] ml-[8px] mt-0 relative row-1 w-[17px]" property1="Subtract" />
+          </div>
+          <div className="content-stretch flex flex-col gap-[6px] h-[20px] items-start justify-center relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant5 ? "node-I193_5036-193_5053" : "node-I193_5029-193_5053"} data-name="Basic Text Input">
+            <div className="bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/border,#636afc)] border-solid content-stretch flex h-[20px] items-center justify-between px-[8px] py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0" id={isVariant5 ? "node-I193_5036-193_5053-193_4545" : "node-I193_5029-193_5053-193_4545"}>
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--color\/primary-dark,#1a1620)] whitespace-nowrap" id={isVariant5 ? "node-I193_5036-193_5053-193_4546" : "node-I193_5029-193_5053-193_4546"}>
+                255
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+      {isHex && (
+        <>
+          <div className="bg-[var(--background\/page,#fafafa)] border border-[var(--border\/subtle,#b2b4bd)] border-solid content-stretch flex gap-[4px] items-center p-[4px] relative rounded-[var(--radius\/md,8px)] shrink-0" data-node-id="193:5001">
+            <div className="bg-[var(--action\/primary\/default,#3f2dc3)] content-stretch cursor-pointer flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="I193:5001;48:821" data-name="Button - Compact">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="I193:5001;48:821;48:683">
+                HEX
+              </p>
+            </div>
+            <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="I193:5001;48:826" data-name="Button - Compact">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:5001;48:826;48:691">
+                RGB
+              </p>
+            </div>
+            <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="I193:5001;48:831" data-name="Button - Compact">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:5001;48:831;48:691">
+                HSL
+              </p>
+            </div>
+            <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="I193:5001;48:816" data-name="Button - Compact">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:5001;48:816;48:691">
+                CMYK
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[12px] items-center px-[4px] relative shrink-0 w-full" data-node-id="193:5002">
+            <div className="bg-[#2068dc] h-[36px] relative rounded-[var(--radius\/md,8px)] shrink-0 w-[60px]" data-node-id="193:5003" data-name="Color Chips" />
+            <div className="content-stretch flex flex-col gap-[6px] items-start justify-center relative rounded-[var(--radius\/md,8px)] shrink-0" data-node-id="193:5004" data-name="Basic Text Input">
+              <div className="bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/border,#636afc)] border-solid content-stretch flex items-center justify-between px-[12px] py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0" data-node-id="I193:5004;193:4540">
+                <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--color\/primary-dark,#1a1620)] whitespace-nowrap" data-node-id="I193:5004;193:4541">
+                  #2068DC
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-col font-['Space_Mono:Regular'] gap-[4px] items-start leading-[normal] not-italic px-[8px] relative shrink-0 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] whitespace-nowrap" data-node-id="193:5005">
+            <p className="relative shrink-0" data-node-id="193:5006">
+              RGB 32, 104, 220
+            </p>
+            <p className="relative shrink-0" data-node-id="193:5007">
+              HSL 217, 75, 49
+            </p>
+            <p className="relative shrink-0" data-node-id="193:5008">
+              HSV 217, 85, 86
+            </p>
+            <p className="relative shrink-0" data-node-id="193:5009">
+              CMYK85, 53, 0, 14
+            </p>
+            <p className="relative shrink-0" data-node-id="193:5010">
+              OKLCH 0.54, 0.19, 260
+            </p>
+          </div>
+        </>
+      )}
+      {isRgb && (
+        <>
+          <ColorSlider className="content-stretch flex gap-[4px] items-center relative shrink-0 w-full" property1="Variant3" />
+          <div className="content-stretch flex gap-[4px] items-center relative shrink-0 w-full" data-node-id="193:5015" data-name="Color Slider">
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="I193:5015;193:5040">
+              <div className="col-1 h-[20px] ml-0 mt-[5px] relative row-1 w-[205px]" data-node-id="I193:5015;193:5041" data-name="Color Slider Bar">
+                <div className="absolute bg-gradient-to-r from-white inset-0 rounded-[var(--radius\/md,8px)] to-[#0f0]" data-node-id="I193:5015;193:5041;54:1500" />
+              </div>
+              <ColorSliderHandle className="col-1 h-[30px] ml-[183px] mt-0 relative row-1 w-[17px]" property1="Subtract" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[6px] h-[20px] items-start justify-center relative rounded-[var(--radius\/md,8px)] shrink-0" data-node-id="I193:5015;193:5043" data-name="Basic Text Input">
+              <div className="bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/border,#636afc)] border-solid content-stretch flex h-[20px] items-center justify-between px-[8px] py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0" data-node-id="I193:5015;193:5043;193:4545">
+                <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--color\/primary-dark,#1a1620)] whitespace-nowrap" data-node-id="I193:5015;193:5043;193:4546">
+                  255
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="content-stretch flex gap-[4px] items-center relative shrink-0 w-full" data-node-id="193:5016" data-name="Color Slider">
+            <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="I193:5016;193:5050">
+              <div className="col-1 h-[20px] ml-0 mt-[5px] relative row-1 w-[205px]" data-node-id="I193:5016;193:5051" data-name="Color Slider Bar">
+                <div className="absolute bg-gradient-to-r from-white inset-0 rounded-[var(--radius\/md,8px)] to-[blue]" data-node-id="I193:5016;193:5051;54:1500" />
+              </div>
+              <ColorSliderHandle className="col-1 h-[30px] ml-[8px] mt-0 relative row-1 w-[17px]" property1="Subtract" />
+            </div>
+            <div className="content-stretch flex flex-col gap-[6px] h-[20px] items-start justify-center relative rounded-[var(--radius\/md,8px)] shrink-0" data-node-id="I193:5016;193:5053" data-name="Basic Text Input">
+              <div className="bg-[var(--color\/surface,white)] border border-[var(--action\/primary\/border,#636afc)] border-solid content-stretch flex h-[20px] items-center justify-between px-[8px] py-[6px] relative rounded-[var(--radius\/md,8px)] shrink-0" data-node-id="I193:5016;193:5053;193:4545">
+                <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[12px] text-[color:var(--color\/primary-dark,#1a1620)] whitespace-nowrap" data-node-id="I193:5016;193:5053;193:4546">
+                  0
+                </p>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}

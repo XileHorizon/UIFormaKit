@@ -35,6 +35,9 @@ export const UI_FORMA_THEME_TOKEN_NAMES: ReadonlySet<string> = new Set(
 export const UI_FORMA_RUNTIME_VARIABLES = [
   "--uf-angle",
   "--uf-chip-color",
+  "--uf-color-format-fill",
+  "--uf-color-ramp-step",
+  "--uf-color-role-card-color",
   "--uf-handle-scale",
   "--uf-handle-top",
   "--uf-marquee-duration",

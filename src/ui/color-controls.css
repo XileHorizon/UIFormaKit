@@ -93,6 +93,7 @@
 
 .uf-slider-handle {
   position: relative;
+  color: var(--uf-color-slider-handle-color);
   display: inline-block;
   height: var(--uf-color-slider-handle-height);
   border: var(--uf-color-slider-handle-border-width) solid var(--uf-color-slider-handle-color);
@@ -133,4 +134,30 @@
   display: grid;
   transform: translate(-50%, -50%);
   pointer-events: none;
+}
+
+.uf-color-slider-field {
+  display: flex;
+  align-items: center;
+  gap: var(--uf-color-slider-gap);
+  width: 100%;
+}
+.uf-color-slider-field > .uf-color-slider {
+  flex: 1;
+  min-width: 0;
+}
+.uf-color-slider-field__value {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--uf-color-slider-value-min-width);
+  height: var(--uf-color-slider-value-height);
+  padding: 0 var(--uf-color-slider-value-padding-x);
+  border: var(--uf-border-hairline) solid var(--uf-color-slider-value-border);
+  border-radius: var(--uf-color-slider-value-radius);
+  color: var(--uf-color-slider-value-text);
+  background: var(--uf-color-slider-value-background);
+  font: var(--uf-color-slider-value-font);
+  box-sizing: border-box;
 }

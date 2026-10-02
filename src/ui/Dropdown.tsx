@@ -1,6 +1,8 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { Button, type ButtonAppearance, type ButtonSize } from "./Button";
-import { IconChevronDown } from '@tabler/icons-react';
+import { IconChevronDown, IconChevronRight } from '@tabler/icons-react';
+import "./tokens/components.css";
+import "./form-controls.css";
 
 export interface DropdownOption {
   value: string;
@@ -52,7 +54,7 @@ export function Dropdown({
         appearance={triggerAppearance}
         size={triggerSize}
         shape="rounded"
-        trailingIcon={<IconChevronDown />}
+        trailingIcon={open ? <IconChevronDown /> : <IconChevronRight />}
         aria-haspopup="menu"
         aria-controls={menuId}
         aria-expanded={open}

@@ -223,7 +223,7 @@ export function ColorSliderHandle({ style = "thin" }: { style?: SliderHandleStyl
       >
         <path
           d="M14 0C15.6569 -7.00872e-08 17 1.29991 17 2.90332V27.0967C17 28.65 15.7394 29.9184 14.1543 29.9961L14 30H3L2.8457 29.9961C1.26056 29.9184 7.01622e-08 28.65 0 27.0967V25H12V5H0V2.90332C-7.24225e-08 1.29991 1.34315 7.00872e-08 3 0H14Z"
-          fill="#FAFAFA"
+          fill="currentColor"
         />
       </svg>
     );
@@ -239,6 +239,14 @@ export interface ColorSliderProps {
   initialValue?: number;
   onValueChange?: (value: number) => void;
   label?: string;
+  /** Lowest value; defaults to 0. */
+  min?: number;
+  /** Highest value; defaults to 100. Use 255 for RGB channels or 360 for hue. */
+  max?: number;
+  /** CSS background for the bar, e.g. a channel gradient. */
+  gradient?: string;
+  /** Show the rounded value readout after the bar. */
+  showValue?: boolean;
 }
 
 export function ColorSlider({
@@ -248,31 +256,40 @@ export function ColorSlider({
   initialValue = 50,
   onValueChange,
   label,
+  min = 0,
+  max = 100,
+  gradient,
+  showValue = false,
 }: ColorSliderProps) {
   const trackRef = useRef<HTMLDivElement>(null);
+  const range = max - min || 1;
   const [internalValue, setInternalValue] = useState(defaultValue ?? initialValue);
   const value = controlledValue ?? internalValue;
+  const ratio = clamp((value - min) / range);
   const commit = (nextValue: number) => {
-    const next = clamp(nextValue / 100) * 100;
+    const next = min + clamp((nextValue - min) / range) * range;
     if (controlledValue === undefined) setInternalValue(next);
     onValueChange?.(next);
   };
   const update = (clientX: number) => {
-    const bounds = trackRef.current?.getBoundingClientRect();
-    if (!bounds) return;
-    // Keep the widest color handle fully inside the bar at 0 and 100.
-    const handleInset = 9;
-    commit(clamp((clientX - bounds.left - handleInset) / (bounds.width - handleInset * 2)) * 100);
+    const track = trackRef.current;
+    if (!track) return;
+    const bounds = track.getBoundingClientRect();
+    // Keep the widest color handle fully inside the bar at both ends.
+    const handleInset = parseFloat(getComputedStyle(track).getPropertyValue("--uf-color-slider-handle-inset")) || 9;
+    commit(min + clamp((clientX - bounds.left - handleInset) / (bounds.width - handleInset * 2)) * range);
   };
-  return (
+  const step = range / 50;
+  const slider = (
     <div
       ref={trackRef}
       className="uf-color-slider"
+      style={gradient ? { background: gradient } : undefined}
       role="slider"
       tabIndex={0}
       aria-label={label ?? "Color slider"}
-      aria-valuemin={0}
-      aria-valuemax={100}
+      aria-valuemin={min}
+      aria-valuemax={max}
       aria-valuenow={Math.round(value)}
       onPointerDown={(event) => {
         event.currentTarget.setPointerCapture(event.pointerId);
@@ -282,31 +299,38 @@ export function ColorSlider({
         if (event.currentTarget.hasPointerCapture(event.pointerId)) update(event.clientX);
       }}
       onKeyDown={(event) => {
-        const step = event.shiftKey ? 10 : 2;
+        const delta = event.shiftKey ? step * 5 : step;
         if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
           event.preventDefault();
-          commit(value - step);
+          commit(value - delta);
         }
         if (event.key === "ArrowRight" || event.key === "ArrowUp") {
           event.preventDefault();
-          commit(value + step);
+          commit(value + delta);
         }
         if (event.key === "Home") {
           event.preventDefault();
-          commit(0);
+          commit(min);
         }
         if (event.key === "End") {
           event.preventDefault();
-          commit(100);
+          commit(max);
         }
       }}
     >
       <span
         className="uf-color-slider__handle"
-        style={{ left: `calc(var(--uf-color-slider-handle-inset) + (100% - 2 * var(--uf-color-slider-handle-inset)) * ${value / 100})` }}
+        style={{ left: `calc(var(--uf-color-slider-handle-inset) + (100% - 2 * var(--uf-color-slider-handle-inset)) * ${ratio})` }}
       >
         <ColorSliderHandle style={handleStyle} />
       </span>
+    </div>
+  );
+  if (!showValue) return slider;
+  return (
+    <div className="uf-color-slider-field">
+      {slider}
+      <output className="uf-color-slider-field__value" aria-hidden="true">{Math.round(value)}</output>
     </div>
   );
 }

@@ -1,0 +1,60 @@
+const imgColorChips = "http://localhost:3845/assets/e53fa1eb93221a355fb3a66f52b6df26fa953515.png";
+const imgArrowsChevronDown = "http://localhost:3845/assets/831529717d930375b6357f74fc7a4c2045048566.svg";
+
+function ColorSettings({ className }: { className?: string }) {
+  return (
+    <div className={className || "content-stretch flex flex-col gap-[4px] items-start px-[10px] relative w-[370px]"} data-node-id="23:593" data-name="Color Settings">
+      <div className="content-stretch flex items-center justify-between relative shrink-0 w-full" data-node-id="23:480">
+        <p className="[word-break:break-word] flex-[1_0_0] font-['Space_Mono:Bold'] leading-[normal] min-w-px not-italic relative text-[20px] text-[color:var(--action\/primary\/default,#3f2dc3)]" data-node-id="23:481">
+          Colors
+        </p>
+        <div className="content-stretch flex items-center justify-center px-[39px] py-[24px] relative rounded-[16px] shrink-0 size-[31px]" data-node-id="23:482" data-name="Icon Label">
+          <div className="relative shrink-0 size-[32px]" data-node-id="I23:482;10:509" data-name="Design/ruler-measure-2">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronDown} />
+          </div>
+        </div>
+      </div>
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="23:500">
+        <p className="[word-break:break-word] col-1 font-['Space_Mono:Regular'] h-[22px] leading-[normal] ml-0 mt-0 not-italic relative row-1 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] w-[350px]" data-node-id="23:475">
+          Neutral
+        </p>
+        <div className="col-1 content-stretch flex gap-[4px] items-center justify-center ml-0 mt-[24px] relative row-1" data-node-id="23:479">
+          <div className="bg-[#16191d] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:450" data-name="Color Chips" />
+          <div className="bg-[#1c1c1e] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:448" data-name="Color Chips" />
+          <div className="bg-[#55565a] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:454" data-name="Color Chips" />
+          <div className="bg-[#e8e8e8] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:456" data-name="Color Chips" />
+          <div className="bg-[#d8cfc2] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:458" data-name="Color Chips" />
+          <div className="bg-[#c7a979] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:460" data-name="Color Chips" />
+        </div>
+      </div>
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="23:499">
+        <p className="[word-break:break-word] col-1 font-['Space_Mono:Regular'] h-[22px] leading-[normal] ml-0 mt-0 not-italic relative row-1 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] w-[350px]" data-node-id="23:486">
+          Vibrant
+        </p>
+        <div className="col-1 content-start flex flex-wrap gap-[4px] items-start ml-0 mt-[24px] relative row-1 w-[350px]" data-node-id="23:478">
+          <div className="bg-[#b7353f] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:462" data-name="Color Chips" />
+          <div className="bg-[#d67035] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:464" data-name="Color Chips" />
+          <div className="bg-[#d9b83e] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:466" data-name="Color Chips" />
+          <div className="bg-[#508b67] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:468" data-name="Color Chips" />
+          <div className="bg-[#527fa9] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:470" data-name="Color Chips" />
+          <div className="bg-[#745b9a] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:472" data-name="Color Chips" />
+          <div className="bg-[#c87b91] relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:474" data-name="Color Chips" />
+        </div>
+      </div>
+      <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0" data-node-id="23:501">
+        <p className="[word-break:break-word] col-1 font-['Space_Mono:Regular'] h-[22px] leading-[normal] ml-0 mt-0 not-italic relative row-1 text-[15px] text-[color:var(--action\/primary\/default,#3f2dc3)] w-[350px]" data-node-id="23:502">
+          Custom
+        </p>
+        <div className="col-1 content-start flex flex-wrap gap-y-[4px] items-start ml-0 mt-[24px] relative row-1 w-[350px]" data-node-id="23:503">
+          <div className="relative rounded-[var(--radius\/md,8px)] shrink-0 size-[24px]" data-node-id="23:511" data-name="Color Chips">
+            <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[var(--radius\/md,8px)] size-full" src={imgColorChips} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function ColorSettings1() {
+  return <ColorSettings className="content-stretch flex flex-col gap-[4px] items-start px-[10px] relative size-full" />;
+}

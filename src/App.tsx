@@ -23,6 +23,15 @@ import {
   TextField,
   ThemeSwitch,
   Ticker,
+  ButtonBlock,
+  ColorFormatPanel,
+  ColorRamp,
+  ColorRoleCard,
+  FieldRow,
+  IconLabel,
+  SettingsSection,
+  SidebarSlider,
+  SwatchGroup,
   type ButtonAppearance,
   type ButtonSize,
   type ColorHarmony,
@@ -36,7 +45,7 @@ import HarmonyQuad from "./ui/tokens/harmony-quad.svg?react";
 import HarmonySplit from "./ui/tokens/harmony-split.svg?react";
 import HarmonyTriad from "./ui/tokens/harmony-triad.svg?react";
 import HarmonyMonochrome from "./ui/tokens/harmony-monochrome.svg?react";
-import { IconArrowRight, IconSearch, IconChevronRight, IconSun, IconMoon } from '@tabler/icons-react';
+import { IconArrowRight, IconSearch, IconChevronRight, IconSun, IconMoon, IconRulerMeasure2 } from '@tabler/icons-react';
 
 const harmonyStackItems: readonly StackedItem<ColorHarmony>[] = [
   { value: "monochromatic", label: "Monochrome", buttonProps: { appearance: "surface", shape: "square", leadingIcon: <HarmonyMonochrome /> } },
@@ -58,6 +67,10 @@ const componentLevels: Record<string, "Atoms" | "Molecules" | "Organisms"> = {
   "control-stack": "Molecules",
   tabs: "Molecules",
   ticker: "Molecules",
+  "settings-section": "Molecules",
+  "color-format": "Molecules",
+  "color-ramp": "Molecules",
+  "icon-label": "Molecules",
   scroll: "Organisms",
   carousel: "Organisms",
   marquee: "Organisms",
@@ -75,6 +88,10 @@ const sectionOrder: Record<string, number> = {
   "control-stack": 33,
   tabs: 34,
   ticker: 35,
+  "settings-section": 36,
+  "color-format": 37,
+  "color-ramp": 38,
+  "icon-label": 39,
   scroll: 40,
   carousel: 41,
   marquee: 42,
@@ -115,6 +132,10 @@ const groups = [
       ["control-stack", "Control stack"],
       ["tabs", "Tabs"],
       ["ticker", "Ticker"],
+      ["settings-section", "Settings panels"],
+      ["color-format", "Color format panel"],
+      ["color-ramp", "Color ramp & roles"],
+      ["icon-label", "Icon label"],
     ],
   },
   {
@@ -182,6 +203,106 @@ function Example({
         <span>Figma {record?.figmaNodes[0]}</span>
       </div>
     </section>
+  );
+}
+
+const LIGHTING_PRESETS = [
+  { value: "soft-studio", label: "Soft Studio" },
+  { value: "bright-product", label: "Bright Product" },
+  { value: "dark-dramatic", label: "Dark Dramatic" },
+  { value: "cool-technology", label: "Cool Technology" },
+  { value: "warm-editorial", label: "Warm Editorial" },
+  { value: "minimal", label: "Minimal" },
+] as const;
+const LIGHTING_CHANNELS = ["Key", "Fill", "Rim", "Environment", "HDRI Rotate", "Temperature", "Key Around", "Key Height"];
+const NEUTRAL_SWATCHES = ["#16191D", "#1C1C1E", "#55565A", "#E8E8E8", "#D8CFC2", "#C7A979"];
+const VIBRANT_SWATCHES = ["#B7353F", "#D67035", "#D9B83E", "#508B67", "#527FA9", "#745B9A", "#C87B91"];
+const RAMP_STEPS = ["0", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000"];
+
+function MoleculeExamples() {
+  const [preset, setPreset] = useState<(typeof LIGHTING_PRESETS)[number]["value"]>("soft-studio");
+  const [lights, setLights] = useState<Record<string, number>>(() => Object.fromEntries(LIGHTING_CHANNELS.map((name) => [name, 0.25])));
+  const [swatch, setSwatch] = useState("#527FA9");
+  const [formatColor, setFormatColor] = useState("#2068DC");
+  const primaryRamp = Object.values(uiFormaPrimitives.primary);
+  const secondaryRamp = Object.values(uiFormaPrimitives.secondary);
+  return (
+    <>
+      <Example
+        id="settings-section"
+        title="Settings panels"
+        description="Collapsible sidebar sections built from field rows, preset blocks, sidebar sliders, and swatch groups."
+        code={'<SettingsSection title="Lighting">\n  <ButtonBlock label="Lighting presets" items={presets} value={preset} onValueChange={setPreset} />\n  <SidebarSlider label="Key" value={key} onValueChange={setKey} />\n</SettingsSection>'}
+      >
+        <div className="molecule-panels">
+          <SettingsSection title="Transform" spacing="tight">
+            <FieldRow>
+              <TextField label="Rot X" defaultValue="0.0" inputMode="decimal" />
+              <TextField label="Rot Y" defaultValue="0.0" inputMode="decimal" />
+              <TextField label="Rot Z" defaultValue="0.0" inputMode="decimal" />
+            </FieldRow>
+            <TextField label="Scale" defaultValue="1.0" inputMode="decimal" />
+          </SettingsSection>
+          <SettingsSection title="Lighting">
+            <ButtonBlock label="Lighting presets" items={LIGHTING_PRESETS} value={preset} onValueChange={setPreset} />
+            {LIGHTING_CHANNELS.map((name) => (
+              <SidebarSlider
+                key={name}
+                label={name}
+                value={lights[name]}
+                onValueChange={(value) => setLights((current) => ({ ...current, [name]: value }))}
+              />
+            ))}
+          </SettingsSection>
+          <SettingsSection title="Colors" spacing="compact">
+            <SwatchGroup label="Neutral" colors={NEUTRAL_SWATCHES} value={swatch} onValueChange={setSwatch} />
+            <SwatchGroup label="Vibrant" colors={VIBRANT_SWATCHES} value={swatch} onValueChange={setSwatch} />
+            <SwatchGroup label="Custom" custom value={swatch} onValueChange={setSwatch} />
+          </SettingsSection>
+        </div>
+      </Example>
+      <Example
+        id="color-format"
+        title="Color format panel"
+        description="Edit one colour as HEX, RGB, HSL, or CMYK with channel sliders and live readouts."
+        code={'<ColorFormatPanel color={color} onColorChange={setColor} />'}
+      >
+        <div className="molecule-row">
+          {(["hex", "rgb", "hsl", "cmyk"] as const).map((format) => (
+            <ColorFormatPanel key={format} defaultFormat={format} color={formatColor} onColorChange={setFormatColor} />
+          ))}
+        </div>
+      </Example>
+      <Example
+        id="color-ramp"
+        title="Color ramp and roles"
+        description="Tonal ramps with step labels and blend bars, plus cards that show where each colour role came from."
+        code={'<ColorRamp name="Primary" detail="#3F2DC3" colors={ramp} steps={steps} />\n<ColorRoleCard name="Primary" color="#2068DC" tag="Brand Seed" />'}
+      >
+        <div className="molecule-stack">
+          <ColorRamp name="Secondary" detail="H ####" colors={secondaryRamp} />
+          <ColorRamp name="Primary" detail="H ####" colors={primaryRamp} steps={RAMP_STEPS} />
+          <div className="molecule-row">
+            <ColorRoleCard name="Primary" color="#3F2DC3" value="#2068DC" tag="Brand Seed" tone="info" />
+            <ColorRoleCard name="Primary" color="#3F2DC3" value="#2068DC" tag="Generated" tone="success" />
+            <ColorRoleCard name="Primary" color="#3F2DC3" value="#2068DC" tag="Steered" tone="warning" />
+          </div>
+        </div>
+      </Example>
+      <Example
+        id="icon-label"
+        title="Icon label"
+        description="A 54px icon tile for tool rails, filled or bare, in standard and large icon sizes."
+        code={'<IconLabel icon={<IconRulerMeasure2 />} label="Measure" />'}
+      >
+        <div className="row">
+          <IconLabel icon={<IconRulerMeasure2 />} label="Measure" />
+          <IconLabel icon={<IconRulerMeasure2 />} label="Measure" appearance="plain" />
+          <IconLabel icon={<IconRulerMeasure2 />} label="Measure" size="large" />
+          <IconLabel icon={<IconRulerMeasure2 />} label="Measure" appearance="plain" size="large" />
+        </div>
+      </Example>
+    </>
   );
 }
 
@@ -691,6 +812,7 @@ export default function App() {
             <span>This is an information ticker, not anything super serious, just info.</span>
           </Ticker>
         </Example>
+        <MoleculeExamples />
         <Example
           id="tabs"
           title="Tabs"

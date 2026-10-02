@@ -1,0 +1,57 @@
+type ButtonBlockProps = {
+  className?: string;
+  showButton2?: boolean;
+  showButton3?: boolean;
+  showButton4?: boolean;
+  showButton5?: boolean;
+  showButton6?: boolean;
+};
+
+function ButtonBlock({ className, showButton2 = true, showButton3 = true, showButton4 = true, showButton5 = true, showButton6 = true }: ButtonBlockProps) {
+  return (
+    <div className={className || "cursor-pointer gap-x-[6px] gap-y-[6px] grid grid-cols-[repeat(2,minmax(0,1fr))] grid-rows-[repeat(3,fit-content(100%))] h-[120px] relative w-[350px]"} data-node-id="20:1340" data-name="Button Block">
+      <button className="bg-[var(--background\/page,#fafafa)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid col-1 content-stretch flex gap-[8px] items-center justify-center justify-self-stretch overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/sm,4px)] row-1 self-stretch shrink-0" data-node-id="10:721" data-name="Button">
+        <p className="[word-break:break-word] flex-[1_0_0] font-['Space_Mono:Regular'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center" data-node-id="I10:721;10:284">
+          Soft Studio
+        </p>
+      </button>
+      {showButton3 && (
+        <button className="bg-[var(--background\/page,#fafafa)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid col-1 content-stretch flex gap-[8px] items-center justify-center justify-self-stretch overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/sm,4px)] row-2 self-stretch shrink-0" data-node-id="10:731" data-name="Button">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Space_Mono:Regular'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center" data-node-id="I10:731;10:284">
+            Dark Dramatic
+          </p>
+        </button>
+      )}
+      {showButton5 && (
+        <button className="bg-[var(--background\/page,#fafafa)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid col-1 content-stretch flex gap-[8px] items-center justify-center justify-self-stretch overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/sm,4px)] row-3 self-stretch shrink-0" data-node-id="10:741" data-name="Button">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Space_Mono:Regular'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center" data-node-id="I10:741;10:284">
+            Warm Editorial
+          </p>
+        </button>
+      )}
+      {showButton2 && (
+        <button className="bg-[var(--background\/page,#fafafa)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid col-2 content-stretch flex gap-[8px] items-center justify-center justify-self-stretch overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/sm,4px)] row-1 self-stretch shrink-0" data-node-id="10:716" data-name="Button">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Space_Mono:Regular'] leading-[normal] min-w-px not-italic relative text-[15px] text-[color:var(--text\/secondary,#3c3e46)] text-center" data-node-id="I10:716;10:284">
+            Bright Product
+          </p>
+        </button>
+      )}
+      {showButton4 && (
+        <button className="bg-[var(--background\/page,#fafafa)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid col-2 content-stretch flex gap-[8px] items-center justify-center justify-self-stretch overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/sm,4px)] row-2 self-stretch shrink-0" data-node-id="10:726" data-name="Button">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Space_Mono:Regular'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center" data-node-id="I10:726;10:284">
+            Cool Technology
+          </p>
+        </button>
+      )}
+      {showButton6 && (
+        <button className="bg-[var(--background\/page,#fafafa)] border border-[var(--action\/primary\/default,#3f2dc3)] border-solid col-2 content-stretch flex gap-[8px] items-center justify-center justify-self-stretch overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/sm,4px)] row-3 self-stretch shrink-0" data-node-id="10:736" data-name="Button">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Space_Mono:Regular'] leading-[normal] min-w-px not-italic relative text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center" data-node-id="I10:736;10:284">{`Minimal `}</p>
+        </button>
+      )}
+    </div>
+  );
+}
+
+export default function ButtonBlock1() {
+  return <ButtonBlock className="cursor-pointer gap-x-[6px] gap-y-[6px] grid grid-cols-[repeat(2,minmax(0,1fr))] grid-rows-[repeat(3,fit-content(100%))] relative size-full" />;
+}

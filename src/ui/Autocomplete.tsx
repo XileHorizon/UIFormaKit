@@ -1,7 +1,8 @@
-import { useEffect, useId, useMemo, useRef, useState } from "react";
-import { Button } from "./Button";
-import { IconChevronRight, IconSearch } from '@tabler/icons-react';
+import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
+import { IconChevronDown, IconChevronRight } from "@tabler/icons-react";
 import { TextField } from "./TextField";
+import "./tokens/components.css";
+import "./form-controls.css";
 
 
 export interface AutocompleteOption {
@@ -17,6 +18,8 @@ export interface AutocompleteProps {
   label?: string;
   placeholder?: string;
   emptyMessage?: string;
+  /** Optional actions rendered under the results, e.g. clear or view-all buttons. */
+  footer?: ReactNode;
 }
 
 export function Autocomplete({
@@ -26,6 +29,7 @@ export function Autocomplete({
   label,
   placeholder = "Search",
   emptyMessage = "No matches",
+  footer,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -49,12 +53,12 @@ export function Autocomplete({
   }, [open]);
 
   return (
-    <div className="uf-autocomplete-control" ref={rootRef}>
+    <div className="uf-autocomplete-control" ref={rootRef} data-open={open || undefined}>
       <TextField
         label={label}
         value={value}
         placeholder={placeholder}
-        leadingIcon={<IconSearch />}
+        trailingIcon={open ? <IconChevronDown /> : <IconChevronRight />}
         role="combobox"
         aria-autocomplete="list"
         aria-controls={listboxId}
@@ -107,7 +111,6 @@ export function Autocomplete({
                     setActiveIndex(-1);
                   }}
                 >
-                  <IconSearch />
                   <span>{option.label}</span>
                 </button>
               ))
@@ -115,10 +118,7 @@ export function Autocomplete({
               <span>{emptyMessage}</span>
             )}
           </div>
-          <div className="uf-autocomplete-control__actions">
-            <Button appearance="surface" size="compact" onClick={() => onValueChange("")}>Clear</Button>
-            <Button size="compact" trailingIcon={<IconChevronRight />}>View all</Button>
-          </div>
+          {footer && <div className="uf-autocomplete-control__actions">{footer}</div>}
         </div>
       )}
     </div>

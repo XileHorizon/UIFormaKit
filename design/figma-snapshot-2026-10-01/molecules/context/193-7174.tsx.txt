@@ -1,0 +1,64 @@
+type ButtonGroupProps = {
+  className?: string;
+  property1?: "1" | "2" | "3" | "4";
+};
+
+export default function ButtonGroup({ className, property1 = "1" }: ButtonGroupProps) {
+  const is1 = property1 === "1";
+  const is2Or3Or4 = ["2", "3", "4"].includes(property1);
+  const is3 = property1 === "3";
+  const is3Or4 = ["3", "4"].includes(property1);
+  const is4 = property1 === "4";
+  return (
+    <div className={className || `content-stretch flex relative w-[248px] ${is2Or3Or4 ? "items-start" : String.raw`bg-[var(--background\/page,#fafafa)] border border-[var(--border\/subtle,#b2b4bd)] border-solid gap-[4px] items-center p-[4px] rounded-[var(--radius\/md,8px)]`}`} id={is4 ? "node-193_7184" : is3 ? "node-193_7182" : property1 === "2" ? "node-193_7180" : "node-193_7175"}>
+      {is2Or3Or4 && (
+        <div className="bg-[var(--background\/page,#fafafa)] border border-[var(--border\/subtle,#b2b4bd)] border-solid content-stretch flex gap-[4px] items-center p-[4px] relative rounded-[var(--radius\/md,8px)] shrink-0" id={is4 ? "node-193_7185" : is3 ? "node-193_7183" : "node-193_7181"}>
+          <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" id={is4 ? "node-I193_7185-193_7176" : is3 ? "node-I193_7183-193_7176" : "node-I193_7181-193_7176"} data-name="Button - Compact">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" id={is4 ? "node-I193_7185-193_7176-48_691" : is3 ? "node-I193_7183-193_7176-48_691" : "node-I193_7181-193_7176-48_691"}>
+              HEX
+            </p>
+          </div>
+          <div className={`${String.raw`content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0 `}${is3Or4 ? String.raw`bg-[var(--background\/page,#fafafa)]` : String.raw`bg-[var(--action\/primary\/default,#3f2dc3)]`}`} id={is4 ? "node-I193_7185-193_7177" : is3 ? "node-I193_7183-193_7177" : "node-I193_7181-193_7177"} data-name="Button - Compact">
+            <p className={`[word-break:break-word] font-["Space_Mono:Regular"] leading-[normal] not-italic relative shrink-0 text-[16px] text-center whitespace-nowrap ${is3Or4 ? String.raw`text-[color:var(--text\/secondary,#3c3e46)]` : String.raw`text-[color:var(--background\/page,#fafafa)]`}`} id={is4 ? "node-I193_7185-193_7177-48_691" : is3 ? "node-I193_7183-193_7177-48_691" : "node-I193_7181-193_7177-48_683"}>
+              RGB
+            </p>
+          </div>
+          <div className={`${String.raw`content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0 `}${is3 ? String.raw`bg-[var(--action\/primary\/default,#3f2dc3)] cursor-pointer` : String.raw`bg-[var(--background\/page,#fafafa)]`}`} id={is4 ? "node-I193_7185-193_7178" : is3 ? "node-I193_7183-193_7178" : "node-I193_7181-193_7178"} data-name="Button - Compact">
+            <p className={`[word-break:break-word] font-["Space_Mono:Regular"] leading-[normal] not-italic relative shrink-0 text-[16px] text-center whitespace-nowrap ${is3 ? String.raw`text-[color:var(--background\/page,#fafafa)]` : String.raw`text-[color:var(--text\/secondary,#3c3e46)]`}`} id={is4 ? "node-I193_7185-193_7178-48_691" : is3 ? "node-I193_7183-193_7178-48_683" : "node-I193_7181-193_7178-48_691"}>
+              HSL
+            </p>
+          </div>
+          <div className={`${String.raw`content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0 `}${is4 ? String.raw`bg-[var(--action\/primary\/default,#3f2dc3)] cursor-pointer` : String.raw`bg-[var(--background\/page,#fafafa)]`}`} id={is4 ? "node-I193_7185-193_7179" : is3 ? "node-I193_7183-193_7179" : "node-I193_7181-193_7179"} data-name="Button - Compact">
+            <p className={`[word-break:break-word] font-["Space_Mono:Regular"] leading-[normal] not-italic relative shrink-0 text-[16px] text-center whitespace-nowrap ${is4 ? String.raw`text-[color:var(--background\/page,#fafafa)]` : String.raw`text-[color:var(--text\/secondary,#3c3e46)]`}`} id={is4 ? "node-I193_7185-193_7179-48_683" : is3 ? "node-I193_7183-193_7179-48_691" : "node-I193_7181-193_7179-48_691"}>
+              CMYK
+            </p>
+          </div>
+        </div>
+      )}
+      {is1 && (
+        <>
+          <div className="bg-[var(--action\/primary\/default,#3f2dc3)] content-stretch cursor-pointer flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="193:7176" data-name="Button - Compact">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--background\/page,#fafafa)] text-center whitespace-nowrap" data-node-id="I193:7176;48:683">
+              HEX
+            </p>
+          </div>
+          <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="193:7177" data-name="Button - Compact">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:7177;48:691">
+              RGB
+            </p>
+          </div>
+          <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="193:7178" data-name="Button - Compact">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:7178;48:691">
+              HSL
+            </p>
+          </div>
+          <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[36px] items-center justify-center overflow-clip px-[12px] py-[4px] relative rounded-[var(--radius\/sm,4px)] shrink-0" data-node-id="193:7179" data-name="Button - Compact">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:7179;48:691">
+              CMYK
+            </p>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}

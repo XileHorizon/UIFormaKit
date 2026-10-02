@@ -1,0 +1,15 @@
+<instance id="193:4598" name="Lighting Settings" x="1425" y="440" width="370" height="433">
+  <frame id="I193:4598;20:1640" name="Frame 5" x="10" y="0" width="350" height="31">
+    <text id="I193:4598;20:1641" name="Lighting" x="0" y="0.5" width="319" height="30" />
+    <instance id="I193:4598;20:1642" name="Icon Label" x="319" y="0" width="31" height="31" />
+  </frame>
+  <instance id="I193:4598;20:1341" name="Button Block" x="10" y="41" width="350" height="120" />
+  <instance id="I193:4598;20:1366" name="Component 2" x="10" y="171" width="350" height="24" />
+  <instance id="I193:4598;20:1377" name="Component 3" x="10" y="205" width="350" height="24" />
+  <instance id="I193:4598;20:1388" name="Component 4" x="10" y="239" width="350" height="24" />
+  <instance id="I193:4598;20:1399" name="Component 5" x="10" y="273" width="350" height="24" />
+  <instance id="I193:4598;20:1410" name="Component 6" x="10" y="307" width="350" height="24" />
+  <instance id="I193:4598;20:1421" name="Sidebar Slider" x="10" y="341" width="350" height="24" />
+  <instance id="I193:4598;20:1431" name="Component 7" x="10" y="375" width="350" height="24" />
+  <instance id="I193:4598;20:1442" name="Component 8" x="10" y="409" width="350" height="24" />
+</instance>

@@ -168,6 +168,8 @@
 .uf-dropdown { position: relative; display: grid; justify-items: start; gap: var(--uf-dropdown-gap); width: min(100%, var(--uf-dropdown-max-width)); }
 .uf-dropdown__label { color: var(--uf-text-field-label-color); font: var(--uf-type-label); }
 .uf-dropdown > .uf-button { width: 100%; justify-content: space-between; }
+.uf-dropdown > .uf-button--surface { color: var(--uf-dropdown-trigger-text); background: var(--uf-dropdown-trigger-background); border-color: var(--uf-dropdown-trigger-border); }
+.uf-dropdown > .uf-button--surface:hover { background: var(--uf-button-surface-background-hover); }
 .uf-dropdown > .uf-button[aria-expanded="true"] { border-radius: var(--uf-dropdown-radius) var(--uf-dropdown-radius) 0 0; }
 .uf-dropdown__tray { position: absolute; z-index: 30; top: calc(100% - var(--uf-dropdown-tray-overlap)); left: 0; display: grid; gap: var(--uf-dropdown-tray-gap); width: 100%; padding: var(--uf-dropdown-tray-padding); border: var(--uf-border-hairline) solid var(--uf-dropdown-tray-border); border-top: 0; border-radius: 0 0 var(--uf-dropdown-radius) var(--uf-dropdown-radius); background: var(--uf-dropdown-tray-background); }
 .uf-dropdown__tray-label { color: var(--uf-text-field-label-color); font: var(--uf-type-eyebrow); letter-spacing: var(--uf-type-eyebrow-tracking); text-transform: uppercase; }
@@ -203,9 +205,13 @@
 .uf-slider input:focus-visible::-moz-range-thumb { box-shadow: var(--uf-slider-focus-ring); }
 
 .uf-autocomplete-control { position: relative; width: min(100%, var(--uf-autocomplete-max-width)); }
-.uf-autocomplete-control__tray { position: absolute; z-index: 30; left: 0; width: 100%; overflow: hidden; border: var(--uf-border-hairline) solid var(--uf-autocomplete-tray-border); border-radius: var(--uf-autocomplete-tray-radius); background: var(--uf-autocomplete-tray-background); box-shadow: var(--uf-elevation-popover); }
+.uf-autocomplete-control .uf-text-field__control { min-height: var(--uf-autocomplete-field-height); border-color: var(--uf-autocomplete-field-border); border-radius: var(--uf-autocomplete-field-radius); background: var(--uf-autocomplete-field-background); }
+.uf-autocomplete-control .uf-text-field__control input { color: var(--uf-autocomplete-field-text); font: var(--uf-autocomplete-field-font); }
+.uf-autocomplete-control .uf-text-field__icon { color: var(--uf-autocomplete-field-text); }
+.uf-autocomplete-control[data-open] .uf-text-field__control { border-radius: var(--uf-autocomplete-field-radius) var(--uf-autocomplete-field-radius) 0 0; }
+.uf-autocomplete-control__tray { position: absolute; z-index: 30; left: 0; width: 100%; overflow: hidden; border: var(--uf-border-hairline) solid var(--uf-autocomplete-tray-border); border-top: 0; border-radius: 0 0 var(--uf-autocomplete-tray-radius) var(--uf-autocomplete-tray-radius); background: var(--uf-autocomplete-tray-background); box-shadow: var(--uf-autocomplete-tray-shadow); }
 .uf-autocomplete-control__results { display: grid; gap: var(--uf-autocomplete-results-gap); padding: var(--uf-autocomplete-results-padding); }
-.uf-autocomplete-control__results > button { display: grid; grid-template-columns: var(--uf-autocomplete-icon-size) 1fr var(--uf-autocomplete-icon-size); align-items: center; gap: var(--uf-autocomplete-item-gap); width: 100%; min-height: var(--uf-autocomplete-item-height); padding: 0 var(--uf-autocomplete-item-padding-x); border: 0; border-radius: var(--uf-autocomplete-item-radius); color: var(--uf-autocomplete-item-text); background: transparent; text-align: left; cursor: pointer; }
+.uf-autocomplete-control__results > button { display: flex; align-items: center; gap: var(--uf-autocomplete-item-gap); width: 100%; min-height: var(--uf-autocomplete-item-height); padding: 0 var(--uf-autocomplete-item-padding-x); border: 0; border-radius: var(--uf-autocomplete-item-radius); color: var(--uf-autocomplete-item-text); background: transparent; font: var(--uf-autocomplete-field-font); text-align: left; cursor: pointer; }
 .uf-autocomplete-control__results > button:hover, .uf-autocomplete-control__results > button[aria-selected="true"] { background: var(--uf-autocomplete-item-selected-background); }
 .uf-autocomplete-control__results svg { width: var(--uf-autocomplete-icon-size); height: var(--uf-autocomplete-icon-size); color: var(--uf-autocomplete-icon-color); }
 .uf-autocomplete-control__results > span { padding: var(--uf-autocomplete-empty-padding); color: var(--uf-autocomplete-empty-text); font-size: var(--uf-autocomplete-empty-font-size); }

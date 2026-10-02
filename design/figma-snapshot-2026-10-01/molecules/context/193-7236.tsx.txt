@@ -1,0 +1,54 @@
+const imgArrowsChevronDown = "http://localhost:3845/assets/54fc8c0de114e38f1de77476094eae94e542b354.svg";
+const imgArrowsChevronRight = "http://localhost:3845/assets/0f5e425102ce610eae3d0a2c703394988840888b.svg";
+type DropdownMenuProps = {
+  className?: string;
+  property1?: "Expanded" | "Collapsed";
+};
+
+export default function DropdownMenu({ className, property1 = "Collapsed" }: DropdownMenuProps) {
+  const isCollapsed = property1 === "Collapsed";
+  const isExpanded = property1 === "Expanded";
+  return (
+    <div className={className || `relative w-[300px] ${isCollapsed ? "h-[50px]" : "content-stretch cursor-pointer flex flex-col items-start"}`} id={isCollapsed ? "node-193_7243" : "node-193_7237"}>
+      {isExpanded && (
+        <>
+          <button className="bg-[var(--background\/page,#fafafa)] border border-[var(--border\/subtle,#b2b4bd)] border-solid content-stretch flex h-[50px] items-center justify-between overflow-clip px-[12px] py-[6px] relative rounded-tl-[25px] rounded-tr-[25px] shrink-0 w-full" data-node-id="193:7238" data-name="Button">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:7238;10:284">
+              Select...
+            </p>
+            <div className="relative shrink-0 size-[24px]" data-node-id="I193:7238;10:285" data-name="Arrows/chevron-right">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronDown} />
+            </div>
+          </button>
+          <div className="bg-[var(--background\/page,#fafafa)] border-[var(--border\/subtle,#b2b4bd)] border-b border-l border-r border-solid content-stretch flex flex-col gap-[4px] items-start p-[var(--spacing\/1,4px)] relative rounded-bl-[25px] rounded-br-[25px] shrink-0 w-full" data-node-id="193:7239">
+            <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[50px] items-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/full,9999px)] shrink-0 w-full" data-node-id="193:7240" data-name="Button">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] whitespace-nowrap" data-node-id="I193:7240;10:704">
+                Option 1
+              </p>
+            </div>
+            <div className="bg-[var(--action\/primary\/subtle,#c5d1ff)] content-stretch flex gap-[8px] h-[50px] items-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/full,9999px)] shrink-0 w-full" data-node-id="193:7241" data-name="Button">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:7241;10:688">
+                Option 2
+              </p>
+            </div>
+            <div className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[50px] items-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/full,9999px)] shrink-0 w-full" data-node-id="193:7242" data-name="Button">
+              <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:7242;10:704">
+                Option 3
+              </p>
+            </div>
+          </div>
+        </>
+      )}
+      {isCollapsed && (
+        <div className="absolute bg-[var(--background\/page,#fafafa)] border border-[var(--border\/subtle,#b2b4bd)] border-solid content-stretch cursor-pointer flex h-[50px] items-center justify-between left-0 overflow-clip px-[12px] py-[6px] rounded-[25px] top-0 w-[300px]" data-node-id="193:7244" data-name="Button">
+          <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:7244;10:704">
+            Select...
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="I193:7244;10:705" data-name="Arrows/chevron-right">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgArrowsChevronRight} />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,45 @@
+const imgDesignRulerMeasure2 = "http://localhost:3845/assets/95cc95cef976cf7133a1ef8f7fc85f7472399cc5.svg";
+const imgDesignRulerMeasure3 = "http://localhost:3845/assets/1c085b2459edbc924021754ca1fa61c81b54949c.svg";
+const imgDesignRulerMeasure4 = "http://localhost:3845/assets/99c1f5989138b7925602af96a580173be5db6b0b.svg";
+const imgDesignRulerMeasure5 = "http://localhost:3845/assets/27a3f7a97a6fc6675d382e94f6e9dbd69d60e7ae.svg";
+type IconLabelProps = {
+  className?: string;
+  big?: boolean;
+  icon?: React.ReactNode | null;
+  property1?: "Primary" | "No Back";
+};
+
+export default function IconLabel({ className, big = false, icon = null, property1 = "Primary" }: IconLabelProps) {
+  const isNoBackAndBig = property1 === "No Back" && big;
+  const isNoBackAndNotBig = property1 === "No Back" && !big;
+  const isPrimaryAndBig = property1 === "Primary" && big;
+  return (
+    <div className={className || `content-stretch flex items-center justify-center p-[24px] relative rounded-[16px] size-[54px] ${property1 === "No Back" ? "" : String.raw`bg-[var(--action\/primary\/default,#3f2dc3)]`}`} id={isNoBackAndBig ? "node-193_4590" : isNoBackAndNotBig ? "node-193_4588" : isPrimaryAndBig ? "node-193_4586" : "node-193_4584"}>
+      {property1 === "Primary" &&
+        !big &&
+        (icon || (
+          <div className="relative shrink-0 size-[32px]" data-node-id="193:4585" data-name="Design/ruler-measure-2">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDesignRulerMeasure2} />
+          </div>
+        ))}
+      {isPrimaryAndBig &&
+        (icon || (
+          <div className="relative shrink-0 size-[36px]" data-node-id="193:4587" data-name="Design/ruler-measure-2">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDesignRulerMeasure3} />
+          </div>
+        ))}
+      {isNoBackAndNotBig &&
+        (icon || (
+          <div className="relative shrink-0 size-[32px]" data-node-id="193:4589" data-name="Design/ruler-measure-2">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDesignRulerMeasure4} />
+          </div>
+        ))}
+      {isNoBackAndBig &&
+        (icon || (
+          <div className="relative shrink-0 size-[36px]" data-node-id="193:4591" data-name="Design/ruler-measure-2">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgDesignRulerMeasure5} />
+          </div>
+        ))}
+    </div>
+  );
+}

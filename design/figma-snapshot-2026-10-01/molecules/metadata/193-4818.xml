@@ -1,0 +1,8 @@
+<frame id="193:4818" name="Color Picker" x="740" y="89" width="604" height="910">
+  <symbol id="193:4819" name="Property 1=Monochromatic" x="21" y="21" width="256" height="256" />
+  <symbol id="193:4844" name="Property 1=Complementary" x="327" y="21" width="256" height="256" />
+  <symbol id="193:4869" name="Property 1=Quadratic" x="21" y="327" width="256" height="256" />
+  <symbol id="193:4894" name="Property 1=Triadic" x="327" y="327" width="256" height="256" />
+  <symbol id="193:4920" name="Property 1=Analogous" x="21" y="633" width="256" height="256" />
+  <symbol id="193:4966" name="Property 1=Split Complementary" x="327" y="633" width="256" height="256" />
+</frame>

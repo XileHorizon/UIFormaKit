@@ -149,4 +149,31 @@ export const uiFormaComponentRegistry: readonly UIFormaComponentRecord[] = [
     status: "implemented",
     variants: ["standard", "slim", "tall", "focused", "error", "disabled"],
   },
+  {
+    id: "settings-section", name: "Settings section", category: "Editor controls", description: "Collapsible sidebar section with a bold title, holding field rows, preset blocks, sidebar sliders, or swatch groups.", figmaNodes: ["193:4599", "193:4598", "193:4606"], status: "implemented", variants: ["standard", "tight", "compact", "collapsed"],
+  },
+  {
+    id: "button-block", name: "Button block", category: "Editor controls", description: "Two-column grid of preset buttons with a pressed selection.", figmaNodes: ["193:4536"], status: "implemented", variants: ["unselected", "selected"],
+  },
+  {
+    id: "field-row", name: "Field row", category: "Forms", description: "Equal-width row of labelled fields such as rotation axes.", figmaNodes: ["193:4552"], status: "implemented", variants: ["three fields"],
+  },
+  {
+    id: "sidebar-slider", name: "Sidebar slider", category: "Editor controls", description: "Inline label, compact slider, and value readout.", figmaNodes: ["193:4597"], status: "implemented", variants: ["standard"],
+  },
+  {
+    id: "icon-label", name: "Icon label", category: "Actions", description: "54px icon tile, filled or bare, with standard and large icons.", figmaNodes: ["193:4583", "193:4584", "193:4586", "193:4588", "193:4590"], status: "implemented", variants: ["primary", "plain", "standard", "large"],
+  },
+  {
+    id: "swatch-group", name: "Swatch group", category: "Color", description: "Labelled set of selectable colour chips with an optional custom picker swatch.", figmaNodes: ["193:4606"], status: "implemented", variants: ["preset", "custom"],
+  },
+  {
+    id: "color-ramp", name: "Color ramp", category: "Color", description: "Tonal ramp with optional step labels and a blended gradient bar.", figmaNodes: ["193:4609", "193:4610", "193:4627"], status: "implemented", variants: ["plain", "with steps"],
+  },
+  {
+    id: "color-role-card", name: "Color role card", category: "Color", description: "Colour role with its source tag: brand seed, generated, or steered.", figmaNodes: ["193:7199", "193:7200", "193:7209", "193:7218"], status: "implemented", variants: ["info", "success", "warning"],
+  },
+  {
+    id: "color-format", name: "Color format panel", category: "Color", description: "HEX, RGB, HSL, and CMYK editing with channel sliders and conversions.", figmaNodes: ["193:4999", "193:5000", "193:5011", "193:5017", "193:5023"], status: "implemented", variants: ["hex", "rgb", "hsl", "cmyk"],
+  },
 ] as const;

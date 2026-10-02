@@ -1,0 +1,9 @@
+<instance id="193:4599" name="Transform" x="1425" y="89" width="370" height="229">
+  <frame id="I193:4599;20:1630" name="Frame 5" x="10" y="0" width="350" height="31">
+    <text id="I193:4599;20:1618" name="Transform" x="0" y="0.5" width="319" height="30" />
+    <instance id="I193:4599;20:1634" name="Icon Label" x="319" y="0" width="31" height="31" />
+  </frame>
+  <instance id="I193:4599;20:1586" name="Position Inputs" x="10" y="37" width="350" height="60" />
+  <instance id="I193:4599;20:1602" name="Position Inputs" x="10" y="103" width="350" height="60" />
+  <instance id="I193:4599;20:1620" name="Basic Text Input" x="10" y="169" width="350" height="60" />
+</instance>

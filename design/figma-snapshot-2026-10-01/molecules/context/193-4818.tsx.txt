@@ -1,0 +1,244 @@
+const imgSubtract = "http://localhost:3845/assets/25aaf0576bb4234b6c5fcd2ece66fa2fc4ff97d5.png";
+const imgIntersect = "http://localhost:3845/assets/4194cd2c89071ab0c6c1d1f084e31791ff116f8e.png";
+const imgIntersect1 = "http://localhost:3845/assets/d0c6299b2dd92fd38d7139edd20f589f5981c136.png";
+const imgSeedSmall = "http://localhost:3845/assets/875de294297dceb85faf0eb3e666f037632df77b.svg";
+const imgSeedSmall1 = "http://localhost:3845/assets/c685e8374e657a4f480a9ee5c021f0616b46d67c.svg";
+
+function ColorWheel({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[250px]"} data-node-id="14:912" data-name="Color Wheel">
+      <div className="absolute h-[250px] left-0 right-0 top-0" data-node-id="14:908" data-name="Subtract">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" height="250" src={imgSubtract} width="250" />
+      </div>
+    </div>
+  );
+}
+type ColorPickerProps = {
+  className?: string;
+  property1?: "Complementary" | "Monochromatic" | "Quadratic" | "Triadic" | "Analogous" | "Split Complementary";
+};
+
+export default function ColorPicker({ className, property1 = "Monochromatic" }: ColorPickerProps) {
+  const isAnalogous = property1 === "Analogous";
+  const isComplementary = property1 === "Complementary";
+  const isQuadratic = property1 === "Quadratic";
+  const isSplitComplementary = property1 === "Split Complementary";
+  const isTriadic = property1 === "Triadic";
+  const isTriadicOrAnalogous = ["Triadic", "Analogous"].includes(property1);
+  const isTriadicOrAnalogousOrSplitComplementary = ["Triadic", "Analogous", "Split Complementary"].includes(property1);
+  return (
+    <div className={className || "relative size-[256px]"} id={isSplitComplementary ? "node-193_4966" : isAnalogous ? "node-193_4920" : isTriadic ? "node-193_4894" : isQuadratic ? "node-193_4869" : isComplementary ? "node-193_4844" : "node-193_4819"}>
+      <div className={`absolute ${isSplitComplementary ? "inset-[1.08%_1.19%_1.27%_0]" : "inset-[1.08%_1.17%_1.27%_1.17%]"}`} id={isSplitComplementary ? "node-193_4967" : isAnalogous ? "node-193_4921" : isTriadic ? "node-193_4895" : isQuadratic ? "node-193_4870" : isComplementary ? "node-193_4845" : "node-193_4820"} data-name="Color Picker">
+        <ColorWheel className="absolute inset-[0.1%_-0.1%_-0.1%_0.1%]" />
+        <div className="absolute contents inset-[16.1%_15.9%_15.9%_16.1%]" id={isSplitComplementary ? "node-193_4969" : isAnalogous ? "node-193_4923" : isTriadic ? "node-193_4897" : isQuadratic ? "node-193_4872" : isComplementary ? "node-193_4847" : "node-193_4822"}>
+          <div className="absolute inset-[16.1%_15.9%_15.9%_16.1%]" id={isSplitComplementary ? "node-193_4970" : isAnalogous ? "node-193_4924" : isTriadic ? "node-193_4898" : isQuadratic ? "node-193_4873" : isComplementary ? "node-193_4848" : "node-193_4823"} data-name="Intersect">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" height="170" src={isSplitComplementary ? imgIntersect1 : imgIntersect} width={isSplitComplementary ? "172.016" : "170"} />
+          </div>
+        </div>
+        <div className="-translate-y-1/2 absolute aspect-[52/52] flex items-center justify-center left-[73.3%] right-[23.5%] top-[calc(50%-49.76px)]" id={isSplitComplementary ? "node-193_4973" : isAnalogous ? "node-193_4927" : isTriadic ? "node-193_4901" : isQuadratic ? "node-193_4876" : isComplementary ? "node-193_4851" : "node-193_4826"} style={{ containerType: "size" }}>
+          <div className="-rotate-180 -scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+            <div className="relative size-full" data-name="Seed Small">
+              <div className={`absolute ${isSplitComplementary ? "inset-[-24.71%]" : "inset-[-25%]"}`}>
+                <img alt="" className="block max-w-none size-full" src={isSplitComplementary ? imgSeedSmall1 : imgSeedSmall} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={`absolute contents ${isSplitComplementary ? "inset-[0_0_0_1.76%]" : isTriadic ? "inset-[0_0_0_2.91%]" : "inset-0"}`} id={isSplitComplementary ? "node-193_4974" : isAnalogous ? "node-193_4928" : isTriadic ? "node-193_4902" : isQuadratic ? "node-193_4877" : isComplementary ? "node-193_4852" : "node-193_4827"}>
+        <div className={`${String.raw`absolute border-5 border-[var(--background\/page,#fafafa)] border-solid rounded-[3px] `}${isSplitComplementary ? "inset-[46.88%_0_46.48%_88.14%]" : "inset-[46.88%_0_46.48%_88.28%]"}`} id={isSplitComplementary ? "node-193_4975" : isAnalogous ? "node-193_4929" : isTriadic ? "node-193_4903" : isQuadratic ? "node-193_4878" : isComplementary ? "node-193_4853" : "node-193_4828"} />
+        <div className={`absolute flex items-center justify-center ${isSplitComplementary ? "inset-[87.89%_47.83%_0_47.04%]" : isTriadicOrAnalogous ? "inset-[12.99%_12.71%_74.86%_75.14%]" : "inset-[87.89%_47.27%_0_47.66%]"}`} id={isSplitComplementary ? "node-193_4977" : isAnalogous ? "node-193_4930" : isTriadic ? "node-193_4904" : isQuadratic ? "node-193_4880" : isComplementary ? "node-193_4855" : "node-193_4830"} style={{ containerType: "size" }}>
+          <div className={`flex-none ${isTriadicOrAnalogous ? "-rotate-45 h-[hypot(29.5455cqw,29.5455cqh)] w-[hypot(70.4545cqw,-70.4545cqh)]" : "h-[100cqw] rotate-90 w-[100cqh]"}`}>
+            <div className={`relative rounded-[3px] size-full ${isQuadratic ? String.raw`border-3 border-[var(--background\/page,#fafafa)] border-solid` : ""}`} />
+          </div>
+        </div>
+        <div className={`absolute flex items-center justify-center ${isSplitComplementary ? "inset-[0_47.83%_87.89%_47.04%]" : isTriadicOrAnalogous ? "inset-[87.89%_47.27%_0_47.66%]" : "inset-[0_47.27%_87.89%_47.66%]"}`} id={isSplitComplementary ? "node-193_4979" : isAnalogous ? "node-193_4931" : isTriadic ? "node-193_4905" : isQuadratic ? "node-193_4882" : isComplementary ? "node-193_4857" : "node-193_4832"} style={{ containerType: "size" }}>
+          <div className="flex-none h-[100cqw] rotate-90 w-[100cqh]">
+            <div className={`relative rounded-[3px] size-full ${isQuadratic ? String.raw`border-3 border-[var(--background\/page,#fafafa)] border-solid` : ""}`} />
+          </div>
+        </div>
+        <div className={`absolute ${isSplitComplementary ? "flex inset-[28.34%_84.96%_62.33%_1.76%] items-center justify-center" : isTriadicOrAnalogous ? "flex inset-[74.86%_12.71%_12.99%_75.14%] items-center justify-center" : ["Complementary", "Quadratic"].includes(property1) ? String.raw`border-3 border-[var(--background\/page,#fafafa)] border-solid inset-[47.66%_87.89%_47.27%_0] rounded-[3px]` : "inset-[47.66%_87.89%_47.27%_0] rounded-[3px]"}`} id={isSplitComplementary ? "node-193_4988" : isAnalogous ? "node-193_4932" : isTriadic ? "node-193_4906" : isQuadratic ? "node-193_4884" : isComplementary ? "node-193_4859" : "node-193_4834"} style={isTriadicOrAnalogousOrSplitComplementary ? { containerType: "size" } : undefined}>
+          {isTriadicOrAnalogousOrSplitComplementary && (
+            <div className={`flex-none ${isSplitComplementary ? "h-[hypot(-14.7995cqw,50.3084cqh)] rotate-[22.26deg] skew-x-[-0.48deg] w-[hypot(85.2005cqw,49.6916cqh)]" : "h-[hypot(-29.5455cqw,29.5455cqh)] rotate-45 w-[hypot(70.4545cqw,70.4545cqh)]"}`}>
+              <div className={`relative rounded-[3px] size-full ${isSplitComplementary ? String.raw`border-3 border-[var(--background\/page,#fafafa)] border-solid` : ""}`} />
+            </div>
+          )}
+        </div>
+        {isTriadicOrAnalogousOrSplitComplementary && (
+          <div className={`absolute flex items-center justify-center ${isSplitComplementary ? "inset-[62.33%_84.96%_28.34%_1.76%]" : "inset-[0_47.27%_87.89%_47.66%]"}`} id={isSplitComplementary ? "node-193_4989" : isAnalogous ? "node-193_4933" : "node-193_4907"} style={{ containerType: "size" }}>
+            <div className={`flex-none ${isSplitComplementary ? "h-[hypot(14.7995cqw,50.3084cqh)] rotate-[-22.26deg] skew-x-[0.48deg] w-[hypot(85.2005cqw,-49.6916cqh)]" : "h-[100cqw] rotate-90 w-[100cqh]"}`}>
+              <div className={`relative rounded-[3px] size-full ${isSplitComplementary ? String.raw`border-3 border-[var(--background\/page,#fafafa)] border-solid` : ""}`} />
+            </div>
+          </div>
+        )}
+        {isTriadicOrAnalogous && (
+          <>
+            <div className="absolute flex inset-[12.71%_74.86%_75.14%_12.99%] items-center justify-center" id={isAnalogous ? "node-193_4934" : "node-193_4908"} style={{ containerType: "size" }}>
+              <div className="flex-none h-[hypot(-29.5455cqw,29.5455cqh)] rotate-45 w-[hypot(70.4545cqw,70.4545cqh)]">
+                <div className="relative rounded-[3px] size-full" />
+              </div>
+            </div>
+            <div className={`absolute ${isAnalogous ? "inset-[47.66%_87.89%_47.27%_0] rounded-[3px]" : "flex inset-[75.14%_74.86%_12.71%_12.99%] items-center justify-center"}`} id={isAnalogous ? "node-193_4935" : "node-193_4909"} style={isTriadic ? { containerType: "size" } : undefined}>
+              {isTriadic && (
+                <div className="-rotate-45 flex-none h-[hypot(29.5455cqw,29.5455cqh)] w-[hypot(70.4545cqw,-70.4545cqh)]">
+                  <div className="relative rounded-[3px] size-full" />
+                </div>
+              )}
+            </div>
+            <div className={`absolute flex items-center justify-center ${isAnalogous ? "inset-[75.14%_74.86%_12.71%_12.99%]" : "inset-[28.7%_2.76%_61.97%_84.11%]"}`} id={isAnalogous ? "node-193_4936" : "node-193_4910"} style={{ containerType: "size" }}>
+              <div className={`flex-none ${isAnalogous ? "-rotate-45 h-[hypot(29.5455cqw,29.5455cqh)] w-[hypot(70.4545cqw,-70.4545cqh)]" : "h-[hypot(14.7995cqw,50.3084cqh)] rotate-[-22.5deg] w-[hypot(85.2005cqw,-49.6916cqh)]"}`}>
+                <div className="relative rounded-[3px] size-full" />
+              </div>
+            </div>
+            <div className={`absolute flex items-center justify-center ${isAnalogous ? "inset-[28.7%_2.76%_61.97%_84.11%]" : "inset-[2.91%_28.34%_83.96%_62.33%]"}`} id={isAnalogous ? "node-193_4937" : "node-193_4911"} style={{ containerType: "size" }}>
+              <div className={`flex-none ${isAnalogous ? "h-[hypot(14.7995cqw,50.3084cqh)] rotate-[-22.5deg] w-[hypot(85.2005cqw,-49.6916cqh)]" : "h-[hypot(50.3084cqw,14.7995cqh)] rotate-[-67.5deg] w-[hypot(49.6916cqw,-85.2005cqh)]"}`}>
+                <div className="relative rounded-[3px] size-full" />
+              </div>
+            </div>
+            <div className={`absolute flex items-center justify-center ${isAnalogous ? "inset-[2.91%_28.34%_83.96%_62.33%]" : "inset-[83.96%_28.34%_2.91%_62.33%]"}`} id={isAnalogous ? "node-193_4938" : "node-193_4912"} style={{ containerType: "size" }}>
+              <div className={`flex-none ${isAnalogous ? "h-[hypot(50.3084cqw,14.7995cqh)] rotate-[-67.5deg] w-[hypot(49.6916cqw,-85.2005cqh)]" : "h-[hypot(-50.3084cqw,14.7995cqh)] rotate-[67.5deg] w-[hypot(49.6916cqw,85.2005cqh)]"}`}>
+                <div className="relative rounded-[3px] size-full" />
+              </div>
+            </div>
+            <div className={`absolute flex items-center justify-center ${isAnalogous ? "inset-[83.96%_28.34%_2.91%_62.33%]" : "inset-[61.97%_2.76%_28.7%_84.11%]"}`} id={isAnalogous ? "node-193_4939" : "node-193_4913"} style={{ containerType: "size" }}>
+              <div className={`flex-none ${isAnalogous ? "h-[hypot(-50.3084cqw,14.7995cqh)] rotate-[67.5deg] w-[hypot(49.6916cqw,85.2005cqh)]" : "h-[hypot(-14.7995cqw,50.3084cqh)] rotate-[22.5deg] w-[hypot(85.2005cqw,49.6916cqh)]"}`}>
+                <div className="relative rounded-[3px] size-full" />
+              </div>
+            </div>
+            <div className={`absolute flex items-center justify-center ${isAnalogous ? "inset-[61.97%_2.76%_28.7%_84.11%]" : "inset-[2.76%_61.97%_84.11%_28.7%]"}`} id={isAnalogous ? "node-193_4940" : "node-193_4914"} style={{ containerType: "size" }}>
+              <div className={`flex-none ${isAnalogous ? "h-[hypot(-14.7995cqw,50.3084cqh)] rotate-[22.5deg] w-[hypot(85.2005cqw,49.6916cqh)]" : "h-[hypot(-50.3084cqw,14.7995cqh)] rotate-[67.5deg] w-[hypot(49.6916cqw,85.2005cqh)]"}`}>
+                <div className="relative rounded-[3px] size-full" />
+              </div>
+            </div>
+            <div className={`absolute flex items-center justify-center ${isAnalogous ? "inset-[2.76%_61.97%_84.11%_28.7%]" : "inset-[28.34%_83.96%_62.33%_2.91%]"}`} id={isAnalogous ? "node-193_4941" : "node-193_4915"} style={{ containerType: "size" }}>
+              <div className={`flex-none ${isAnalogous ? "h-[hypot(-50.3084cqw,14.7995cqh)] rotate-[67.5deg] w-[hypot(49.6916cqw,85.2005cqh)]" : "h-[hypot(-14.7995cqw,50.3084cqh)] rotate-[22.5deg] w-[hypot(85.2005cqw,49.6916cqh)]"}`}>
+                <div className="relative rounded-[3px] size-full" />
+              </div>
+            </div>
+            <div className={`absolute flex items-center justify-center ${isAnalogous ? "inset-[28.34%_83.96%_62.33%_2.91%]" : "inset-[62.33%_83.96%_28.34%_2.91%]"}`} id={isAnalogous ? "node-193_4942" : "node-193_4916"} style={{ containerType: "size" }}>
+              <div className={`flex-none ${isAnalogous ? "h-[hypot(-14.7995cqw,50.3084cqh)] rotate-[22.5deg] w-[hypot(85.2005cqw,49.6916cqh)]" : "h-[hypot(14.7995cqw,50.3084cqh)] rotate-[-22.5deg] w-[hypot(85.2005cqw,-49.6916cqh)]"}`}>
+                <div className="relative rounded-[3px] size-full" />
+              </div>
+            </div>
+            <div className={`absolute flex items-center justify-center ${isAnalogous ? "inset-[62.33%_83.96%_28.34%_2.91%]" : "inset-[84.11%_61.97%_2.76%_28.7%]"}`} id={isAnalogous ? "node-193_4943" : "node-193_4917"} style={{ containerType: "size" }}>
+              <div className={`flex-none ${isAnalogous ? "h-[hypot(14.7995cqw,50.3084cqh)] rotate-[-22.5deg] w-[hypot(85.2005cqw,-49.6916cqh)]" : "h-[hypot(50.3084cqw,14.7995cqh)] rotate-[-67.5deg] w-[hypot(49.6916cqw,-85.2005cqh)]"}`}>
+                <div className="relative rounded-[3px] size-full" />
+              </div>
+            </div>
+            <div className={`absolute flex items-center justify-center ${isAnalogous ? "inset-[84.11%_61.97%_2.76%_28.7%]" : "inset-[5.47%_66.88%_81.5%_22.67%]"}`} id={isAnalogous ? "node-193_4944" : "node-193_4918"} style={{ containerType: "size" }}>
+              <div className={`flex-none ${isAnalogous ? "h-[hypot(50.3084cqw,14.7995cqh)] rotate-[-67.5deg] w-[hypot(49.6916cqw,-85.2005cqh)]" : "-rotate-120 h-[hypot(42.0741cqw,-19.4921cqh)] w-[hypot(-57.9259cqw,-80.5079cqh)]"}`}>
+                <div className={`relative rounded-[3px] size-full ${isAnalogous ? "" : String.raw`border-3 border-[var(--background\/page,#fafafa)] border-solid`}`} />
+              </div>
+            </div>
+            <div className={`absolute flex items-center justify-center ${isAnalogous ? "inset-[5.47%_66.88%_81.5%_22.67%]" : "inset-[81.64%_66.49%_5.33%_23.06%]"}`} id={isAnalogous ? "node-193_4945" : "node-193_4919"} style={{ containerType: "size" }}>
+              <div className={`flex-none ${isAnalogous ? "-rotate-120 h-[hypot(42.0741cqw,-19.4921cqh)] w-[hypot(-57.9259cqw,-80.5079cqh)]" : "h-[hypot(-42.0741cqw,-19.4921cqh)] rotate-120 w-[hypot(-57.9259cqw,80.5079cqh)]"}`}>
+                <div className={`relative rounded-[3px] size-full ${isAnalogous ? "" : String.raw`border-3 border-[var(--background\/page,#fafafa)] border-solid`}`} />
+              </div>
+            </div>
+          </>
+        )}
+        {isAnalogous && (
+          <div className="absolute flex inset-[81.64%_66.49%_5.33%_23.06%] items-center justify-center" data-node-id="193:4946" style={{ containerType: "size" }}>
+            <div className="flex-none h-[hypot(-42.0741cqw,-19.4921cqh)] rotate-120 w-[hypot(-57.9259cqw,80.5079cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+        )}
+      </div>
+      {isAnalogous && (
+        <div className="absolute contents inset-0" data-node-id="193:4947" style={{ containerType: "size" }}>
+          <div className="absolute flex inset-[46.88%_88.28%_46.48%_0] items-center justify-center" data-node-id="193:4948" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[12.99%_75.14%_74.86%_12.71%] items-center justify-center" data-node-id="193:4949" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(-29.5455cqw,29.5455cqh)] rotate-45 w-[hypot(-70.4545cqw,-70.4545cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[87.89%_47.66%_0_47.27%] items-center justify-center" data-node-id="193:4950" style={{ containerType: "size" }}>
+            <div className="-rotate-90 -scale-x-100 flex-none h-[100cqw] w-[100cqh]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[74.86%_75.14%_12.99%_12.71%] items-center justify-center" data-node-id="193:4951" style={{ containerType: "size" }}>
+            <div className="-rotate-45 -scale-x-100 flex-none h-[hypot(29.5455cqw,29.5455cqh)] w-[hypot(-70.4545cqw,70.4545cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[0_47.66%_87.89%_47.27%] items-center justify-center" data-node-id="193:4952" style={{ containerType: "size" }}>
+            <div className="-rotate-90 -scale-x-100 flex-none h-[100cqw] w-[100cqh]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[12.71%_12.99%_75.14%_74.86%] items-center justify-center" data-node-id="193:4953" style={{ containerType: "size" }}>
+            <div className="-rotate-45 -scale-x-100 flex-none h-[hypot(29.5455cqw,29.5455cqh)] w-[hypot(-70.4545cqw,70.4545cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[47.66%_0_47.27%_87.89%] items-center justify-center" data-node-id="193:4954" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[100cqh] w-[100cqw]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[75.14%_12.99%_12.71%_74.86%] items-center justify-center" data-node-id="193:4955" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(-29.5455cqw,29.5455cqh)] rotate-45 w-[hypot(-70.4545cqw,-70.4545cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[28.7%_84.11%_61.97%_2.76%] items-center justify-center" data-node-id="193:4956" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(-14.7995cqw,50.3084cqh)] rotate-[22.5deg] w-[hypot(-85.2005cqw,-49.6916cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[2.91%_62.33%_83.96%_28.34%] items-center justify-center" data-node-id="193:4957" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(-50.3084cqw,14.7995cqh)] rotate-[67.5deg] w-[hypot(-49.6916cqw,-85.2005cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[83.96%_62.33%_2.91%_28.34%] items-center justify-center" data-node-id="193:4958" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(50.3084cqw,14.7995cqh)] rotate-[-67.5deg] w-[hypot(-49.6916cqw,85.2005cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[61.97%_84.11%_28.7%_2.76%] items-center justify-center" data-node-id="193:4959" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(14.7995cqw,50.3084cqh)] rotate-[-22.5deg] w-[hypot(-85.2005cqw,49.6916cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[2.76%_28.7%_84.11%_61.97%] items-center justify-center" data-node-id="193:4960" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(50.3084cqw,14.7995cqh)] rotate-[-67.5deg] w-[hypot(-49.6916cqw,85.2005cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[28.34%_2.91%_62.33%_83.96%] items-center justify-center" data-node-id="193:4961" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(14.7995cqw,50.3084cqh)] rotate-[-22.5deg] w-[hypot(-85.2005cqw,49.6916cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[62.33%_2.91%_28.34%_83.96%] items-center justify-center" data-node-id="193:4962" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(-14.7995cqw,50.3084cqh)] rotate-[22.5deg] w-[hypot(-85.2005cqw,-49.6916cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[84.11%_28.7%_2.76%_61.97%] items-center justify-center" data-node-id="193:4963" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(-50.3084cqw,14.7995cqh)] rotate-[67.5deg] w-[hypot(-49.6916cqw,-85.2005cqh)]">
+              <div className="relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[5.47%_22.67%_81.5%_66.88%] items-center justify-center" data-node-id="193:4964" style={{ containerType: "size" }}>
+            <div className="-scale-x-100 flex-none h-[hypot(-42.0741cqw,-19.4921cqh)] rotate-120 w-[hypot(57.9259cqw,-80.5079cqh)]">
+              <div className="border-3 border-[var(--background\/page,#fafafa)] border-solid relative rounded-[3px] size-full" />
+            </div>
+          </div>
+          <div className="absolute flex inset-[81.64%_23.06%_5.33%_66.49%] items-center justify-center" data-node-id="193:4965" style={{ containerType: "size" }}>
+            <div className="-rotate-120 -scale-x-100 flex-none h-[hypot(42.0741cqw,-19.4921cqh)] w-[hypot(57.9259cqw,80.5079cqh)]">
+              <div className="border-3 border-[var(--background\/page,#fafafa)] border-solid relative rounded-[3px] size-full" />
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

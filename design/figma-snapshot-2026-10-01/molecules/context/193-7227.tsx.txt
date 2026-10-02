@@ -1,0 +1,41 @@
+const imgArrowsChevronDown = "http://localhost:3845/assets/54fc8c0de114e38f1de77476094eae94e542b354.svg";
+const imgArrowsChevronRight = "http://localhost:3845/assets/0f5e425102ce610eae3d0a2c703394988840888b.svg";
+type SearchMenuProps = {
+  className?: string;
+  property1?: "Collapsed" | "Expanded";
+};
+
+export default function SearchMenu({ className, property1 = "Collapsed" }: SearchMenuProps) {
+  const isCollapsed = property1 === "Collapsed";
+  return (
+    <div className={className || `relative w-[300px] ${isCollapsed ? "h-[50px]" : "content-stretch cursor-pointer flex flex-col items-start"}`} id={isCollapsed ? "node-193_7234" : "node-193_7228"}>
+      <button className={`${String.raw`bg-[var(--background\/page,#fafafa)] border border-[var(--border\/subtle,#b2b4bd)] border-solid content-stretch flex h-[50px] items-center justify-between overflow-clip px-[12px] py-[6px] `}${isCollapsed ? String.raw`absolute cursor-pointer left-0 rounded-[var(--radius\/sm,4px)] top-0 w-[300px]` : String.raw`relative rounded-tl-[var(--radius\/sm,4px)] rounded-tr-[var(--radius\/sm,4px)] shrink-0 w-full`}`} id={isCollapsed ? "node-193_7235" : "node-193_7229"} data-name="Button">
+        <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" id={isCollapsed ? "node-I193_7235-10_284" : "node-I193_7229-10_284"}>
+          opt
+        </p>
+        <div className="relative shrink-0 size-[24px]" id={isCollapsed ? "node-I193_7235-10_285" : "node-I193_7229-10_285"} data-name="Arrows/chevron-right">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={isCollapsed ? imgArrowsChevronRight : imgArrowsChevronDown} />
+        </div>
+      </button>
+      {property1 === "Expanded" && (
+        <div className="bg-[var(--background\/page,#fafafa)] border-[var(--border\/subtle,#b2b4bd)] border-b border-l border-r border-solid content-stretch flex flex-col gap-[4px] items-start p-[var(--spacing\/1,4px)] relative rounded-bl-[var(--radius\/md,8px)] rounded-br-[var(--radius\/md,8px)] shrink-0 w-full" data-node-id="193:7230">
+          <button className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[50px] items-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/sm,4px)] shrink-0 w-full" data-node-id="193:7231" data-name="Button">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-left whitespace-nowrap" data-node-id="I193:7231;10:284">
+              Option 1
+            </p>
+          </button>
+          <div className="bg-[var(--action\/primary\/subtle,#c5d1ff)] content-stretch flex gap-[8px] h-[50px] items-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/sm,4px)] shrink-0 w-full" data-node-id="193:7232" data-name="Button">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:7232;10:312">
+              Option 2
+            </p>
+          </div>
+          <button className="bg-[var(--background\/page,#fafafa)] content-stretch flex gap-[8px] h-[50px] items-center overflow-clip px-[12px] py-[6px] relative rounded-[var(--radius\/sm,4px)] shrink-0 w-full" data-node-id="193:7233" data-name="Button">
+            <p className="[word-break:break-word] font-['Space_Mono:Regular'] leading-[normal] not-italic relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#3c3e46)] text-center whitespace-nowrap" data-node-id="I193:7233;10:284">
+              Option 3
+            </p>
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
